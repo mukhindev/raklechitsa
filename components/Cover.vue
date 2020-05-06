@@ -1,7 +1,7 @@
 <template>
-  <div class="cover">
+  <section class="cover">
     <p class="cover__tag">#РАКЛЕЧИТСЯ</p>
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -10,6 +10,9 @@
   width: 100%;
   height: 689px;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cover__tag {
@@ -17,10 +20,6 @@
   font-weight: 800;
   font-size: 92px;
   line-height: 111px;
-  text-align: center;
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: calc(50% - 718px / 2);
+  margin: 0;
 }
 </style>
