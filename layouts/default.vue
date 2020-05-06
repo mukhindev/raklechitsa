@@ -6,8 +6,6 @@
   </div>
 </template>
 
-<style scoped></style>
-
 <script>
 import AppHeader from '~/components/Header.vue';
 import AppFooter from '~/components/Footer.vue';
@@ -19,3 +17,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.page {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+</style>

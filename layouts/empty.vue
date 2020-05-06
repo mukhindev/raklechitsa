@@ -4,4 +4,9 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.empty-page {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+</style>
