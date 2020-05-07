@@ -1,6 +1,12 @@
 <template>
   <section class="stories">
-    <h2 class="section-title">Истории неизлечимых привычек</h2>
+    <section-heading>
+      <template #title>Истории неизлечимых привычек</template>
+      <template #subtitle
+        >А вот здесь выводится подзаголовок. Это временно, в данной секции он не
+        нужен, не забыть убрать</template
+      >
+    </section-heading>
     <transition-group class="stories__grid" name="fade" tag="ul">
       <story-card v-for="story in stories" :key="story.id" :story="story" />
     </transition-group>
@@ -11,10 +17,12 @@
 </template>
 
 <script>
+import SectionHeading from './SectionHeading.vue';
 import StoryCard from './StoryCard.vue';
 
 export default {
   components: {
+    SectionHeading,
     StoryCard,
   },
   computed: {
