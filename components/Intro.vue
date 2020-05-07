@@ -215,4 +215,12 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.intro__btn:disabled {
+  background-color: #fbfbfb;
+}
+
+.intro__btn:disabled .intro__arrow path {
+  stroke: #bfbfbf;
+}
 </style>
