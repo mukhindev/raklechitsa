@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/stories/{}`" class="stories__link">
+  <nuxt-link :to="`/stories/${story.id}`" class="stories__link">
     <li class="stories__card">
       <img
         :src="story.photo"

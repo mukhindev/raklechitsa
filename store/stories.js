@@ -12,4 +12,11 @@ export const getters = {
       return state.stories.slice(start || 0, limit || 8);
     }
   },
+  getNumberOfStories: state => {
+    if (!state.stories) {
+      console.error({ message: 'Не получены данные' });
+    } else {
+      return state.stories.length;
+    }
+  },
 };
