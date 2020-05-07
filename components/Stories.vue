@@ -7,9 +7,9 @@
         нужен, не забыть убрать</template
       >
     </section-heading>
-    <transition-group class="stories__grid" name="fade" tag="ul">
+    <ul class="stories__grid">
       <story-card v-for="story in stories" :key="story.id" :story="story" />
-    </transition-group>
+    </ul>
     <nuxt-link to="/stories" class="stories__button-more">
       <span class="stories__button-text">Больше статей</span>
     </nuxt-link>
@@ -36,14 +36,6 @@ export default {
 <style scoped>
 .stories {
   padding: 50px 60px;
-}
-.section-title {
-  margin: 0;
-  max-width: 415px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1.125;
 }
 .stories__grid {
   list-style: none;
@@ -72,14 +64,5 @@ export default {
   font-weight: normal;
   font-size: 16px;
   line-height: 1.25;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(32px);
 }
 </style>
