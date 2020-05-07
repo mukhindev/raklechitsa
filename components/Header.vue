@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header page__header">
     <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
       >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
     >
@@ -37,11 +37,15 @@ export default {
   font-style: normal;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 18px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.page__header {
+  padding: 18px 50px;
+}
+
 .header__logo {
   display: block;
   font-weight: 600;
