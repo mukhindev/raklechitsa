@@ -4,16 +4,9 @@
     <transition-group class="stories__grid" name="fade" tag="ul">
       <story-card v-for="story in stories" :key="story.id" :story="story" />
     </transition-group>
-    <div
-      v-if="thereAreMoreStories"
-      class="stories__button-more"
-      @click="moreStories"
-    >
+    <nuxt-link to="/stories" class="stories__button-more">
       <span class="stories__button-text">Больше статей</span>
-    </div>
-    <div v-else class="stories__button-no-more">
-      <span class="stories__button-text">Нет больше статей</span>
-    </div>
+    </nuxt-link>
   </section>
 </template>
 
@@ -24,29 +17,9 @@ export default {
   components: {
     StoryCard,
   },
-  data() {
-    return {
-      numberOfVisibleStories: 4,
-    };
-  },
   computed: {
-    numberOfStories() {
-      return this.$store.getters['stories/getNumberOfStories'];
-    },
     stories() {
-      return this.$store.getters['stories/getStories'](
-        0,
-        this.numberOfVisibleStories
-      );
-    },
-    thereAreMoreStories() {
-      if (this.numberOfVisibleStories < this.numberOfStories) return true;
-      else return false;
-    },
-  },
-  methods: {
-    moreStories() {
-      this.numberOfVisibleStories += 4;
+      return this.$store.getters['stories/getStories'](0, 8);
     },
   },
 };
@@ -80,13 +53,7 @@ export default {
   align-items: center;
   transition: 0.25s;
   cursor: pointer;
-}
-.stories__button-no-more {
-  padding: 31px 0;
-  background-color: #fbfbfb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-decoration: none;
 }
 .stories__button-more:hover {
   color: #fff;
