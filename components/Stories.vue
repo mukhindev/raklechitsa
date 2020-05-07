@@ -1,22 +1,19 @@
 <template>
-  <div>
-    components/Stories
+  <section class="stories">
+    <h2 class="section-title">Истории неизлечимых привычек</h2>
     <ul class="stories__grid">
-      <li v-for="story in stories" :key="story.id" class="stories__story">
-        <img
-          :src="story.photo"
-          :alt="`фото ${story.person}`"
-          class="stories__photo"
-        />
-        <h3>{{ story.person }}</h3>
-        <p>{{ story.quote }}</p>
-      </li>
+      <story-card v-for="story in stories" :key="story.id" :story="story" />
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
+import StoryCard from './StoryCard.vue';
+
 export default {
+  components: {
+    StoryCard,
+  },
   computed: {
     stories() {
       return this.$store.getters['stories/getStories'](0, 8).reverse();
@@ -26,16 +23,23 @@ export default {
 </script>
 
 <style scoped>
+.stories {
+  padding: 50px 60px;
+}
+.section-title {
+  margin: 0;
+  max-width: 415px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.125;
+}
 .stories__grid {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 70px 0 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.stories__photo {
-  width: 100%;
+  gap: 40px;
 }
 </style>
