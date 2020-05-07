@@ -91,9 +91,6 @@ export default {
     };
   },
   computed: {
-    counter() {
-      return this.urlList.length;
-    },
     changeDisabledForRight() {
       if (this.counter + 1 === this.urlList.length) {
         return true;
