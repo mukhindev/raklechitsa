@@ -18,7 +18,6 @@
             class="intro__btn intro__btn_left"
             v-on:click="moveVideoBack"
             :disabled="changeDisabledForLeft"
-            :style="changeBgColorForLeft"
           >
             <svg
               class="intro__arrow"
@@ -36,7 +35,6 @@
             class="intro__btn intro__btn_right"
             v-on:click="moveVideoAhead"
             :disabled="changeDisabledForRight"
-            :style="changeBgColorForRight"
           >
             <svg
               class="intro__arrow"
