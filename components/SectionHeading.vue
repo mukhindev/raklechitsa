@@ -33,5 +33,6 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 1.22;
+  color: #666666;
 }
 </style>
