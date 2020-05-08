@@ -51,7 +51,7 @@ import Button from '~/components/ui/Button';
 export default {
   data() {
     return {
-      isActiveButtonFirst: false,
+      isActiveButtonFirst: true,
       isActiveButtonSecond: false,
       firstText:
         'Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки. Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2&#8209;м вариантом.',
