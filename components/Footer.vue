@@ -29,7 +29,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scoped>
@@ -49,6 +53,7 @@ export default {};
   margin-right: 8%;
   font-size: 2rem;
   line-height: 1.1;
+  font-weight: 600;
   margin-block-start: 0;
   margin-block-end: 0;
 }
