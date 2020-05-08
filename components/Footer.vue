@@ -7,14 +7,29 @@
         </h2>
         <nav class="footer__menu">
           <ul class="footer__links">
-            <li><a class="footer__link" href="#">Главная</a></li>
-            <li><a class="footer__link" href="#">Истории</a></li>
+            <li>
+              <nuxt-link to="/" class="footer__link">Главная</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/stories" class="footer__link">Истории</nuxt-link>
+            </li>
           </ul>
         </nav>
         <ul class="footer__social-list">
-          <li>
-            <a class="footer__social-link" href="#"
-              >Мы в Инстаграме и Youtube</a
+          <li class="footer__social-link">
+            Мы в
+            <a
+              class="footer__social-away"
+              href="https://www.instagram.com/raklechitsa/"
+              target="_blank"
+              >Инстаграме</a
+            >
+            и
+            <a
+              class="footer__social-away"
+              href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
+              target="_blank"
+              >Youtube</a
             >
           </li>
           <li><a class="footer__social-link" href="#">Поделитесь ↗</a></li>
@@ -38,11 +53,12 @@ export default {
 
 <style scoped>
 .footer {
-  max-width: 1440px;
   margin: 0 auto;
+  background: #fbfbfb;
 }
 
 .footer__content {
+  max-width: 1440px;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -100,6 +116,13 @@ ul.footer__links li:last-child a {
   line-height: 1.3;
   margin-bottom: 40px;
   display: block;
+}
+
+.footer__social-away {
+  text-decoration: none;
+  color: black;
+  font-size: 1.125rem;
+  line-height: 1.3;
 }
 
 .footer__copyright {
