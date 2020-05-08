@@ -141,11 +141,12 @@ export default {
 }
 
 .instagram__card-link {
+  box-sizing: border-box;
   display: block;
   width: 100%;
   height: 100%;
   transition: all 0.25s;
-  border: 5px solid #fff;
+  outline: 5px solid #fff;
 }
 
 .instagram__card-link:hover {
