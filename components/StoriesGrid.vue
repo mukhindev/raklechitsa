@@ -1,8 +1,9 @@
 <template>
   <div class="stories-container">
-    <ul class="stories-container__grid">
+    <ul v-if="stories.length > 0" class="stories-container__grid">
       <story-card v-for="story in stories" :key="story.id" :story="story" />
     </ul>
+    <p v-else>Не найдено</p>
     <nuxt-link
       v-if="more === ''"
       to="/stories"
@@ -22,10 +23,17 @@ export default {
     SectionHeading,
     StoryCard,
   },
-  props: ['start', 'limit', 'more'],
+  props: ['start', 'limit', 'more', 'filter'],
   computed: {
     stories() {
+      if (this.filter) return this.filterStore;
       return this.$store.getters['stories/getStories'](this.start, this.limit);
+    },
+    filterStore() {
+      return this.$store.getters['stories/getStories'](
+        this.start,
+        this.limit
+      ).filter(el => el.person.includes(this.filter));
     },
   },
 };
