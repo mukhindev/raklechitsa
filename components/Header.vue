@@ -1,24 +1,28 @@
 <template>
-  <header class="header page__header">
-    <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
-      >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
-    >
-    <h2 v-else class="header__logo">
-      Проект Благотворительного Фонда Константина Хабенского
-    </h2>
-    <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <nuxt-link to="/" class="header__link">Главная</nuxt-link>
-        </li>
-        <li class="header__nav-item">
-          <nuxt-link to="/stories" class="header__link">Истории</nuxt-link>
-        </li>
-        <li class="header__nav-item">
-          <button class="header__link-tell-stories">Рассказать историю</button>
-        </li>
-      </ul>
-    </nav>
+  <header class="header">
+    <div class="header__container">
+      <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
+        >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
+      >
+      <h2 v-else class="header__logo">
+        Проект Благотворительного Фонда Константина Хабенского
+      </h2>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <nuxt-link to="/" class="header__link">Главная</nuxt-link>
+          </li>
+          <li class="header__nav-item">
+            <nuxt-link to="/stories" class="header__link">Истории</nuxt-link>
+          </li>
+          <li class="header__nav-item">
+            <button class="header__link-tell-stories">
+              Рассказать историю
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -35,15 +39,16 @@ export default {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-style: normal;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header__container {
+  padding: 18px 60px;
   max-width: 1320px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.page__header {
-  padding: 18px 50px;
 }
 
 .header__logo {
@@ -107,5 +112,11 @@ export default {
   color: #613a93;
   border: 3px solid #613a93;
   background-color: #fff;
+}
+
+@media screen and(max-width: 1280px) {
+  .header__container {
+    padding: 18px 50px;
+  }
 }
 </style>

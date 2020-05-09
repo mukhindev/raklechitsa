@@ -124,7 +124,7 @@ export default {
 }
 
 .page__intro {
-  padding: 90px 50px 0;
+  padding: 90px 60px 0;
   margin: auto;
 }
 
