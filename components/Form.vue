@@ -1,7 +1,7 @@
 <template>
   <div class="popup">
     <div class="popup__content">
-      <h2 class="popup__step">Шаг 1 из 12</h2>
+      <h2 class="popup__step">Шаг {{ number }} из 12</h2>
       <svg
         @click="$emit('popupClose')"
         class="popup__close"
@@ -29,7 +29,7 @@
         />
       </svg>
       <h3 class="popup__question">Как Вас зовут?</h3>
-      <form @submit.prevent="submitForm" class="popup__form" novalidate>
+      <form @submit.prevent="" class="popup__form" novalidate>
         <input
           v-model="answer"
           type="text"
@@ -37,8 +37,20 @@
           placeholder="Напишите тут"
         />
         <div class="popup__button">
-          <button type class="popup__button popup__button_left">Назад</button>
-          <button class="popup__button popup__button_right">Далее</button>
+          <button
+            @click="prevQuestion"
+            type
+            class="popup__button popup__button_left"
+          >
+            Назад
+          </button>
+          <button
+            @click="nextQuestion"
+            type
+            class="popup__button popup__button_right"
+          >
+            Далее
+          </button>
         </div>
       </form>
     </div>
@@ -50,10 +62,12 @@ export default {
   data() {
     return {
       answer: '',
+      number: 1,
     };
   },
   methods: {
-    submitForm() {},
+    nextQuestion() {},
+    prevQuestion() {},
   },
 };
 </script>
