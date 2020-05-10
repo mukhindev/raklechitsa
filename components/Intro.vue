@@ -68,9 +68,10 @@
           >.
         </p>
       </div>
-      <p class="into__line">
-        И в отличии от рака, <span class="into__line-tag">#этонелечится</span>
-      </p>
+      <block-line>
+        <template #text>И в отличии от рака, </template>
+        <template #tag>#этонелечится</template>
+      </block-line>
     </block-container>
   </section>
 </template>
@@ -78,11 +79,13 @@
 <script>
 import BlockContainer from '~/components/Container.vue';
 import SectionHeading from '~/components/SectionHeading';
+import BlockLine from '~/components/Line';
 
 export default {
   components: {
     SectionHeading,
     BlockContainer,
+    BlockLine,
   },
   data() {
     return {
@@ -127,7 +130,7 @@ export default {
   padding-top: 100px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 0 40px;
+  gap: 70px 40px;
 }
 
 .intro__column {
@@ -202,28 +205,5 @@ export default {
 
 .intro__btn:disabled .intro__arrow path {
   stroke: #bfbfbf;
-}
-
-.into__line {
-  margin: 74px 0 0;
-  background: #613a93;
-  padding: 20px;
-  color: #fff;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 28px;
-  line-height: 1.2;
-  text-transform: uppercase;
-  grid-column: 1 / -1;
-  text-align: center;
-}
-
-.into__line-tag {
-  color: #fff;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 38px;
-  line-height: 1.2;
-  text-transform: uppercase;
 }
 </style>

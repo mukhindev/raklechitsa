@@ -2,3 +2,30 @@
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   margin: 0;
 }
+
+.hover-card {
+  transition: transform 0.25s;
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-card:hover {
+  transform: scale(1.05);
+}
+
+.hover-card::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  box-shadow: 0 0 0px rgb(170, 170, 170);
+  transition: box-shadow 0.25s;
+  z-index: 1;
+}
+
+.hover-card:hover::after {
+  box-shadow: 0 0 32px rgb(170, 170, 170);
+}

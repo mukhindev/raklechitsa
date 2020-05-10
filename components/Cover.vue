@@ -1,17 +1,8 @@
 <template>
   <section class="cover">
     <block-container class="cover__container">
-      <p class="cover__tag">#РАКЛЕЧИТСЯ</p>
-      <svg
-        class="cover__polygon"
-        width="38"
-        height="15"
-        viewBox="0 0 38 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M37 1L19 13L1 1" stroke="white" stroke-width="2" />
-      </svg>
+      <p class="cover__tag">#раклечится</p>
+      <div class="cover__polygon"></div>
     </block-container>
   </section>
 </template>
@@ -30,21 +21,46 @@ export default {
   background: #613a93;
 }
 .cover__container {
-  height: 689px;
+  min-height: 689px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.25s ease;
 }
 
+@media screen and (max-width: 1280px) {
+  .cover__container {
+    min-height: 620px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cover__container {
+    min-height: 540px;
+  }
+}
 .cover__tag {
   color: #ffffff;
   font-weight: 800;
   font-size: 92px;
-  line-height: 111px;
+  line-height: 1.2;
   margin: 0;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+@media screen and (max-width: 1280px) {
+  .cover__tag {
+    font-size: 78px;
+  }
 }
 
 .cover__polygon {
+  background: url('/images/ui/arrow-wide-down.svg');
+  background-size: contain;
+  background-repeat: none;
+  width: 38px;
+  height: 15px;
   position: absolute;
   bottom: 40px;
   left: 50%;

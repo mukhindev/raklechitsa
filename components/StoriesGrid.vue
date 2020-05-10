@@ -51,6 +51,20 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 }
+
+@media screen and (max-width: 1024px) {
+  .stories-container__grid {
+    grid-gap: 40px 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stories-container__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px 20px;
+  }
+}
+
 .stories-container__button-more {
   color: #000;
   margin: 70px 0 0;

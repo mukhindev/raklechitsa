@@ -25,7 +25,23 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 1.125;
+  transition: all 0.25s ease;
 }
+
+@media screen and (max-width: 1280px) {
+  .section-heading__title {
+    max-width: 367px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section-heading__title {
+    max-width: 288px;
+    font-size: 24px;
+  }
+}
+
 .section-heading__subtitle {
   max-width: 340px;
   margin: 32px 0 0;
@@ -34,5 +50,22 @@ export default {
   font-size: 18px;
   line-height: 1.22;
   color: #666666;
+  transition: all 0.25s ease;
+}
+
+@media screen and (max-width: 1280px) {
+  .section-heading__subtitle {
+    max-width: 305px;
+    margin: 30px 0 0;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section-heading__subtitle {
+    max-width: 260px;
+    margin: 20px 0 0;
+    font-size: 13px;
+  }
 }
 </style>
