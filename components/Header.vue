@@ -15,7 +15,9 @@
           <nuxt-link to="/stories" class="header__link">Истории</nuxt-link>
         </li>
         <li class="header__nav-item">
-          <button class="header__link-tell-stories">Рассказать историю</button>
+          <button @click="$emit('popupOpen')" class="header__link-tell-stories">
+            Рассказать историю
+          </button>
         </li>
       </ul>
     </nav>
