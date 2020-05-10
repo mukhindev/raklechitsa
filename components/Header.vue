@@ -86,6 +86,13 @@ export default {
   transition: all 0.25s ease;
   border-bottom: 1px solid transparent;
 }
+
+@media screen and (max-width: 1280px) {
+  .header__link {
+    font-size: 16px;
+  }
+}
+
 .header__link:hover {
   color: #613a93;
   border-bottom: 1px solid #613a93;
@@ -114,5 +121,11 @@ export default {
 }
 .header__button-tell-stories:focus {
   outline-style: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .header__button-tell-stories {
+    font-size: 16px;
+  }
 }
 </style>

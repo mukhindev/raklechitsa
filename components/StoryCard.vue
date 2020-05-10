@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/stories/${story.id}`" class="stories__link">
+  <nuxt-link :to="`/stories/${story.id}`" class="stories__link hover-card">
     <li class="stories__card">
       <img
         :src="story.photo"
@@ -22,29 +22,6 @@ export default {
 .stories__link {
   color: #000;
   text-decoration: none;
-  transition: transform 0.25s;
-  position: relative;
-}
-
-.stories__link:hover {
-  transform: scale(1.05);
-}
-
-.stories__link::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
-  box-shadow: 0 0 0px rgb(170, 170, 170);
-  transition: box-shadow 0.25s;
-}
-
-.stories__link:hover::after {
-  box-shadow: 0 0 32px rgb(170, 170, 170);
-  z-index: 0;
 }
 
 .stories__card-photo {
@@ -63,6 +40,12 @@ export default {
   z-index: 1;
 }
 
+@media screen and (max-width: 1024px) {
+  .stories__card-person {
+    font-size: 18px;
+  }
+}
+
 .stories__card-quote {
   margin: 0;
   font-style: normal;
@@ -72,5 +55,11 @@ export default {
   color: #666666;
   position: relative;
   z-index: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .stories__card-quote {
+    font-size: 13px;
+  }
 }
 </style>
