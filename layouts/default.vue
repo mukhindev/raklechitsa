@@ -1,42 +1,29 @@
 <template>
   <div class="page">
-    <app-header @popupOpen="popupHandler" />
+    <app-header />
     <nuxt />
-    <app-overlay v-if="popupShown" />
-    <app-form v-if="popupShown" @popupClose="popupHandler" />
+    <app-form v-if="popupShown" />
     <app-footer />
   </div>
 </template>
 
 <script>
 import AppHeader from '~/components/Header.vue';
-import AppFooter from '~/components/Footer.vue';
 import AppForm from '~/components/Form.vue';
-import AppOverlay from '~/components/ui/Overlay.vue';
+import AppFooter from '~/components/Footer.vue';
 
 export default {
   components: {
     AppHeader,
-    AppFooter,
     AppForm,
-    AppOverlay,
+    AppFooter,
   },
-  data() {
-    return {
-      popupShown: false,
-    };
-  },
-  methods: {
-    popupHandler() {
-      this.popupShown = !this.popupShown;
+  computed: {
+    popupShown() {
+      return this.$store.state.popup.popupShown;
     },
   },
 };
 </script>
 
-<style scoped>
-.page {
-  margin: 0 auto;
-  max-width: 1440px;
-}
-</style>
+<style scoped></style>

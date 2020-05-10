@@ -27,10 +27,10 @@ export default {
   computed: {
     stories() {
       if (this.filter) return this.filterStore;
-      return this.$store.getters['stories/getStories'](this.start, this.limit);
+      return this.$store.getters['api/getStories'](this.start, this.limit);
     },
     filterStore() {
-      return this.$store.getters['stories/getStories'](
+      return this.$store.getters['api/getStories'](
         this.start,
         this.limit
       ).filter(el => el.person.includes(this.filter));
@@ -52,6 +52,7 @@ export default {
   gap: 40px;
 }
 .stories-container__button-more {
+  color: #000;
   margin: 70px 0 0;
   padding: 31px 0;
   background-color: #fbfbfb;
@@ -63,8 +64,7 @@ export default {
   text-decoration: none;
 }
 .stories-container__button-more:hover {
-  color: #fff;
-  background-color: #613a93;
+  background-color: #f8f8f8;
 }
 .stories-container__button-text {
   font-style: normal;

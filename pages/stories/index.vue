@@ -48,9 +48,7 @@ export default {
   },
   computed: {
     numberOfButtons() {
-      let num = Math.ceil(
-        this.$store.getters['stories/getNumberOfStories'] / 16
-      );
+      let num = Math.ceil(this.$store.getters['api/getNumberOfStories'] / 16);
       let counter = 0;
       for (let i = 1; i <= num; i++) {
         this.partsOfPages.push({ start: counter, limit: counter + 16 });
