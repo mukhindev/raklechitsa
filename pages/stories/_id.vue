@@ -38,7 +38,7 @@ export default {
       return this.$route.params.id;
     },
     story() {
-      return this.$store.getters['stories/getStoryById'](this.id);
+      return this.$store.getters['api/getStoryById'](this.id);
     },
   },
 };

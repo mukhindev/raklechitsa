@@ -1,64 +1,71 @@
 <template>
-  <div class="popup">
-    <div class="popup__content">
-      <h2 class="popup__step">Шаг {{ number }} из 12</h2>
-      <svg
-        @click="$emit('popupClose')"
-        class="popup__close"
-        width="16"
-        height="16"
-        viewBox="0 0 28 27"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <line
-          x1="1.93934"
-          y1="25.9393"
-          x2="25.9393"
-          y2="1.93934"
-          stroke="black"
-          stroke-width="2"
-        />
-        <line
-          x1="2.06066"
-          y1="1.93934"
-          x2="26.0607"
-          y2="25.9393"
-          stroke="black"
-          stroke-width="2"
-        />
-      </svg>
-      <h3 class="popup__question">Как Вас зовут?</h3>
-      <form @submit.prevent="" class="popup__form" novalidate>
-        <input
-          v-model="answer"
-          type="text"
-          class="popup__input"
-          placeholder="Напишите тут"
-        />
-        <div class="popup__button">
-          <button
-            @click="prevQuestion"
-            type
-            class="popup__button popup__button_left"
-          >
-            Назад
-          </button>
-          <button
-            @click="nextQuestion"
-            type
-            class="popup__button popup__button_right"
-          >
-            Далее
-          </button>
-        </div>
-      </form>
+  <ui-overlay>
+    <div class="popup">
+      <div class="popup__content">
+        <h2 class="popup__step">Шаг {{ number }} из 12</h2>
+        <svg
+          @click="popupClose"
+          class="popup__close"
+          width="16"
+          height="16"
+          viewBox="0 0 28 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="1.93934"
+            y1="25.9393"
+            x2="25.9393"
+            y2="1.93934"
+            stroke="black"
+            stroke-width="2"
+          />
+          <line
+            x1="2.06066"
+            y1="1.93934"
+            x2="26.0607"
+            y2="25.9393"
+            stroke="black"
+            stroke-width="2"
+          />
+        </svg>
+        <h3 class="popup__question">Как Вас зовут?</h3>
+        <form @submit.prevent="" class="popup__form" novalidate>
+          <input
+            v-model="answer"
+            type="text"
+            class="popup__input"
+            placeholder="Напишите тут"
+          />
+          <div class="popup__button">
+            <button
+              @click="prevQuestion"
+              type
+              class="popup__button popup__button_left"
+            >
+              Назад
+            </button>
+            <button
+              @click="nextQuestion"
+              type
+              class="popup__button popup__button_right"
+            >
+              Далее
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+  </ui-overlay>
 </template>
 
 <script>
+import UiOverlay from '~/components/ui/Overlay.vue';
+
 export default {
+  components: {
+    UiOverlay,
+  },
   data() {
     return {
       answer: '',
@@ -66,6 +73,9 @@ export default {
     };
   },
   methods: {
+    popupClose() {
+      this.$store.commit('popup/popupClose');
+    },
     nextQuestion() {},
     prevQuestion() {},
   },
@@ -73,19 +83,6 @@ export default {
 </script>
 
 <style>
-.popup {
-  z-index: 2;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* display: none; */
-}
-
 .popup__content {
   width: 920px;
   height: 600px;
