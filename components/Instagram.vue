@@ -97,7 +97,7 @@ export default {
 }
 
 .page__instagram {
-  padding: 50px 50px 100px;
+  padding: 50px 60px 100px;
   margin: 0 auto;
 }
 

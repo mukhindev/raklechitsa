@@ -29,8 +29,13 @@
         />
       </svg>
       <h3 class="popup__question">Как Вас зовут?</h3>
-      <form class="popup__form" novalidate>
-        <input type="text" class="popup__input" placeholder="Напишите тут" />
+      <form @submit.prevent="submitForm" class="popup__form" novalidate>
+        <input
+          v-model="answer"
+          type="text"
+          class="popup__input"
+          placeholder="Напишите тут"
+        />
         <div class="popup__button">
           <button type class="popup__button popup__button_left">Назад</button>
           <button class="popup__button popup__button_right">Далее</button>
@@ -41,18 +46,26 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      answer: '',
+    };
+  },
+  methods: {
+    submitForm() {},
+  },
+};
 </script>
 
 <style>
 .popup {
   z-index: 2;
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;

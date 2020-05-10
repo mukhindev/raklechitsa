@@ -94,7 +94,7 @@ export default {
 
 .your-story__container {
   max-width: 1320px;
-  padding: 100px 50px;
+  padding: 100px 60px;
   margin: auto;
 }
 
