@@ -1,7 +1,9 @@
 <template>
   <div class="page">
-    <app-header />
+    <app-header @popupOpen="popupHandler" />
     <nuxt />
+    <app-overlay v-if="popupShown" />
+    <app-form v-if="popupShown" @popupClose="popupHandler" />
     <app-footer />
   </div>
 </template>
@@ -9,11 +11,25 @@
 <script>
 import AppHeader from '~/components/Header.vue';
 import AppFooter from '~/components/Footer.vue';
+import AppForm from '~/components/Form.vue';
+import AppOverlay from '~/components/ui/Overlay.vue';
 
 export default {
   components: {
     AppHeader,
     AppFooter,
+    AppForm,
+    AppOverlay,
+  },
+  data() {
+    return {
+      popupShown: false,
+    };
+  },
+  methods: {
+    popupHandler() {
+      this.popupShown = !this.popupShown;
+    },
   },
 };
 </script>
