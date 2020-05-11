@@ -1,22 +1,22 @@
 <template>
   <div class="page">
-    <app-header />
+    <block-header />
     <nuxt />
-    <app-form v-if="popupShown" />
-    <app-footer />
+    <block-form v-if="popupShown" />
+    <block-footer />
   </div>
 </template>
 
 <script>
-import AppHeader from '~/components/Header.vue';
-import AppForm from '~/components/Form.vue';
-import AppFooter from '~/components/Footer.vue';
+import Header from '~/components/blocks/Header';
+import Form from '~/components/blocks/Form';
+import Footer from '~/components/blocks/Footer';
 
 export default {
   components: {
-    AppHeader,
-    AppForm,
-    AppFooter,
+    'block-header': Header,
+    'block-form': Form,
+    'block-footer': Footer,
   },
   computed: {
     popupShown() {

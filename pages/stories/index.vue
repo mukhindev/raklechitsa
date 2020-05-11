@@ -1,16 +1,16 @@
 <template>
   <div>
     <section class="stories-pagination page__stories-pagination">
-      <section-heading>
+      <ui-heading>
         <template #title>Истории неизлечимых привычек</template>
-      </section-heading>
+      </ui-heading>
       <div class="stories-pagination__search">
         <input type="search" class="stories-pagination__input" />
         <button-search class="stories-pagination__input-btn"
           >Поиск</button-search
         >
       </div>
-      <stories-grid :start="start" :limit="limit" />
+      <ui-stories-grid :start="start" :limit="limit" />
       <div class="stories-pagination__buttons">
         <button
           ref="buttons"
@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import SectionHeading from '~/components/SectionHeading';
+import Heading from '~/components/ui/Heading';
 import Button from '~/components/ui/Button';
-import StoriesGrid from '~/components/StoriesGrid';
+import StoriesGrid from '~/components/blocks/StoriesGrid';
 export default {
   components: {
-    SectionHeading,
+    'ui-heading': Heading,
     'button-search': Button,
-    StoriesGrid,
+    'ui-stories-grid': StoriesGrid,
   },
   data() {
     return {

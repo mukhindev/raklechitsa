@@ -1,36 +1,32 @@
 <template>
-  <nuxt-link :to="`/stories/${story.id}`" class="stories__link hover-card">
-    <li class="stories__card">
-      <img
-        :src="story.photo"
-        :alt="`фото ${story.person}`"
-        class="stories__card-photo"
-      />
-      <h3 class="stories__card-person">{{ story.person }}</h3>
-      <p class="stories__card-quote">{{ story.quote }}</p>
+  <nuxt-link :to="link" class="card__link hover-card">
+    <li class="card__card">
+      <img v-if="img" :src="img" :alt="`${title}`" class="card__card-photo" />
+      <h3 v-if="title" class="card__card-person">{{ title }}</h3>
+      <p v-if="text" class="card__card-quote">{{ text }}</p>
     </li>
   </nuxt-link>
 </template>
 
 <script>
 export default {
-  props: ['story'],
+  props: ['link', 'img', 'title', 'text'],
 };
 </script>
 
 <style scoped>
-.stories__link {
+.card__link {
   color: #000;
   text-decoration: none;
 }
 
-.stories__card-photo {
+.card__card-photo {
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
-.stories__card-person {
+.card__card-person {
   margin: 20px 0 14px;
   font-style: normal;
   font-weight: 600;
@@ -41,12 +37,12 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .stories__card-person {
+  .card__card-person {
     font-size: 18px;
   }
 }
 
-.stories__card-quote {
+.card__card-quote {
   margin: 0;
   font-style: normal;
   font-weight: normal;
@@ -58,7 +54,7 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .stories__card-quote {
+  .card__card-quote {
     font-size: 13px;
   }
 }

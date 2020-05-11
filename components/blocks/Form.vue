@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import UiOverlay from '~/components/ui/Overlay.vue';
+import UiOverlay from '~/components/ui/Overlay';
 
 export default {
   components: {

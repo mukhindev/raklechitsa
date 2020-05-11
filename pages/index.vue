@@ -13,23 +13,23 @@
 <style scoped></style>
 
 <script>
-import BlockCover from '~/components/Cover.vue';
-import BlockIntro from '~/components/Intro.vue';
-import BlockStories from '~/components/Stories.vue';
-import BlockInstagram from '~/components/Instagram.vue';
-import BlockYourStore from '~/components/YourStore.vue';
-import BlockStats from '~/components/Stats.vue';
-import BlockAbout from '~/components/About.vue';
+import Cover from '~/components/blocks/Cover';
+import Intro from '~/components/blocks/Intro';
+import Stories from '~/components/blocks/Stories';
+import Instagram from '~/components/blocks/Instagram';
+import YourStore from '~/components/blocks/YourStore';
+import Stats from '~/components/blocks/Stats';
+import About from '~/components/blocks/About';
 
 export default {
   components: {
-    BlockCover,
-    BlockIntro,
-    BlockStories,
-    BlockInstagram,
-    BlockYourStore,
-    BlockStats,
-    BlockAbout,
+    'block-cover': Cover,
+    'block-intro': Intro,
+    'block-stories': Stories,
+    'block-instagram': Instagram,
+    'block-your-store': YourStore,
+    'block-stats': Stats,
+    'block-about': About,
   },
 };
 </script>

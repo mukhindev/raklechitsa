@@ -2,18 +2,18 @@
   <div>
     <section class="your-story">
       <div class="your-story__container">
-        <section-heading>
+        <ui-heading>
           <template #title>Расскажите свою историю</template>
-        </section-heading>
+        </ui-heading>
         <div class="your-story__grid">
           <article class="your-story__article-left">
-            <section-heading>
+            <ui-heading>
               <template #subtitle
                 >Мы публикуем новые истории на сайте раз в неделю. Есть 2
                 варианта поделиться своей историей неизлечимых привычек,
                 навязчивых идей и болезненных привязанностей.
               </template>
-            </section-heading>
+            </ui-heading>
           </article>
           <div class="your-story__variants">
             <button
@@ -46,9 +46,14 @@
 </template>
 
 <script>
-import SectionHeading from '~/components/SectionHeading';
+import Heading from '~/components/ui/Heading';
 import Button from '~/components/ui/Button';
+
 export default {
+  components: {
+    'ui-heading': Heading,
+    'button-type': Button,
+  },
   data() {
     return {
       isActiveButtonFirst: true,
@@ -67,10 +72,6 @@ export default {
         return this.secondText;
       }
     },
-  },
-  components: {
-    SectionHeading,
-    'button-type': Button,
   },
   methods: {
     changeText(event) {
