@@ -1,38 +1,44 @@
 <template>
   <section class="stats">
-    <ui-heading class="stats__heading">
-      <template #title>Статистика по онкозаболеваниям</template>
-    </ui-heading>
-    <div class="stats__grid">
-      <stats-card
-        v-for="({ valuePrev, value, valueMax, text, source, prefix, postfix },
-        index) in stats"
-        :key="index"
-        :valuePrev="valuePrev"
-        :value="value"
-        :valueMax="valueMax"
-      >
-        <template #text>{{ text }}</template>
-        <template #prefix>{{ prefix }}</template>
-        <template #value>{{ value }}</template>
-        <template #postfix>{{ postfix }}</template>
-        <template #source>{{ source }}</template>
-      </stats-card>
-    </div>
+    <ui-container class="stats__container">
+      <ui-heading class="stats__heading">
+        <template #title>Статистика по онкозаболеваниям</template>
+      </ui-heading>
+      <div class="stats__grid">
+        <blocks-stats-card
+          v-for="({ valuePrev, value, valueMax, text, source, prefix, postfix },
+          index) in stats"
+          :key="index"
+          :valuePrev="valuePrev"
+          :value="value"
+          :valueMax="valueMax"
+        >
+          <template #text>{{ text }}</template>
+          <template #prefix>{{ prefix }}</template>
+          <template #value>{{ value }}</template>
+          <template #postfix>{{ postfix }}</template>
+          <template #source>{{ source }}</template>
+        </blocks-stats-card>
+      </div>
+      <!--TODO: подумать над префиксами -->
+    </ui-container>
   </section>
 </template>
 
 <script>
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import StatsCard from '~/components/blocks/StatsCard';
 
 export default {
   components: {
+    'ui-container': Container,
     'ui-heading': Heading,
-    StatsCard,
+    'blocks-stats-card': StatsCard,
   },
   data() {
     return {
+      // TODO: вынести в Vuex
       stats: [
         {
           text: `Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.`,
@@ -74,11 +80,12 @@ export default {
 </script>
 
 <style scoped>
+.stats__container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 .stats__heading {
   margin: 0 0 70px;
-}
-.stats {
-  padding: 100px 60px;
 }
 .stats__grid {
   display: grid;

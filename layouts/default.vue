@@ -2,25 +2,25 @@
   <div class="page">
     <block-header />
     <nuxt />
-    <block-form v-if="popupShown" />
+    <block-quiz v-if="quizShown" />
     <block-footer />
   </div>
 </template>
 
 <script>
 import Header from '~/components/blocks/Header';
-import Form from '~/components/blocks/Form';
+import Quiz from '~/components/blocks/Quiz';
 import Footer from '~/components/blocks/Footer';
 
 export default {
   components: {
     'block-header': Header,
-    'block-form': Form,
+    'block-quiz': Quiz,
     'block-footer': Footer,
   },
   computed: {
-    popupShown() {
-      return this.$store.state.popup.popupShown;
+    quizShown() {
+      return this.$store.state.popup.quizShown;
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__content">
+    <ui-container class="footer__container">
       <div class="footer__navigation">
         <h2 class="footer__title">
           Спасибо всем, кто помог состояться этому проекту
@@ -39,14 +39,16 @@
         <p class="footer__project-name">Рак Лечится 2020</p>
         <p class="footer__author">Сделано студентами Яндекс Практикум</p>
       </div>
-    </div>
+    </ui-container>
   </footer>
 </template>
 
 <script>
+import Container from '~/components/ui/Container';
+
 export default {
-  data() {
-    return {};
+  components: {
+    'ui-container': Container,
   },
 };
 </script>
@@ -57,9 +59,9 @@ export default {
   background: #fbfbfb;
 }
 
-.footer__content {
-  max-width: 1440px;
-  padding: 50px;
+.footer__container {
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
 }
