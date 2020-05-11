@@ -26,6 +26,19 @@ export default {
   padding: 20px;
   border: 1px solid #efefef;
 }
+
+@media screen and (max-width: 1280px) {
+  .stats__card {
+    padding: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .stats__card {
+    padding: 10px;
+  }
+}
+
 .stats__text {
   margin: 0;
   min-height: 124px;
@@ -34,6 +47,13 @@ export default {
   font-size: 12px;
   line-height: 1.33;
 }
+
+@media screen and (max-width: 1024px) {
+  .stats__text {
+    font-size: 10px;
+  }
+}
+
 .stats__value {
   margin: 20px 0;
   font-style: normal;
@@ -42,6 +62,13 @@ export default {
   line-height: 1.05;
   text-align: right;
 }
+
+@media screen and (max-width: 1024px) {
+  .stats__value {
+    font-size: 30px;
+  }
+}
+
 .stats__source {
   margin: 0;
   font-style: normal;
@@ -50,5 +77,11 @@ export default {
   line-height: 1.33;
   text-align: right;
   color: #666666;
+}
+
+@media screen and (max-width: 1024px) {
+  .stats__source {
+    font-size: 10px;
+  }
 }
 </style>

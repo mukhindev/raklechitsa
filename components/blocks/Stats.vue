@@ -6,18 +6,15 @@
       </ui-heading>
       <div class="stats__grid">
         <blocks-stats-card
-          v-for="({ valuePrev, value, valueMax, text, source, prefix, postfix },
-          index) in stats"
+          v-for="(el, index) in statsFormated"
           :key="index"
-          :valuePrev="valuePrev"
-          :value="value"
-          :valueMax="valueMax"
+          :valuePrev="el.valuePrev"
+          :value="el.value"
+          :valueMax="el.valueMax"
         >
-          <template #text>{{ text }}</template>
-          <template #prefix>{{ prefix }}</template>
-          <template #value>{{ value }}</template>
-          <template #postfix>{{ postfix }}</template>
-          <template #source>{{ source }}</template>
+          <template #text>{{ el.text }}</template>
+          <template #value>{{ el.valueText }}</template>
+          <template #source>{{ el.source }}</template>
         </blocks-stats-card>
       </div>
       <!--TODO: подумать над префиксами -->
@@ -36,50 +33,39 @@ export default {
     'ui-heading': Heading,
     'blocks-stats-card': StatsCard,
   },
-  data() {
-    return {
-      // TODO: вынести в Vuex
-      stats: [
-        {
-          text: `Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.`,
-          valuePrev: null,
-          value: 1,
-          valueMax: 3,
-          source: 'Левада-Центр 2018',
-        },
-        {
-          text: '2,6% Россиян имеют онкозаболевания. ',
-          valuePrev: null,
-          value: 3700000,
-          valueMax: 144500000,
-          source: 'Росстат 2018',
-        },
-        {
-          text: `На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.`,
-          valuePrev: 20,
-          value: 28,
-          valueMax: 100,
-          prefix: '↑',
-          postfix: '%',
-          source: 'МНИОИ Герцена 2018',
-        },
-        {
-          text:
-            'На 25% снизилась смертность в течение первого года после постановки диагноза.',
-          valuePrev: 35,
-          value: 25,
-          valueMax: 100,
-          prefix: '↓',
-          postfix: '%',
-          source: 'МНИОИ Герцена 2018',
-        },
-      ],
-    };
+  computed: {
+    stats() {
+      if (this.filter) return this.filterStore;
+      return this.$store.getters['api/getStats'];
+    },
+    statsFormated() {
+      return this.stats.map(el => {
+        const postfix = el.postfix || '';
+
+        let prefix;
+        let value;
+
+        function getPrefix(value, valuePrev) {
+          if (value > valuePrev) return '↑';
+          else if (value === valuePrev) return '';
+          else return '↓';
+        }
+
+        if (el.prefix) prefix = getPrefix(el.value, el.valuePrev);
+        else prefix = '';
+
+        if (el.type === 'of') value = `${el.value} из ${el.valueMax}`;
+        else value = el.value || '';
+
+        return { ...el, valueText: `${prefix}${value}${postfix}` };
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
+/* TODO: с 768 и меньше вся секция должна скролиться горизонтально */
 .stats__container {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -91,5 +77,22 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
+}
+@media screen and (max-width: 1024px) {
+  .stats__grid {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stats__grid {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .stats__grid {
+    gap: 10px;
+  }
 }
 </style>
