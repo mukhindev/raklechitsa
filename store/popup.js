@@ -1,12 +1,12 @@
 export const state = () => ({
-  popupShown: false,
+  quizShown: false,
 });
 
 export const mutations = {
-  popupOpen(state) {
-    state.popupShown = true;
+  quizOpen(state) {
+    state.quizShown = true;
   },
-  popupClose(state) {
-    state.popupShown = false;
+  quizClose(state) {
+    state.quizShown = false;
   },
 };

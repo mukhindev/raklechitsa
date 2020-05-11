@@ -16,7 +16,7 @@
             <nuxt-link to="/stories" class="header__link">Истории</nuxt-link>
           </li>
           <li class="header__nav-item">
-            <button @click="popupOpen" class="header__button-tell-stories">
+            <button @click="quizOpen" class="header__button-tell-stories">
               Рассказать историю
             </button>
           </li>
@@ -34,8 +34,8 @@ export default {
     'ui-container': Container,
   },
   methods: {
-    popupOpen() {
-      this.$store.commit('popup/popupOpen');
+    quizOpen() {
+      this.$store.commit('popup/quizOpen');
     },
   },
 };

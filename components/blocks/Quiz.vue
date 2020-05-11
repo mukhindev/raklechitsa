@@ -4,7 +4,7 @@
       <div class="popup__content">
         <h2 class="popup__step">Шаг {{ number }} из 12</h2>
         <svg
-          @click="popupClose"
+          @click="quizClose"
           class="popup__close"
           width="16"
           height="16"
@@ -73,8 +73,8 @@ export default {
     };
   },
   methods: {
-    popupClose() {
-      this.$store.commit('popup/popupClose');
+    quizClose() {
+      this.$store.commit('popup/quizClose');
     },
     nextQuestion() {},
     prevQuestion() {},

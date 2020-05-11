@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="your-story">
-      <div class="your-story__container">
+      <ui-container class="your-story__container">
         <ui-heading>
           <template #title>Расскажите свою историю</template>
         </ui-heading>
@@ -40,18 +40,20 @@
             >
           </article>
         </div>
-      </div>
+      </ui-container>
     </section>
   </div>
 </template>
 
 <script>
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Button from '~/components/ui/Button';
 
 export default {
   components: {
     'ui-heading': Heading,
+    'ui-container': Container,
     'button-type': Button,
   },
   data() {
@@ -94,9 +96,15 @@ export default {
 }
 
 .your-story__container {
-  max-width: 1320px;
-  padding: 100px 60px;
-  margin: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 1280px) {
+  .your-story__container {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
 }
 
 .your-story__grid {
@@ -150,11 +158,5 @@ export default {
 
 .your-story__text {
   margin: 0;
-}
-
-@media screen and (max-width: 1280px) {
-  .your-story__container {
-    padding: 90px 50px;
-  }
 }
 </style>
