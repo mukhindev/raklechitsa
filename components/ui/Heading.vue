@@ -1,7 +1,16 @@
 <template>
   <div class="section-heading">
-    <h2 class="section-heading__title"><slot name="title" /></h2>
-    <p v-if="hasSubtitle" class="section-heading__subtitle">
+    <h2
+      class="section-heading__title"
+      :class="mod('section-heading__title_theme_')"
+    >
+      <slot name="title" />
+    </h2>
+    <p
+      v-if="hasSubtitle"
+      class="section-heading__subtitle"
+      :class="mod('section-heading__subtitle_theme_')"
+    >
       <slot name="subtitle" />
     </p>
   </div>
@@ -9,9 +18,15 @@
 
 <script>
 export default {
+  props: ['theme'],
   computed: {
     hasSubtitle() {
       return Boolean(this.$slots.subtitle);
+    },
+    mod() {
+      return function(m) {
+        return [this.theme ? `${m}${this.theme}` : ''];
+      };
     },
   },
 };
@@ -26,6 +41,10 @@ export default {
   font-size: 32px;
   line-height: 1.125;
   transition: all 0.25s ease;
+}
+
+.section-heading__title_theme_dark {
+  color: #fff;
 }
 
 @media screen and (max-width: 1280px) {
@@ -51,6 +70,10 @@ export default {
   line-height: 1.22;
   color: #666666;
   transition: all 0.25s ease;
+}
+
+.section-heading__subtitle_theme_dark {
+  color: #dedede;
 }
 
 @media screen and (max-width: 1280px) {
