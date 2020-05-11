@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <block-container class="header__container">
+    <ui-container class="header__container">
       <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
         >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
       >
@@ -22,16 +22,16 @@
           </li>
         </ul>
       </nav>
-    </block-container>
+    </ui-container>
   </header>
 </template>
 
 <script>
-import BlockContainer from '~/components/Container.vue';
+import Container from '~/components/ui/Container';
 
 export default {
   components: {
-    BlockContainer,
+    'ui-container': Container,
   },
   methods: {
     popupOpen() {
@@ -51,6 +51,7 @@ export default {
 .header__container {
   padding-top: 18px;
   padding-bottom: 18px;
+  min-height: 72px;
   display: flex;
   justify-content: space-between;
   align-items: center;

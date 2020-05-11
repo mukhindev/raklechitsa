@@ -1,7 +1,14 @@
 <template>
   <div class="stories-container">
     <ul v-if="stories.length > 0" class="stories-container__grid">
-      <story-card v-for="story in stories" :key="story.id" :story="story" />
+      <ui-card
+        v-for="story in stories"
+        :key="story.id"
+        :link="`/stories/${story.id}`"
+        :img="story.photo"
+        :title="story.person"
+        :text="story.quote"
+      />
     </ul>
     <p v-else>Не найдено</p>
     <nuxt-link
@@ -15,13 +22,13 @@
 </template>
 
 <script>
-import SectionHeading from './SectionHeading.vue';
-import StoryCard from './StoryCard.vue';
+import Heading from '~/components/ui/Heading';
+import Card from '~/components/ui/Card';
 
 export default {
   components: {
-    SectionHeading,
-    StoryCard,
+    'ui-heading': Heading,
+    'ui-card': Card,
   },
   props: ['start', 'limit', 'more', 'filter'],
   computed: {

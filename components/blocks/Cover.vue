@@ -1,17 +1,17 @@
 <template>
   <section class="cover">
-    <block-container class="cover__container">
+    <ui-container class="cover__container">
       <p class="cover__tag">#раклечится</p>
       <div class="cover__polygon"></div>
-    </block-container>
+    </ui-container>
   </section>
 </template>
 <script>
-import BlockContainer from '~/components/Container.vue';
+import Container from '~/components/ui/Container';
 
 export default {
   components: {
-    BlockContainer,
+    'ui-container': Container,
   },
 };
 </script>

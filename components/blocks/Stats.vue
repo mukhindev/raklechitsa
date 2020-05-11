@@ -1,8 +1,8 @@
 <template>
   <section class="stats">
-    <section-heading class="stats__heading">
+    <ui-heading class="stats__heading">
       <template #title>Статистика по онкозаболеваниям</template>
-    </section-heading>
+    </ui-heading>
     <div class="stats__grid">
       <stats-card
         v-for="({ valuePrev, value, valueMax, text, source, prefix, postfix },
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import SectionHeading from './SectionHeading.vue';
-import StatsCard from '~/components/StatsCard.vue';
+import Heading from '~/components/ui/Heading';
+import StatsCard from '~/components/blocks/StatsCard';
 
 export default {
   components: {
-    SectionHeading,
+    'ui-heading': Heading,
     StatsCard,
   },
   data() {

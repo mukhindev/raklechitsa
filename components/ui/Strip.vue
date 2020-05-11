@@ -1,7 +1,7 @@
 <template>
-  <p class="line">
+  <p class="strip">
     <slot name="text"></slot
-    ><span class="line__tag" :class="{ line__tag_block: newline === '' }"
+    ><span class="strip__tag" :class="{ strip__tag_block: tagblock === '' }"
       ><slot name="tag"></slot
     ></span>
   </p>
@@ -9,12 +9,12 @@
 
 <script>
 export default {
-  props: ['newline'],
+  props: ['tagblock'],
 };
 </script>
 
 <style scoped>
-.line {
+.strip {
   margin: 0;
   background: #613a93;
   padding: 20px;
@@ -29,18 +29,18 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .line {
+  .strip {
     font-size: 28px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .line {
+  .strip {
     font-size: 24px;
   }
 }
 
-.line__tag {
+.strip__tag {
   color: #fff;
   font-style: normal;
   font-weight: bold;
@@ -49,7 +49,7 @@ export default {
   text-transform: uppercase;
 }
 
-.line__tag_block {
+.strip__tag_block {
   display: block;
 }
 </style>

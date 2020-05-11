@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import SectionHeading from '~/components/SectionHeading.vue';
-import StoriesGrid from '~/components/StoriesGrid.vue';
+import Heading from '~/components/ui/Heading';
+import StoriesGrid from '~/components/blocks/StoriesGrid';
 
 export default {
   components: {
-    SectionHeading,
+    'ui-heading': Heading,
     StoriesGrid,
   },
   computed: {

@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import UiProgress from '~/components/ui/Progress.vue';
+import Progress from '~/components/ui/Progress';
 
 export default {
   components: {
-    UiProgress,
+    'ui-progress': Progress,
   },
   props: ['valueMax', 'valuePrev', 'value'],
 };

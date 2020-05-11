@@ -1,14 +1,14 @@
 <template>
   <div>
     <section class="instagram">
-      <block-container class="instagram__container">
-        <block-line newline>
+      <ui-container class="instagram__container">
+        <ui-strip tagblock>
           <template #text>Рассказывайте ваши истории в Инстаграм </template>
           <template #tag>#этонелечится</template>
-        </block-line>
-        <block-two-columns class="instagram__two-columns">
+        </ui-strip>
+        <ui-two-columns class="instagram__ui-two-columns">
           <template #heading>
-            <section-heading>
+            <ui-heading>
               <template #title
                 ><a
                   href="https://www.instagram.com/raklechitsa/"
@@ -23,7 +23,7 @@
                 запрещенного контента попадают сюда. Следите за правильным
                 написанием хештега, чтобы мы не пропустили вашу историю.
               </template>
-            </section-heading>
+            </ui-heading>
           </template>
           <template #content>
             <ul class="instagram__cards">
@@ -41,24 +41,26 @@
               </li>
             </ul>
           </template>
-        </block-two-columns>
-      </block-container>
+        </ui-two-columns>
+      </ui-container>
     </section>
   </div>
 </template>
 
 <script>
-import BlockContainer from '~/components/Container.vue';
-import BlockTwoColumns from '~/components/TwoColumns.vue';
-import SectionHeading from '~/components/SectionHeading';
-import BlockLine from '~/components/Line';
+import Container from '~/components/ui/Container';
+import TwoColumns from '~/components/ui/TwoColumns';
+import Heading from '~/components/ui/Heading';
+import Card from '~/components/ui/Card';
+import Strip from '~/components/ui/Strip';
 
 export default {
   components: {
-    BlockContainer,
-    BlockTwoColumns,
-    SectionHeading,
-    BlockLine,
+    'ui-container': Container,
+    'ui-two-columns': TwoColumns,
+    'ui-heading': Heading,
+    'ui-card': Card,
+    'ui-strip': Strip,
   },
   computed: {
     instagram() {
@@ -74,7 +76,7 @@ export default {
   padding-bottom: 100px;
 }
 
-.instagram__two-columns {
+.instagram__ui-two-columns {
   margin-top: 100px;
 }
 
