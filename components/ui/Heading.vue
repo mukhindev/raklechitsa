@@ -28,20 +28,6 @@ export default {
   transition: all 0.25s ease;
 }
 
-@media screen and (max-width: 1280px) {
-  .section-heading__title {
-    max-width: 367px;
-    font-size: 28px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .section-heading__title {
-    max-width: 288px;
-    font-size: 24px;
-  }
-}
-
 .section-heading__subtitle {
   max-width: 340px;
   margin: 32px 0 0;
@@ -66,6 +52,46 @@ export default {
     max-width: 260px;
     margin: 20px 0 0;
     font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .section-heading__title {
+    max-width: 367px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section-heading__title {
+    max-width: 288px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-heading__title {
+    max-width: 380px;
+    text-align: center;
+    margin: auto;
+  }
+  .section-heading__subtitle {
+    max-width: 380px;
+    margin-top: 26px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .section-heading__title {
+    max-width: 290px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
+  }
+  .section-heading__subtitle {
+    max-width: 290px;
+    margin-top: 16px;
   }
 }
 </style>
