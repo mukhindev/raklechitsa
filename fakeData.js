@@ -529,4 +529,43 @@ export default {
       url: 'https://www.instagram.com/p/B8KJafzhbCW/',
     },
   ],
+  stats: [
+    {
+      type: 'of',
+      text: `Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.`,
+      valuePrev: null,
+      value: 1,
+      valueMax: 3,
+      source: 'Левада-Центр 2018',
+    },
+    {
+      type: 'value',
+      text: '2,6% Россиян имеют онкозаболевания. ',
+      valuePrev: null,
+      value: 3700000,
+      valueMax: 144500000,
+      source: 'Росстат 2018',
+    },
+    {
+      type: 'comparison',
+      text: `На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.`,
+      valuePrev: 20,
+      value: 28,
+      valueMax: 100,
+      prefix: true,
+      postfix: '%',
+      source: 'МНИОИ Герцена 2018',
+    },
+    {
+      type: 'comparison',
+      text:
+        'На 25% снизилась смертность в течение первого года после постановки диагноза.',
+      valuePrev: 35,
+      value: 25,
+      valueMax: 100,
+      prefix: true,
+      postfix: '%',
+      source: 'МНИОИ Герцена 2018',
+    },
+  ],
 };
