@@ -13,7 +13,7 @@
             <p class="story__quote">«{{ story.quote }}»</p>
           </div>
           <div class="story__misc">
-            <a href="#" class="story__sharing-link">Поделитесь ↗</a>
+            <a href="#" class="story__sharing-link">Поделитесь &#8599;</a>
             <p class="story__date">20 апреля 2018</p>
           </div>
         </div>
