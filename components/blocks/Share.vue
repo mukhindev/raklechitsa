@@ -70,10 +70,6 @@ export default {
 
 <style scoped>
 .share {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 920px;
   background-color: white;
   z-index: 2;
