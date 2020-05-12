@@ -1,8 +1,13 @@
 <template>
-  <section class="cover">
+  <section class="cover" ref="cover">
     <ui-container class="cover__container">
       <p class="cover__tag">#раклечится</p>
-      <div class="cover__polygon"></div>
+      <button
+        type="button"
+        @click="coverScrollToBottom"
+        class="cover__polygon"
+        title="Листайте ниже"
+      ></button>
     </ui-container>
   </section>
 </template>
@@ -10,8 +15,21 @@
 import Container from '~/components/ui/Container';
 
 export default {
+  data() {
+    return {
+      headerHeight: 0,
+    };
+  },
   components: {
     'ui-container': Container,
+  },
+  methods: {
+    coverScrollToBottom() {
+      const rect = this.$refs.cover.getBoundingClientRect();
+      let top = rect.top;
+      if (top < 0) top = 0;
+      window.scrollTo(pageXOffset, rect.height + top);
+    },
   },
 };
 </script>
@@ -56,6 +74,11 @@ export default {
 }
 
 .cover__polygon {
+  border: none;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   background: url('/images/ui/arrow-wide-down.svg');
   background-size: contain;
   background-repeat: none;
@@ -66,5 +89,10 @@ export default {
   left: 50%;
   transform: translate(-50%, 0);
   margin: 0;
+  transition: opacity 0.25s;
+  cursor: pointer;
+}
+.cover__polygon:hover {
+  opacity: 0.7;
 }
 </style>
