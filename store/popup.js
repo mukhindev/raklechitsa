@@ -1,5 +1,6 @@
 export const state = () => ({
   quizShown: false,
+  shareShown: false,
 });
 
 export const mutations = {
@@ -8,5 +9,11 @@ export const mutations = {
   },
   quizClose(state) {
     state.quizShown = false;
+  },
+  shareShown(state) {
+    state.shareShown = true;
+  },
+  shareHidden(state) {
+    state.shareShown = false;
   },
 };

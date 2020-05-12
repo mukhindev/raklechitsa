@@ -32,7 +32,11 @@
               >Youtube</a
             >
           </li>
-          <li><a class="footer__social-link" href="#">Поделитесь ↗</a></li>
+          <li>
+            <button class="footer__social-link" @click="shareShown">
+              Поделитесь &#8599;
+            </button>
+          </li>
         </ul>
       </div>
       <div class="footer__copyright">
@@ -49,6 +53,11 @@ import Container from '~/components/ui/Container';
 export default {
   components: {
     'ui-container': Container,
+  },
+  methods: {
+    shareShown() {
+      this.$store.commit('popup/shareShown');
+    },
   },
 };
 </script>
@@ -118,6 +127,9 @@ ul.footer__links li:last-child a {
   line-height: 1.3;
   margin-bottom: 40px;
   display: block;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 
 .footer__social-away {
