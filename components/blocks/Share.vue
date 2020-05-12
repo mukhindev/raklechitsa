@@ -85,6 +85,7 @@ export default {
     ' . title button'
     'social social social';
   grid-row-gap: 100px;
+  box-sizing: border-box;
 }
 
 .share__title {
