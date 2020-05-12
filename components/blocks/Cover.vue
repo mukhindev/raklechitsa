@@ -25,10 +25,8 @@ export default {
   },
   methods: {
     coverScrollToBottom() {
-      const rect = this.$refs.cover.getBoundingClientRect();
-      let top = rect.top;
-      if (top < 0) top = 0;
-      window.scrollTo(pageXOffset, rect.height + top);
+      const intro = this.$refs.cover.nextElementSibling;
+      intro.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
 };
