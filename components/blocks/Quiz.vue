@@ -1,7 +1,14 @@
 <template>
   <ui-overlay>
     <div class="popup">
-      <div class="popup__content">
+      <div class="popup__finish" v-if="number === 13">
+        <h2 class="popup__finish-title">Спасибо что приняли участие!</h2>
+        <button @click="quizClose" class="popup__button-finish">
+          Закрыть
+        </button>
+      </div>
+
+      <div class="popup__content" v-else>
         <h2 class="popup__step">Шаг {{ number }} из 12</h2>
         <svg
           @click="quizClose"
@@ -29,7 +36,12 @@
             stroke-width="2"
           />
         </svg>
-        <h3 class="popup__question">Как Вас зовут?</h3>
+        <h3 class="popup__question">
+          {{ questions[number - 1].question
+          }}<span class="popup__question-extra">
+            {{ questions[number - 1].questionExtra }}</span
+          >
+        </h3>
         <form @submit.prevent="" class="popup__form" novalidate>
           <input
             v-model="answer"
@@ -42,6 +54,7 @@
               @click="prevQuestion"
               type
               class="popup__button popup__button_left"
+              :disabled="disactiveButtonBack"
             >
               Назад
             </button>
@@ -52,6 +65,12 @@
             >
               Далее
             </button>
+            <span class="popup__policy" v-if="policy"
+              >Нажимая на кнопку «отправить», вы даете согласие на
+              <span class="popup__policy-link" @click="openPolicy"
+                >обработку персональных данных</span
+              ></span
+            >
           </div>
         </form>
       </div>
@@ -70,14 +89,46 @@ export default {
     return {
       answer: '',
       number: 1,
+      valuesOfInputs: [],
+      buttonBackDisabled: false,
+      policy: false,
     };
   },
   methods: {
     quizClose() {
       this.$store.commit('popup/quizClose');
     },
-    nextQuestion() {},
-    prevQuestion() {},
+    nextQuestion() {
+      if (this.number === 11) {
+        this.policy = true;
+      }
+      const obj = {
+        id: this.number,
+        response: this.answer,
+      };
+      this.valuesOfInputs.push(obj);
+      this.answer = '';
+      this.number++;
+    },
+    prevQuestion() {
+      this.number--;
+      this.answer = this.valuesOfInputs[this.number - 1].response;
+      this.valuesOfInputs.pop();
+    },
+    openPolicy() {
+      let win = window.open('/policy', '_blank');
+      win.focus();
+    },
+  },
+  computed: {
+    disactiveButtonBack() {
+      if (this.number <= 1) {
+        return true;
+      }
+    },
+    questions() {
+      return this.$store.getters['form/getQuestions'];
+    },
   },
 };
 </script>
@@ -126,6 +177,14 @@ export default {
   grid-area: question;
 }
 
+.popup__question-extra {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #666;
+}
+
 .popup__form {
   grid-area: form;
 }
@@ -150,7 +209,6 @@ export default {
   font-style: normal;
   font-size: 16px;
   line-height: 19px;
-  cursor: pointer;
   outline: none;
 }
 
@@ -159,6 +217,17 @@ export default {
   color: #c0c0c0;
   border: 0;
   outline: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popup__button_left:hover {
+  color: #000;
+}
+
+.popup__button_left:disabled {
+  color: #c0c0c0;
 }
 
 .popup__button_right {
@@ -167,5 +236,78 @@ export default {
   background: #714dbd;
   font-weight: 500;
   color: #fff;
+  padding: 0;
+  margin-left: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popup__button_right:hover {
+  opacity: 0.9;
+}
+
+.popup__policy {
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 378px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666;
+  margin-left: 30px;
+}
+
+.popup__policy-link {
+  cursor: pointer;
+  border-bottom: 1px solid #666;
+  transition: all 0.2s;
+}
+
+.popup__policy-link:hover {
+  opacity: 0.7;
+}
+
+.popup__finish {
+  width: 920px;
+  height: 600px;
+  background-color: #fff;
+  position: relative;
+  box-sizing: border-box;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup__finish-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  text-align: center;
+  color: #000;
+  margin: 0;
+}
+
+.popup__button-finish {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19px;
+  outline: none;
+  width: 226px;
+  height: 52px;
+  background: #714dbd;
+  font-weight: 500;
+  color: #fff;
+  padding: 0;
+  margin-left: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popup__button-finish:hover {
+  opacity: 0.9;
 }
 </style>
