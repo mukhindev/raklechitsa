@@ -487,4 +487,85 @@ export default {
         'Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал в ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными. У меня дома до сих пор стоят часы в каждой комнате, хотя они и не нужны особо — я сам чувствую, опаздываю куда-то или нет, отстаю от нужного графика или опережаю.',
     },
   ],
+  instagram: [
+    {
+      id: 1,
+      img: '/images/fake-data/instagram/1.jpg',
+      url: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+    },
+    {
+      id: 2,
+      img: '/images/fake-data/instagram/2.jpg',
+      url: 'https://www.instagram.com/p/B86-YtVBc7y/',
+    },
+    {
+      id: 3,
+      img: '/images/fake-data/instagram/3.jpg',
+      url: 'https://www.instagram.com/p/B8vX5k6Bk4x/',
+    },
+    {
+      id: 4,
+      img: '/images/fake-data/instagram/4.jpg',
+      url: 'https://www.instagram.com/p/B8YTDwQhAQb/',
+    },
+    {
+      id: 5,
+      img: '/images/fake-data/instagram/5.jpg',
+      url: 'https://www.instagram.com/p/B8N7itGhYax/',
+    },
+    {
+      id: 6,
+      img: '/images/fake-data/instagram/6.jpg',
+      url: 'https://www.instagram.com/p/B8N7RHKhA4T/',
+    },
+    {
+      id: 7,
+      img: '/images/fake-data/instagram/7.jpg',
+      url: 'https://www.instagram.com/p/B8LUrVHhFCX/',
+    },
+    {
+      id: 8,
+      img: '/images/fake-data/instagram/8.jpg',
+      url: 'https://www.instagram.com/p/B8KJafzhbCW/',
+    },
+  ],
+  stats: [
+    {
+      type: 'of',
+      text: `Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.`,
+      valuePrev: null,
+      value: 1,
+      valueMax: 3,
+      source: 'Левада-Центр 2018',
+    },
+    {
+      type: 'value',
+      text: '2,6% Россиян имеют онкозаболевания. ',
+      valuePrev: null,
+      value: 3700000,
+      valueMax: 144500000,
+      source: 'Росстат 2018',
+    },
+    {
+      type: 'comparison',
+      text: `На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.`,
+      valuePrev: 20,
+      value: 28,
+      valueMax: 100,
+      prefix: true,
+      postfix: '%',
+      source: 'МНИОИ Герцена 2018',
+    },
+    {
+      type: 'comparison',
+      text:
+        'На 25% снизилась смертность в течение первого года после постановки диагноза.',
+      valuePrev: 35,
+      value: 25,
+      valueMax: 100,
+      prefix: true,
+      postfix: '%',
+      source: 'МНИОИ Герцена 2018',
+    },
+  ],
 };

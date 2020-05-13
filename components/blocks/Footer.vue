@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__content">
+    <ui-container class="footer__container">
       <div class="footer__navigation">
         <h2 class="footer__title">
           Спасибо всем, кто помог состояться этому проекту
@@ -33,7 +33,9 @@
             >
           </li>
           <li>
-            <button class="footer__social-link" href="#">Поделитесь ↗</button>
+            <button class="footer__social-link" @click="shareShown">
+              Поделитесь &#8599;
+            </button>
           </li>
         </ul>
       </div>
@@ -41,14 +43,21 @@
         <p class="footer__project-name">Рак Лечится 2020</p>
         <p class="footer__author">Сделано студентами Яндекс Практикум</p>
       </div>
-    </div>
+    </ui-container>
   </footer>
 </template>
 
 <script>
+import Container from '~/components/ui/Container';
+
 export default {
-  data() {
-    return {};
+  components: {
+    'ui-container': Container,
+  },
+  methods: {
+    shareShown() {
+      this.$store.commit('popup/shareShown');
+    },
   },
 };
 </script>
@@ -59,9 +68,9 @@ export default {
   background: #fbfbfb;
 }
 
-.footer__content {
-  max-width: 1440px;
-  padding: 50px;
+.footer__container {
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
 }
@@ -118,10 +127,13 @@ ul.footer__links li:last-child a {
   line-height: 1.3;
   margin-bottom: 40px;
   display: block;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 
 .footer__social-away {
-  text-decoration: underline;
+  text-decoration: none;
   color: black;
   font-size: 1.125rem;
   line-height: 1.3;

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__container">
+    <ui-container class="header__container">
       <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
         >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
       >
@@ -16,36 +16,42 @@
             <nuxt-link to="/stories" class="header__link">Истории</nuxt-link>
           </li>
           <li class="header__nav-item">
-            <button class="header__link-tell-stories">
+            <button @click="quizOpen" class="header__button-tell-stories">
               Рассказать историю
             </button>
           </li>
         </ul>
       </nav>
-    </div>
+    </ui-container>
   </header>
 </template>
 
 <script>
+import Container from '~/components/ui/Container';
+
 export default {
-  data() {
-    return {};
+  components: {
+    'ui-container': Container,
+  },
+  methods: {
+    quizOpen() {
+      this.$store.commit('popup/quizOpen');
+    },
   },
 };
 </script>
 
 <style scoped>
 .header {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-style: normal;
   border-bottom: 1px solid #e8e8e8;
 }
 
 .header__container {
-  padding: 18px 60px;
-  max-width: 1320px;
-  margin: 0 auto;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  min-height: 72px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,51 +78,55 @@ export default {
   margin-right: 40px;
 }
 .header__link {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-style: normal;
+  font-size: 18px;
+  line-height: 1.3;
   text-decoration: none;
+  color: #000000;
+  transition: all 0.25s ease;
+  border-bottom: 1px solid transparent;
+}
+
+@media screen and (max-width: 1280px) {
+  .header__link {
+    font-size: 16px;
+  }
+}
+
+.header__link:hover {
+  color: #613a93;
+  border-bottom: 1px solid #613a93;
+}
+.nuxt-link-exact-active {
+  color: #000000;
+  border-bottom: 1px solid #000000;
+}
+.header__button-tell-stories {
+  padding: 0;
+  border: none;
+  background: none;
+  font-weight: normal;
+  font-style: normal;
   font-size: 18px;
   line-height: 1.3;
   color: #000000;
-  transition: all 0.5s ease;
-  border-bottom: 2px solid transparent;
-}
-.header__link:hover {
-  color: #613a93;
-  border-bottom: 2px solid #613a93;
-}
-.nuxt-link-exact-active {
-  color: #613a93;
-  border-bottom: 2px solid #613a93;
-}
-.header__link-tell-stories {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  width: 280px;
-  min-height: 40px;
-  outline: none;
-  border: none;
-  background-color: #613a93;
-  font-size: 18px;
-  line-height: 1.3;
-  text-align: center;
-  color: #fff;
-  padding: 0;
+  transition: all 0.25s ease;
+  border-bottom: 1px solid transparent;
   cursor: pointer;
-  border: 3px solid #fff;
-  transition: all 0.3s ease;
+  white-space: nowrap;
 }
-.header__link-tell-stories:hover {
+.header__button-tell-stories:hover {
   color: #613a93;
-  border: 3px solid #613a93;
-  background-color: #fff;
+  border-bottom: 1px solid #613a93;
+}
+.header__button-tell-stories:focus {
+  outline-style: none;
 }
 
-@media screen and(max-width: 1280px) {
-  .header__container {
-    padding: 18px 50px;
+@media screen and (max-width: 1280px) {
+  .header__button-tell-stories {
+    font-size: 16px;
   }
 }
 </style>

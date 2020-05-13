@@ -1,16 +1,20 @@
 <template>
-  <div>
-    <section class="stories-pagination page__stories-pagination">
-      <section-heading>
+  <section class="stories-pagination">
+    <ui-container class="stories-pagination__container">
+      <ui-heading>
         <template #title>Истории неизлечимых привычек</template>
-      </section-heading>
+      </ui-heading>
       <div class="stories-pagination__search">
-        <input type="search" class="stories-pagination__input" />
+        <input
+          v-model="search"
+          type="search"
+          class="stories-pagination__input"
+        />
         <button-search class="stories-pagination__input-btn"
           >Поиск</button-search
         >
       </div>
-      <stories-grid :start="start" :limit="limit" />
+      <ui-stories-grid :start="start" :limit="limit" :filter="search" />
       <div class="stories-pagination__buttons">
         <button
           ref="buttons"
@@ -24,22 +28,26 @@
           {{ index + 1 }}
         </button>
       </div>
-    </section>
-  </div>
+      <!--TODO: прятать пагинацию при поиске или выводить с учётом поиска -->
+    </ui-container>
+  </section>
 </template>
 
 <script>
-import SectionHeading from '~/components/SectionHeading';
+import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
 import Button from '~/components/ui/Button';
-import StoriesGrid from '~/components/StoriesGrid';
+import StoriesGrid from '~/components/blocks/StoriesGrid';
 export default {
   components: {
-    SectionHeading,
+    'ui-container': Container,
+    'ui-heading': Heading,
     'button-search': Button,
-    StoriesGrid,
+    'ui-stories-grid': StoriesGrid,
   },
   data() {
     return {
+      search: '',
       start: 0,
       limit: 16,
       numberOfPage: 1,
@@ -48,9 +56,7 @@ export default {
   },
   computed: {
     numberOfButtons() {
-      let num = Math.ceil(
-        this.$store.getters['stories/getNumberOfStories'] / 16
-      );
+      let num = Math.ceil(this.$store.getters['api/getNumberOfStories'] / 16);
       let counter = 0;
       for (let i = 1; i <= num; i++) {
         this.partsOfPages.push({ start: counter, limit: counter + 16 });
@@ -83,13 +89,9 @@ export default {
 </script>
 
 <style scoped>
-.stories-pagination {
-  max-width: 1320px;
-}
-
-.page__stories-pagination {
-  padding: 100px 60px;
-  margin: 0 auto;
+.stories-pagination__container {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .stories-pagination__search {

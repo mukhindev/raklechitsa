@@ -1,7 +1,14 @@
 <template>
   <div class="stories-container">
     <ul v-if="stories.length > 0" class="stories-container__grid">
-      <story-card v-for="story in stories" :key="story.id" :story="story" />
+      <ui-card
+        v-for="story in stories"
+        :key="story.id"
+        :link="`/stories/${story.id}`"
+        :img="story.photo"
+        :title="story.person"
+        :text="story.quote"
+      />
     </ul>
     <p v-else>Не найдено</p>
     <nuxt-link
@@ -15,22 +22,22 @@
 </template>
 
 <script>
-import SectionHeading from './SectionHeading.vue';
-import StoryCard from './StoryCard.vue';
+import Heading from '~/components/ui/Heading';
+import Card from '~/components/ui/Card';
 
 export default {
   components: {
-    SectionHeading,
-    StoryCard,
+    'ui-heading': Heading,
+    'ui-card': Card,
   },
   props: ['start', 'limit', 'more', 'filter'],
   computed: {
     stories() {
       if (this.filter) return this.filterStore;
-      return this.$store.getters['stories/getStories'](this.start, this.limit);
+      return this.$store.getters['api/getStories'](this.start, this.limit);
     },
     filterStore() {
-      return this.$store.getters['stories/getStories'](
+      return this.$store.getters['api/getStories'](
         this.start,
         this.limit
       ).filter(el => el.person.includes(this.filter));
@@ -51,7 +58,22 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 }
+
+@media screen and (max-width: 1024px) {
+  .stories-container__grid {
+    grid-gap: 40px 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stories-container__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px 20px;
+  }
+}
+
 .stories-container__button-more {
+  color: #000;
   margin: 70px 0 0;
   padding: 31px 0;
   background-color: #fbfbfb;
@@ -63,8 +85,7 @@ export default {
   text-decoration: none;
 }
 .stories-container__button-more:hover {
-  color: #fff;
-  background-color: #613a93;
+  background-color: #f8f8f8;
 }
 .stories-container__button-text {
   font-style: normal;

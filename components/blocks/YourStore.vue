@@ -1,19 +1,21 @@
 <template>
   <div>
     <section class="your-story">
-      <div class="your-story__container">
-        <section-heading>
-          <template #title>Расскажите свою историю</template>
-        </section-heading>
+      <ui-container class="your-story__container">
+        <ui-heading>
+          <template #title class="your-story__title"
+            >Расскажите свою историю</template
+          >
+        </ui-heading>
         <div class="your-story__grid">
           <article class="your-story__article-left">
-            <section-heading>
-              <template #subtitle
+            <ui-heading>
+              <template #subtitle class="your-story__subtitle"
                 >Мы публикуем новые истории на сайте раз в неделю. Есть 2
                 варианта поделиться своей историей неизлечимых привычек,
                 навязчивых идей и болезненных привязанностей.
               </template>
-            </section-heading>
+            </ui-heading>
           </article>
           <div class="your-story__variants">
             <button
@@ -35,20 +37,33 @@
           </div>
           <article class="your-story__article-right">
             <p class="your-story__text" v-html="showText"></p>
-            <button-type class="your-story__button-type"
+            <button-type
+              class="your-story__button-type"
+              v-if="isActiveButtonFirst"
+              @click="quizOpen"
               >Заполнить форму</button-type
+            >
+            <button-type class="your-story__button-type" v-else
+              >Оставить контакт</button-type
             >
           </article>
         </div>
-      </div>
+      </ui-container>
     </section>
   </div>
 </template>
 
 <script>
-import SectionHeading from '~/components/SectionHeading';
+import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
 import Button from '~/components/ui/Button';
+
 export default {
+  components: {
+    'ui-heading': Heading,
+    'ui-container': Container,
+    'button-type': Button,
+  },
   data() {
     return {
       isActiveButtonFirst: true,
@@ -68,10 +83,6 @@ export default {
       }
     },
   },
-  components: {
-    SectionHeading,
-    'button-type': Button,
-  },
   methods: {
     changeText(event) {
       if (event.target.classList.contains('your-story__btn-first')) {
@@ -83,6 +94,9 @@ export default {
         this.isActiveButtonSecond = true;
       }
     },
+    quizOpen() {
+      this.$store.commit('popup/quizOpen');
+    },
   },
 };
 </script>
@@ -93,9 +107,8 @@ export default {
 }
 
 .your-story__container {
-  max-width: 1320px;
-  padding: 100px 60px;
-  margin: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .your-story__grid {
@@ -121,6 +134,7 @@ export default {
   line-height: 22px;
   text-align: right;
   color: #a2a2a2;
+  padding: 0;
 }
 
 .your-story__btn:nth-of-type(even) {
@@ -153,7 +167,117 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .your-story__container {
-    padding: 90px 50px;
+    padding: 90px 50px 90px;
+  }
+
+  .your-story__button-type /deep/ .button {
+    width: 230px;
+    min-height: 48px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .your-story__container {
+    padding: 80px 50px 80px;
+  }
+
+  .your-story__button-type /deep/ .button {
+    width: 230px;
+    min-height: 48px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .your-story__title {
+    max-width: 288px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .your-story__subtitle {
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 260px;
+  }
+  .your-story__btn {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .your-story__text {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .your-story__variants {
+    margin-top: 20px;
+  }
+  .your-story__article-right {
+    margin-top: 20px;
+    min-height: 200px;
+  }
+  .your-story__grid {
+    grid-column-gap: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .your-story__grid {
+    grid-template-columns: minmax(290px, 380px);
+    grid-column-gap: 30px;
+    justify-content: center;
+  }
+  .your-story__container {
+    padding: 80px 15px 80px;
+  }
+  .your-story__variants {
+    margin-top: 80px;
+  }
+  .your-story__btn {
+    display: inline-block;
+  }
+  .your-story__article-right {
+    min-height: 191px;
+  }
+  .your-story__button-type /deep/ .button {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .your-story__btn-second {
+    margin-left: 30px;
+  }
+  .your-story__btn_active {
+    border-bottom: 2px solid #613a93;
+    padding-bottom: 3px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .your-story__container {
+    padding: 50px 15px 50px;
+  }
+  .your-story__variants {
+    margin-top: 40px;
+  }
+  .your-story__btn {
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .your-story__grid {
+    grid-column-gap: 20px;
+  }
+  .your-story__text {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .your-story__button-type /deep/ .button {
+    font-size: 13px;
+    line-height: 16px;
+    width: 290px;
+    min-height: 40px;
+    margin: auto;
+  }
+  .your-story__article-right {
+    margin-top: 20px;
+    min-height: 166px;
   }
 }
 </style>

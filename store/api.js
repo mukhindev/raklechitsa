@@ -2,6 +2,8 @@ import fakeData from '../fakeData';
 
 export const state = () => ({
   stories: fakeData.stories || null,
+  instagram: fakeData.instagram || null,
+  stats: fakeData.stats || null,
 });
 
 export const getters = {
@@ -24,6 +26,20 @@ export const getters = {
       console.error({ message: 'Не получены данные' });
     } else {
       return state.stories.length;
+    }
+  },
+  getInstagram: state => {
+    if (!state.instagram) {
+      console.error({ message: 'Не получены данные' });
+    } else {
+      return state.instagram;
+    }
+  },
+  getStats: state => {
+    if (!state.stats) {
+      console.error({ message: 'Не получены данные' });
+    } else {
+      return state.stats;
     }
   },
 };

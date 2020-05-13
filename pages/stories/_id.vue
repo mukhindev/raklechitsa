@@ -1,44 +1,50 @@
 <template>
   <section class="story">
-    <div class="story__lead">
-      <img
-        :src="story.photo"
-        :alt="`фото ${story.person}`"
-        class="story__photo"
-      />
-      <div class="story__intro">
-        <div class="story__desc">
-          <h3 class="story__person">{{ story.person }}:</h3>
-          <p class="story__quote">«{{ story.quote }}»</p>
-        </div>
-        <div class="story__misc">
-          <a href="#" class="story__sharing-link">Поделитесь ↗</a>
-          <p class="story__date">20 апреля 2018</p>
+    <ui-container class="story__container">
+      <div class="story__lead">
+        <img
+          :src="story.photo"
+          :alt="`фото ${story.person}`"
+          class="story__photo"
+        />
+        <div class="story__intro">
+          <div class="story__desc">
+            <h3 class="story__person">{{ story.person }}:</h3>
+            <p class="story__quote">«{{ story.quote }}»</p>
+          </div>
+          <div class="story__misc">
+            <a href="#" class="story__sharing-link">Поделитесь &#8599;</a>
+            <p class="story__date">20 апреля 2018</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="story__text">
-      {{ story.story }}
-    </div>
-    <stories-grid start="0" limit="4" more />
+      <div class="story__text">
+        {{ story.story }}
+      </div>
+      <!--TODO: ссылка "Поделитесь этой статьей ↗" под текстом  -->
+      <block-stories-grid start="0" limit="4" more />
+      <!--TODO: не выводить карточку активной страницы -->
+    </ui-container>
   </section>
 </template>
 
 <script>
-import SectionHeading from '~/components/SectionHeading.vue';
-import StoriesGrid from '~/components/StoriesGrid.vue';
+import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
+import StoriesGrid from '~/components/blocks/StoriesGrid';
 
 export default {
   components: {
-    SectionHeading,
-    StoriesGrid,
+    'ui-container': Container,
+    'ui-heading': Heading,
+    'block-stories-grid': StoriesGrid,
   },
   computed: {
     id() {
       return this.$route.params.id;
     },
     story() {
-      return this.$store.getters['stories/getStoryById'](this.id);
+      return this.$store.getters['api/getStoryById'](this.id);
     },
   },
 };

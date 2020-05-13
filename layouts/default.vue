@@ -1,26 +1,35 @@
 <template>
   <div class="page">
-    <app-header />
+    <block-header />
     <nuxt />
-    <app-footer />
+    <block-quiz v-if="quizShown" />
+    <block-footer />
+    <block-share v-if="shareShown" />
   </div>
 </template>
 
 <script>
-import AppHeader from '~/components/Header.vue';
-import AppFooter from '~/components/Footer.vue';
+import Header from '~/components/blocks/Header';
+import Quiz from '~/components/blocks/Quiz';
+import Footer from '~/components/blocks/Footer';
+import Share from '~/components/blocks/Share';
 
 export default {
   components: {
-    AppHeader,
-    AppFooter,
+    'block-header': Header,
+    'block-quiz': Quiz,
+    'block-footer': Footer,
+    'block-share': Share,
+  },
+  computed: {
+    quizShown() {
+      return this.$store.state.popup.quizShown;
+    },
+    shareShown() {
+      return this.$store.state.popup.shareShown;
+    },
   },
 };
 </script>
 
-<style scoped>
-.page {
-  margin: 0 auto;
-  max-width: 1440px;
-}
-</style>
+<style scoped></style>
