@@ -32,7 +32,9 @@
               >Youtube</a
             >
           </li>
-          <li><a class="footer__social-link" href="#">Поделитесь ↗</a></li>
+          <li>
+            <button class="footer__social-link" href="#">Поделитесь ↗</button>
+          </li>
         </ul>
       </div>
       <div class="footer__copyright">
@@ -119,7 +121,7 @@ ul.footer__links li:last-child a {
 }
 
 .footer__social-away {
-  text-decoration: none;
+  text-decoration: underline;
   color: black;
   font-size: 1.125rem;
   line-height: 1.3;
