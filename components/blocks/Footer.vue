@@ -130,10 +130,10 @@ ul.footer__links li:last-child a {
   padding: 0;
   border: 0;
   cursor: pointer;
+  background-color: #fbfbfb;
 }
 
 .footer__social-away {
-  text-decoration: none;
   color: black;
   font-size: 1.125rem;
   line-height: 1.3;
