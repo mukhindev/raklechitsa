@@ -210,6 +210,7 @@ export default {
   font-size: 16px;
   line-height: 19px;
   outline: none;
+  border: none;
 }
 
 .popup__button_left {
@@ -220,6 +221,7 @@ export default {
   padding: 0;
   cursor: pointer;
   transition: all 0.2s;
+  background-color: white;
 }
 
 .popup__button_left:hover {
