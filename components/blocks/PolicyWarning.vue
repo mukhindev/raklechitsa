@@ -1,0 +1,38 @@
+<template>
+  <p class="policy-warning">
+    Нажимая на кнопку «{{ button }}», вы даете согласие на
+    <nuxt-link class="policy-warning__link" to="/policy" target="_blank"
+      >обработку персональных данных</nuxt-link
+    >
+  </p>
+</template>
+
+<script>
+export default {
+  props: {
+    button: {
+      type: String,
+      default: 'Отправить',
+    },
+  },
+};
+</script>
+
+<style scoped>
+.policy-warning {
+  margin: 0;
+  max-width: 378px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #666666;
+}
+.policy-warning__link {
+  color: #666666;
+  transition: 0.25s;
+}
+.policy-warning__link:hover {
+  opacity: 0.7;
+}
+</style>
