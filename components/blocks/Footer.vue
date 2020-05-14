@@ -41,7 +41,9 @@
       </div>
       <div class="footer__copyright">
         <p class="footer__project-name">Рак Лечится {{ year }}</p>
-        <p class="footer__author">Сделано студентами Яндекс Практикум</p>
+        <a class="footer__author" href="https://praktikum.yandex.ru/"
+          >Сделано студентами Яндекс Практикум</a
+        >
       </div>
     </ui-container>
   </footer>
@@ -163,5 +165,6 @@ ul.footer__links li:last-child a {
   font-size: 1.125rem;
   line-height: 1;
   color: #898989;
+  text-decoration: none;
 }
 </style>
