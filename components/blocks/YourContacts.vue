@@ -1,6 +1,6 @@
 <template>
-  <ui-popup>
-    <form type="submit" name="FormContacts" class="form-contacts">
+  <ui-popup closeButton="yourContactsClose">
+    <form type="submit" class="form-contacts" name="FormContacts">
       <ui-input
         class="form-contacts__input form-contacts__input_full-width"
         v-model="contacts.name"

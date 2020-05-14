@@ -1,7 +1,7 @@
 export const state = () => ({
   quizShown: false,
   shareShown: false,
-  yourContactsShown: true,
+  yourContactsShown: false,
 });
 
 export const mutations = {
@@ -11,11 +11,11 @@ export const mutations = {
   quizClose(state) {
     state.quizShown = false;
   },
-  yourContacts(state) {
-    state.yourContacts = true;
+  yourContactsOpen(state) {
+    state.yourContactsShown = true;
   },
-  yourContacts(state) {
-    state.yourContacts = false;
+  yourContactsClose(state) {
+    state.yourContactsShown = false;
   },
   shareShown(state) {
     state.shareShown = true;

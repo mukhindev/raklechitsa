@@ -28,9 +28,14 @@ export default {
   props: {
     title: String,
     description: String,
+    closeButton: String,
   },
   methods: {
-    formClose() {},
+    formClose() {
+      if (this.closeButton) {
+        this.$store.commit(`popup/${this.closeButton}`);
+      }
+    },
   },
 };
 </script>
