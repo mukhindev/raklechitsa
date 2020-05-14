@@ -27,20 +27,20 @@
             и
             <a
               class="footer__social-away"
-              href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
+              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
               target="_blank"
               >Youtube</a
             >
           </li>
           <li>
-            <button class="footer__social-link" @click="shareShown">
+            <button class="footer__social-link" @click="shareOpen">
               Поделитесь &#8599;
             </button>
           </li>
         </ul>
       </div>
       <div class="footer__copyright">
-        <p class="footer__project-name">Рак Лечится 2020</p>
+        <p class="footer__project-name">Рак Лечится {{ year }}</p>
         <p class="footer__author">Сделано студентами Яндекс Практикум</p>
       </div>
     </ui-container>
@@ -55,9 +55,14 @@ export default {
     'ui-container': Container,
   },
   methods: {
-    shareShown() {
-      this.$store.commit('popup/shareShown');
+    shareOpen() {
+      this.$store.commit('popup/shareOpen');
     },
+  },
+  data() {
+    return {
+      year: new Date(2020, 4).getFullYear(),
+    };
   },
 };
 </script>
@@ -77,7 +82,7 @@ export default {
 
 .footer__title {
   max-width: 340px;
-  margin-right: 8%;
+  margin-right: 113px;
   font-size: 2rem;
   line-height: 1.1;
   font-weight: 600;
@@ -91,7 +96,7 @@ export default {
 }
 
 .footer__menu {
-  margin-right: 28%;
+  margin-right: 379px;
 }
 
 .footer__links {

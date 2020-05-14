@@ -4,7 +4,7 @@
       <div class="share">
         <p class="share__title">Поделитесь</p>
         <svg
-          @click="shareHidden"
+          @click="shareClose"
           class="share__close"
           width="16"
           height="16"
@@ -49,8 +49,8 @@ export default {
     Overlay: Overlay,
   },
   methods: {
-    shareHidden() {
-      this.$store.commit('popup/shareHidden');
+    shareClose() {
+      this.$store.commit('popup/shareClose');
     },
   },
   data() {
