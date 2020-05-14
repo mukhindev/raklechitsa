@@ -151,6 +151,10 @@ export default {
   color: #000;
 }
 
+.your-story__button-type {
+  max-width: 280px;
+}
+
 .your-story__text {
   font-style: normal;
   font-weight: normal;

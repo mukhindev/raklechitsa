@@ -91,13 +91,6 @@ export default {
   gap: 40px;
 }
 
-.input {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33;
-}
-
 .form-contacts__input_full-width {
   grid-column: 1 / -1;
 }
