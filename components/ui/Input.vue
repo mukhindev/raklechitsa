@@ -6,6 +6,7 @@
       :placeholder="placeholder"
       :name="name"
       :type="type"
+      :value="value"
       :required="required ? true : false"
       @input="$emit('input', $event.target.value)"
     />
@@ -20,6 +21,7 @@ export default {
     type: String,
     name: String,
     required: Boolean,
+    value: String,
   },
 };
 </script>

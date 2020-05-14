@@ -1,18 +1,31 @@
 <template>
-  <button @click="$emit('click')" type="button" class="button">
+  <button
+    @click="$emit('click')"
+    :type="type"
+    class="button"
+    :class="{ button_white: white }"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    type: {
+      type: String,
+      default: 'button',
+    },
+    white: Boolean,
+  },
+};
 </script>
 
 <style scoped>
 .button {
+  flex-shrink: 0;
   padding: 0;
   background: #613a93;
-  width: 280px;
   min-height: 52px;
   border: none;
   outline: none;
@@ -20,13 +33,18 @@ export default {};
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.19;
-  text-align: center;
+  line-height: 1.2;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s;
+  transition: all 0.25s;
+}
+
+.button_white {
+  background: #ffffff;
+  color: #666666;
+}
+
+.button:disabled {
+  cursor: default;
 }
 
 .button:hover {
