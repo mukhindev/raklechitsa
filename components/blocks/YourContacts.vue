@@ -1,5 +1,10 @@
 <template>
-  <ui-popup closeButton="yourContactsClose">
+  <ui-popup
+    header
+    :title="title"
+    :description="description"
+    closeButton="yourContactsClose"
+  >
     <form type="submit" class="form-contacts" name="FormContacts">
       <ui-input
         class="form-contacts__input form-contacts__input_full-width"
@@ -60,6 +65,9 @@ export default {
   },
   data() {
     return {
+      title: 'Оставьте контакт для связи',
+      description:
+        'Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории и разместить ее на сайте.',
       contacts: {
         name: '',
         mail: '',
