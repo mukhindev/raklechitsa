@@ -2,17 +2,14 @@
   <ui-overlay>
     <div class="popup">
       <div class="popup__header">
-        <h3 class="popup__title">Оставьте контакт для связи</h3>
+        <h3 v-if="title" class="popup__title">{{ title }}</h3>
         <button
           class="popup__button-close"
           type="button"
           @click="formClose"
         ></button>
       </div>
-      <p v-if="description" class="popup__description">
-        Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей
-        истории и разместить ее на сайте.
-      </p>
+      <p v-if="description" class="popup__description">{{ description }}</p>
       <slot></slot>
     </div>
   </ui-overlay>
@@ -79,6 +76,7 @@ export default {
   background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.25s;
+  margin-left: auto;
 }
 .popup__button-close:focus {
   outline: 1px solid #613a93;
