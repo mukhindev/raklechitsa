@@ -17,10 +17,10 @@ export const mutations = {
   yourContactsClose(state) {
     state.yourContactsShown = false;
   },
-  shareShown(state) {
+  shareOpen(state) {
     state.shareShown = true;
   },
-  shareHidden(state) {
+  shareClose(state) {
     state.shareShown = false;
   },
 };
