@@ -9,13 +9,13 @@
       </h2>
       <nav class="header__nav" ref="nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">
+          <li class="header__nav-item" @click="handleBurger">
             <nuxt-link to="/" class="header__link">Главная</nuxt-link>
           </li>
-          <li class="header__nav-item">
+          <li class="header__nav-item" @click="handleBurger">
             <nuxt-link to="/stories" class="header__link">Истории</nuxt-link>
           </li>
-          <li class="header__nav-item">
+          <li class="header__nav-item" @click="handleBurger">
             <button @click="quizOpen" class="header__button-tell-stories">
               Рассказать историю
             </button>
@@ -25,7 +25,7 @@
       <button
         ref="burger"
         type="button"
-        @click="handleBurger()"
+        @click="handleBurger"
         class="header__burger header__burger_3dx"
       >
         <div class="header__burger-box">
