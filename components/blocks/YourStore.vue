@@ -43,7 +43,10 @@
               @click="quizOpen"
               >Заполнить форму</button-type
             >
-            <button-type class="your-story__button-type" v-else
+            <button-type
+              @click="yourContactsOpen"
+              class="your-story__button-type"
+              v-else
               >Оставить контакт</button-type
             >
           </article>
@@ -96,6 +99,9 @@ export default {
     },
     quizOpen() {
       this.$store.commit('popup/quizOpen');
+    },
+    yourContactsOpen() {
+      this.$store.commit('popup/yourContactsOpen');
     },
   },
 };
