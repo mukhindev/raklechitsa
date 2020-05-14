@@ -26,7 +26,7 @@ export default {
     color: '#582b71',
     height: '4px',
   },
-  css: ['~/assets/css/global.css'],
+  css: ['~/assets/fonts/inter.css', '~/assets/css/global.css'],
   plugins: [],
   buildModules: [],
   modules: ['@nuxtjs/axios'],
