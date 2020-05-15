@@ -114,20 +114,20 @@ export default {
   }
   .section-heading__subtitle {
     max-width: 380px;
-    margin-top: 26px;
+    margin: 26px auto 0;
   }
 }
 
 @media screen and (max-width: 425px) {
   .section-heading__title {
-    max-width: 290px;
+    max-width: none;
     margin: 0;
     font-size: 18px;
     line-height: 21px;
     text-align: left;
   }
   .section-heading__subtitle {
-    max-width: 290px;
+    max-width: none;
     margin-top: 16px;
   }
 }
