@@ -40,6 +40,20 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .strip {
+    font-size: 22px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .strip {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
 .strip__tag {
   color: #fff;
   font-style: normal;

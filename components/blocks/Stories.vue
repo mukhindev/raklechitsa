@@ -30,4 +30,20 @@ export default {
 .stories__heading {
   margin: 0 0 70px;
 }
+@media screen and (max-width: 768px) {
+  .stories_container {
+    padding-top: 80px;
+  }
+  .stories__heading {
+    margin: 0 0 60px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .stories_container {
+    padding-top: 50px;
+  }
+  .stories__heading {
+    margin: 0 0 40px;
+  }
+}
 </style>
