@@ -142,6 +142,12 @@ export default {
   }
 }
 
+@media screen and (max-width: 425px) {
+  .tabs__nav-button {
+    font-size: 13px;
+  }
+}
+
 .tabs__nav-button:focus {
   outline: none;
 }
@@ -224,6 +230,13 @@ export default {
 @media screen and (max-width: 1024px) {
   .tabs__tab-paragraph {
     font-size: 15px;
+    margin: 0 0 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .tabs__tab-paragraph {
+    font-size: 13px;
     margin: 0 0 16px;
   }
 }

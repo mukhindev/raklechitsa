@@ -22,4 +22,10 @@
     padding: 0 40px;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .containter {
+    padding: 0 15px;
+  }
+}
 </style>

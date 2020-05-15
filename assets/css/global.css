@@ -13,6 +13,12 @@
   transform: scale(1.05);
 }
 
+@media screen and (max-width: 768px) {
+  .hover-card:hover {
+    transform: scale(1);
+  }
+}
+
 .hover-card::after {
   content: '';
   display: block;
@@ -25,6 +31,12 @@
   transition: box-shadow 0.25s;
   z-index: 1;
   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hover-card::after {
+    display: none;
+  }
 }
 
 .hover-card:hover::after {

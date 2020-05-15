@@ -72,6 +72,13 @@ export default {
   }
 }
 
+@media screen and (max-width: 425px) {
+  .stories-container__grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 40px 20px;
+  }
+}
+
 .stories-container__button-more {
   color: #000;
   margin: 70px 0 0;

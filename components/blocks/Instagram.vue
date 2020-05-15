@@ -115,6 +115,20 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .instagram__cards {
+    grid-template-columns: repeat(3, 4fr);
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .instagram__cards {
+    grid-template-columns: repeat(2, 4fr);
+    grid-gap: 10px;
+  }
+}
+
 .instagram__card-image {
   display: block;
   width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="link" class="card__link hover-card">
     <li class="card__card">
-      <img v-if="img" :src="img" :alt="`${title}`" class="card__card-photo" />
+      <img v-if="img" :src="img" :alt="title" class="card__card-photo" />
       <h3 v-if="title" class="card__card-person">{{ title }}</h3>
       <p v-if="text" class="card__card-quote">{{ text }}</p>
     </li>
