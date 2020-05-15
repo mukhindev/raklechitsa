@@ -37,24 +37,13 @@ export default {
   background: #613a93;
 }
 .cover__container {
-  min-height: 689px;
+  min-height: calc(100vh - 72px);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.25s ease;
 }
 
-@media screen and (max-width: 1280px) {
-  .cover__container {
-    min-height: 620px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .cover__container {
-    min-height: 540px;
-  }
-}
 .cover__tag {
   color: #ffffff;
   font-weight: 800;
@@ -71,21 +60,32 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .cover__tag {
+    font-size: 10vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .cover__tag {
+    font-size: 36px;
+  }
+}
+
 .cover__polygon {
   border: none;
   padding: 0;
+  background-color: transparent;
+  background-image: url('/images/ui/arrow-wide-down.svg');
+  background-size: 38px 15px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-  background: url('/images/ui/arrow-wide-down.svg');
-  background-size: contain;
-  background-repeat: none;
-  width: 38px;
-  height: 15px;
+  width: 54px;
+  height: 31px;
   position: absolute;
-  bottom: 40px;
+  bottom: 32px;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
   margin: 0;
   transition: opacity 0.25s;
   cursor: pointer;
