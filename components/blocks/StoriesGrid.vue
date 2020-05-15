@@ -91,6 +91,35 @@ export default {
   cursor: pointer;
   text-decoration: none;
 }
+
+@media screen and (max-width: 1024px) {
+  .stories-container__button-more {
+    margin: 60px 0 0;
+    padding: 29px 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .stories-container__button-more {
+    margin: 46px 0 0;
+    padding: 17px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stories-container__button-more {
+    margin: 57px 0 0;
+    padding: 17px 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .stories-container__button-more {
+    margin: 40px 0 0;
+    padding: 15px 0;
+  }
+}
+
 .stories-container__button-more:hover {
   background-color: #f8f8f8;
 }
