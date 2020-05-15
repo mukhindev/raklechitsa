@@ -37,6 +37,7 @@ export default {
   background: #613a93;
 }
 .cover__container {
+  padding: 0;
   min-height: calc(100vh - 72px);
   display: flex;
   justify-content: center;
