@@ -52,7 +52,7 @@ export default {
 <style scoped>
 .about {
   background: #613a93;
-  color: #ffffff;
+  color: #fff;
 }
 
 .about__container {

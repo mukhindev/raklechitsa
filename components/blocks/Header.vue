@@ -107,7 +107,7 @@ export default {
   font-size: 18px;
   line-height: 1.3;
   text-decoration: none;
-  color: #000000;
+  color: #000;
   transition: all 0.25s ease;
   border-bottom: 1px solid transparent;
 }
@@ -117,8 +117,8 @@ export default {
   border-bottom: 1px solid #613a93;
 }
 .nuxt-link-exact-active {
-  color: #000000;
-  border-bottom: 1px solid #000000;
+  color: #000;
+  border-bottom: 1px solid #000;
 }
 .header__button-tell-stories {
   padding: 0;
@@ -128,7 +128,7 @@ export default {
   font-style: normal;
   font-size: 18px;
   line-height: 1.3;
-  color: #000000;
+  color: #000;
   transition: all 0.25s ease;
   border-bottom: 1px solid transparent;
   cursor: pointer;

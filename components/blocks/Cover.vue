@@ -45,7 +45,7 @@ export default {
 }
 
 .cover__tag {
-  color: #ffffff;
+  color: #fff;
   font-weight: 800;
   font-size: 92px;
   line-height: 1.2;

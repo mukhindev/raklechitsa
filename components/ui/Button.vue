@@ -39,7 +39,7 @@ export default {
 }
 
 .button_white {
-  background: #ffffff;
+  background: #fff;
   color: #666666;
 }
 
