@@ -147,12 +147,12 @@ export default {
 }
 
 .tabs__nav-button:hover {
-  color: #000000;
+  color: #000;
 }
 
 @media screen and (max-width: 768px) {
   .tabs__nav-button:hover {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000;
   }
 }
 
@@ -171,17 +171,17 @@ export default {
 }
 
 .tabs__nav-button.tabs__nav-button_active {
-  color: #000000;
+  color: #000;
 }
 
 @media screen and (max-width: 768px) {
   .tabs__nav-button.tabs__nav-button_active {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000;
   }
 }
 
 .tabs__nav-button_theme_dark.tabs__nav-button_active {
-  color: #ffffff;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
