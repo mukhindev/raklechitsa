@@ -4,20 +4,21 @@
       <ui-heading class="stats__heading">
         <template #title>Статистика по онкозаболеваниям</template>
       </ui-heading>
-      <div class="stats__grid">
-        <blocks-stats-card
-          v-for="(el, index) in statsFormated"
-          :key="index"
-          :valuePrev="el.valuePrev"
-          :value="el.value"
-          :valueMax="el.valueMax"
-        >
-          <template #text>{{ el.text }}</template>
-          <template #value>{{ el.valueText }}</template>
-          <template #source>{{ el.source }}</template>
-        </blocks-stats-card>
+      <div class="scroll-container">
+        <div class="stats__grid">
+          <blocks-stats-card
+            v-for="(el, index) in statsFormated"
+            :key="index"
+            :valuePrev="el.valuePrev"
+            :value="el.value"
+            :valueMax="el.valueMax"
+          >
+            <template #text>{{ el.text }}</template>
+            <template #value>{{ el.valueText }}</template>
+            <template #source>{{ el.source }}</template>
+          </blocks-stats-card>
+        </div>
       </div>
-      <!--TODO: подумать над префиксами -->
     </ui-container>
   </section>
 </template>
@@ -70,14 +71,37 @@ export default {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
+@media screen and (max-width: 768px) {
+  .stats__container {
+    padding: 80px 0 60px;
+  }
+}
+
 .stats__heading {
   margin: 0 0 70px;
 }
+
+@media screen and (max-width: 425px) {
+  .stats__heading {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scroll-container {
+    overflow-x: scroll;
+    padding: 0 0 20px 0;
+    position: relative;
+  }
+}
+
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 }
+
 @media screen and (max-width: 1024px) {
   .stats__grid {
     gap: 30px;
@@ -86,13 +110,18 @@ export default {
 
 @media screen and (max-width: 768px) {
   .stats__grid {
+    width: fit-content;
+    padding: 0 40px;
+    grid-template-columns: repeat(4, 216px);
     gap: 20px;
+    user-select: none;
   }
 }
 
 @media screen and (max-width: 425px) {
   .stats__grid {
     gap: 10px;
+    padding: 0 15px;
   }
 }
 </style>
