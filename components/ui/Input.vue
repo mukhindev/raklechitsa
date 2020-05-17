@@ -34,6 +34,18 @@ export default {
   line-height: 1.33;
 }
 
+@media screen and (max-width: 1280px) {
+  .input {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .input {
+    font-size: 15px;
+  }
+}
+
 .input__area {
   margin: 32px 0 0;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -48,6 +60,26 @@ export default {
   border-bottom: 1px solid #e7e7e7;
   transition: 0.25s;
 }
+
+@media screen and (max-width: 1280px) {
+  .input__area {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .input__area {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .input__area {
+    margin: 20px 0 0;
+    font-size: 13px;
+  }
+}
+
 .input__area:focus {
   outline: none;
   border-bottom: 1px solid #613a93;

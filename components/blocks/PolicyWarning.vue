@@ -28,6 +28,13 @@ export default {
   line-height: 1.2;
   color: #666666;
 }
+
+@media screen and (max-width: 720px) {
+  .policy-warning {
+    max-width: none;
+  }
+}
+
 .policy-warning__link {
   color: #666666;
   transition: 0.25s;
