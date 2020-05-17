@@ -91,6 +91,12 @@ export default {
   gap: 40px;
 }
 
+@media screen and (max-width: 720px) {
+  .form-contacts {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .form-contacts__input_full-width {
   grid-column: 1 / -1;
 }
@@ -101,8 +107,23 @@ export default {
   align-items: center;
 }
 
+@media screen and (max-width: 720px) {
+  .form-contacts__submit {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .form-contacts__button {
   width: 226px;
   margin-right: 30px;
+}
+
+@media screen and (max-width: 720px) {
+  .form-contacts__button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 </style>

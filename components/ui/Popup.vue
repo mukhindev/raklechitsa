@@ -52,21 +52,23 @@ export default {
   width: 100%;
   max-width: 920px;
   padding: 40px;
+  margin: auto;
   background-color: #fff;
 }
+
+@media screen and (max-width: 425px) {
+  .popup {
+    padding: 15px;
+  }
+}
+
 .popup__header {
   padding: 0 0 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
-.popup__description {
-  margin: 0 0 50px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33;
-}
+
 .popup__title {
   margin: 0;
   font-style: normal;
@@ -74,6 +76,51 @@ export default {
   font-size: 32px;
   line-height: 1.125;
 }
+
+@media screen and (max-width: 1280px) {
+  .popup__title {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup__title {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup__title {
+    font-size: 18px;
+  }
+}
+
+.popup__description {
+  margin: 0 0 50px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+@media screen and (max-width: 1280px) {
+  .popup__description {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup__description {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .popup__description {
+    font-size: 13px;
+  }
+}
+
 .popup__title_center {
   padding-left: 32px; /* Компенсация кнопки справа */
   width: 100%;
@@ -94,6 +141,31 @@ export default {
   margin-left: auto;
   transition: 0.25s;
 }
+
+@media screen and (max-width: 1280px) {
+  .popup__button-close {
+    width: 32px;
+    height: 32px;
+    background-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup__button-close {
+    width: 24px;
+    height: 24px;
+    background-size: 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .popup__button-close {
+    width: 20px;
+    height: 20px;
+    background-size: 13px;
+  }
+}
+
 .popup__button-close:focus {
   outline: 1px solid #613a93;
 }

@@ -30,7 +30,7 @@
           <ui-button v-if="lastQuestion" @click="send" class="form-quiz__button"
             >Отправить</ui-button
           >
-          <block-policy-warning />
+          <block-policy-warning v-if="lastQuestion" />
         </div>
       </form>
       <ui-button v-else @click="quizClose" class="form-quiz__button-close"
@@ -117,6 +117,18 @@ export default {
   line-height: 1.33;
 }
 
+@media screen and (max-width: 1280px) {
+  .form-quiz__question {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form-quiz__question {
+    font-size: 13px;
+  }
+}
+
 .form-quiz__question-extra {
   color: #666;
 }
@@ -125,11 +137,34 @@ export default {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 720px) {
+  .form-quiz__submit {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .form-quiz__button {
   width: 226px;
   margin: 0 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .form-quiz__button {
+    width: 200px;
+    margin: 0 30px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .form-quiz__button {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .form-quiz__button-close {
