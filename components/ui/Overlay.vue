@@ -3,11 +3,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.bodyTag = document.querySelector('body');
+    this.bodyTag.style.overflowY = 'hidden';
+  },
+  destroyed() {
+    this.bodyTag.style.overflowY = 'auto';
+  },
+};
 </script>
 
-<style>
+<style scoped>
 .overlay {
+  box-sizing: border-box;
   position: fixed;
   left: 0;
   top: 0;
@@ -18,5 +27,26 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+  padding: 15px 112px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .overlay {
+    padding: 15px 112px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .overlay {
+    padding: 15px 94px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .overlay {
+    padding: 15px;
+  }
 }
 </style>

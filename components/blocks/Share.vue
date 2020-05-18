@@ -49,7 +49,7 @@ export default {
   padding: 0;
   width: 48px;
   height: 48px;
-  background-color: none;
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
