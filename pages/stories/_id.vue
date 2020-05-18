@@ -46,7 +46,9 @@ export default {
     },
     itemsToLoop() {
       if (process.browser) {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 320) {
+          return (this.limit = 2);
+        } else if (window.innerWidth <= 768) {
           return (this.limit = 3);
         } else {
           return (this.limit = 4);
@@ -64,6 +66,11 @@ export default {
 @media screen and (max-width: 768px) {
   .story {
     padding: 80px 24px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story {
+    padding: 50px 0;
   }
 }
 
@@ -87,6 +94,11 @@ export default {
     margin: 0 0 100px;
   }
 }
+@media screen and (max-width: 320px) {
+  .story__lead {
+    margin: 0 0 40px;
+  }
+}
 
 .story__photo {
   width: calc(100% - 60px);
@@ -107,6 +119,14 @@ export default {
     max-width: 420px;
     justify-self: center;
     margin: 60px 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__photo {
+    width: 100%;
+    max-width: 290px;
+    justify-self: center;
+    margin: 30px 0;
   }
 }
 
@@ -149,6 +169,12 @@ export default {
     font-size: 30px;
   }
 }
+@media screen and (max-width: 320px) {
+  .story__person {
+    font-size: 18px;
+    line-height: 1.17;
+  }
+}
 
 .story__quote {
   display: inline;
@@ -160,6 +186,12 @@ export default {
 @media screen and (max-width: 1024px) {
   .story__quote {
     font-size: 30px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__quote {
+    font-size: 18px;
+    line-height: 1.17;
   }
 }
 
@@ -177,6 +209,13 @@ export default {
     line-height: 1.5;
     max-width: 640px;
     margin: 0 auto 100px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__text {
+    font-size: 13px;
+    line-height: 1.23;
+    margin: 0 auto 40px;
   }
 }
 
@@ -209,6 +248,12 @@ export default {
     line-height: 1.5;
   }
 }
+@media screen and (max-width: 320px) {
+  .story__sharing-link {
+    font-size: 13px;
+    line-height: 1.23;
+  }
+}
 
 .story__date {
   font-size: 1.125rem;
@@ -221,6 +266,12 @@ export default {
   .story__date {
     font-size: 16px;
     line-height: 1.5;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__date {
+    font-size: 13px;
+    line-height: 1.23;
   }
 }
 </style>
