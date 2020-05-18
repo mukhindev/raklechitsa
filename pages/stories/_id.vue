@@ -7,7 +7,6 @@
           :alt="`фото ${story.person}`"
           class="story__photo"
         />
-        <!-- <div class="story__intro"> -->
         <div class="story__desc">
           <h3 class="story__person">{{ story.person }}:</h3>
           <p class="story__quote">«{{ story.quote }}»</p>
@@ -16,13 +15,12 @@
           <a href="#" class="story__sharing-link">Поделитесь &#8599;</a>
           <p class="story__date">20 апреля 2018</p>
         </div>
-        <!-- </div> -->
       </div>
       <div class="story__text">
         {{ story.story }}
       </div>
       <!--TODO: ссылка "Поделитесь этой статьей ↗" под текстом  -->
-      <block-stories-grid start="0" limit="4" more />
+      <block-stories-grid start="0" :limit="itemsToLoop" more />
       <!--TODO: не выводить карточку активной страницы -->
     </ui-container>
   </section>
@@ -46,6 +44,15 @@ export default {
     story() {
       return this.$store.getters['api/getStoryById'](this.id);
     },
+    itemsToLoop() {
+      if (process.browser) {
+        if (window.innerWidth <= 768) {
+          return (this.limit = 3);
+        } else {
+          return (this.limit = 4);
+        }
+      }
+    },
   },
 };
 </script>
@@ -54,6 +61,12 @@ export default {
 .story {
   padding: 100px 20px;
 }
+@media screen and (max-width: 768px) {
+  .story {
+    padding: 80px 24px;
+  }
+}
+
 .story__lead {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
@@ -62,6 +75,17 @@ export default {
     'photo desc'
     'photo misc';
   margin: 0 0 130px;
+}
+@media screen and (max-width: 768px) {
+  .story__lead {
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'desc'
+      'photo'
+      'misc';
+    margin: 0 0 100px;
+  }
 }
 
 .story__photo {
@@ -72,10 +96,17 @@ export default {
   object-position: top;
   grid-area: photo;
 }
-
 @media screen and (max-width: 1024px) {
   .story__photo {
     width: calc(100% - 40px);
+    max-width: 407px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .story__photo {
+    max-width: 420px;
+    justify-self: center;
+    margin: 60px 0;
   }
 }
 
@@ -98,6 +129,11 @@ export default {
 @media screen and (max-width: 1024px) {
   .story__desc {
     padding-top: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .story__desc {
+    text-align: center;
   }
 }
 
@@ -140,7 +176,7 @@ export default {
     font-size: 18px;
     line-height: 1.5;
     max-width: 640px;
-    margin: 0 auto 70px;
+    margin: 0 auto 100px;
   }
 }
 
