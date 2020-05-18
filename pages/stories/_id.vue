@@ -19,6 +19,11 @@
       <div class="story__text">
         {{ story.story }}
       </div>
+      <div class="story__link-after-text">
+        <a href="#" class="story__sharing-link"
+          >Поделитесь этой статьей в своих социальных сетях &#8599;</a
+        >
+      </div>
       <!--TODO: ссылка "Поделитесь этой статьей ↗" под текстом  -->
       <block-stories-grid start="0" :limit="itemsToLoop" more />
       <!--TODO: не выводить карточку активной страницы -->
@@ -82,6 +87,11 @@ export default {
     'photo desc'
     'photo misc';
   margin: 0 0 130px;
+}
+@media screen and (max-width: 1024px) {
+  .story__lead {
+    margin: 0 0 90px;
+  }
 }
 @media screen and (max-width: 768px) {
   .story__lead {
@@ -203,12 +213,25 @@ export default {
   font-size: 22px;
   line-height: 1.36;
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1280px) {
+  .story__text {
+    font-size: 20px;
+    line-height: 1.4;
+    max-width: 720px;
+    margin: 0 auto 60px;
+  }
+}
+@media screen and (max-width: 1024px) {
   .story__text {
     font-size: 18px;
     line-height: 1.5;
     max-width: 640px;
-    margin: 0 auto 100px;
+    margin: 0 auto 46px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .story__text {
+    margin: 0 auto 80px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -252,6 +275,37 @@ export default {
   .story__sharing-link {
     font-size: 13px;
     line-height: 1.23;
+  }
+}
+
+.story__link-after-text {
+  max-width: 780px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+  margin: 0 auto 160px;
+}
+@media screen and (max-width: 1280px) {
+  .story__link-after-text {
+    max-width: 720px;
+    margin: 0 auto 150px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .story__link-after-text {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    max-width: 640px;
+    margin: 0 auto 120px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .story__link-after-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto 100px;
   }
 }
 
