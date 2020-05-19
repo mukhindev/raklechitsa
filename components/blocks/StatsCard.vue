@@ -17,7 +17,11 @@ export default {
   components: {
     'ui-progress': Progress,
   },
-  props: ['valueMax', 'valuePrev', 'value'],
+  props: {
+    valueMax: Number,
+    valuePrev: Number,
+    value: Number,
+  },
 };
 </script>
 
