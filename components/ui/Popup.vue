@@ -133,7 +133,7 @@ export default {
   padding: 0;
   border: 0;
   background: none;
-  background-image: url('/images/ui/cross.svg');
+  background-image: url('~assets/images/cross.svg');
   background-size: 20px;
   background-position: center;
   background-repeat: no-repeat;
