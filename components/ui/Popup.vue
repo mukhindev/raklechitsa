@@ -128,11 +128,11 @@ export default {
 }
 .popup__button-close {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
   padding: 0;
   border: 0;
   background: none;
+  width: 32px;
+  height: 32px;
   background-image: url('~assets/images/cross.svg');
   background-size: 20px;
   background-position: center;

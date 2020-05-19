@@ -14,47 +14,39 @@
                 доказательство — люди с их историями.
               </template>
             </ui-heading>
-            <div class="intro__wrapper-btn">
+            <div v-if="width > 768" class="intro__wrapper-btn">
               <button
                 type="button"
                 class="intro__btn intro__btn_left"
                 v-on:click="moveVideoBack"
                 :disabled="changeDisabledForLeft"
-              >
-                <svg
-                  class="intro__arrow"
-                  width="10"
-                  height="18"
-                  viewBox="0 0 10 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9 1L1 9L9 17" stroke="#BFBFBF" />
-                </svg>
-              </button>
+              ></button>
               <button
                 type="button"
                 class="intro__btn intro__btn_right"
                 v-on:click="moveVideoAhead"
                 :disabled="changeDisabledForRight"
-              >
-                <svg
-                  class="intro__arrow"
-                  width="10"
-                  height="18"
-                  viewBox="0 0 10 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M1 17L9 9L1 1" stroke="#BFBFBF" />
-                </svg>
-              </button>
+              ></button>
             </div>
           </div>
         </template>
 
         <template #content>
           <div class="intro__video">
+            <div v-if="width <= 768" class="intro__wrapper-btn">
+              <button
+                type="button"
+                class="intro__btn intro__btn_left"
+                v-on:click="moveVideoBack"
+                :disabled="changeDisabledForLeft"
+              ></button>
+              <button
+                type="button"
+                class="intro__btn intro__btn_right"
+                v-on:click="moveVideoAhead"
+                :disabled="changeDisabledForRight"
+              ></button>
+            </div>
             <div class="intro__contain-box">
               <iframe
                 class="intro__iframe"
@@ -99,6 +91,7 @@ export default {
   },
   data() {
     return {
+      width: null,
       urlList: [
         'https://www.youtube.com/embed/ou60K0WfcJ0',
         'https://www.youtube.com/embed/8IPCPfRF8F0',
@@ -131,6 +124,16 @@ export default {
     moveVideoBack() {
       this.counter--;
     },
+    resizeDetector(e) {
+      this.width = e.target.innerWidth;
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.resizeDetector);
+    this.width = window.innerWidth;
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.resizeDetector);
   },
 };
 </script>
@@ -148,9 +151,21 @@ export default {
 }
 
 .intro__contain-box {
-  width: 100%;
   padding-bottom: 56.5%;
   position: relative;
+  z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .intro__contain-box {
+    margin: 0 54px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .intro__contain-box {
+    margin: 0 0;
+  }
 }
 
 .intro__iframe {
@@ -160,15 +175,32 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+.intro__video {
+  position: relative;
 }
 
 .intro__video-text {
-  margin: 0;
+  margin: 10px 0 0;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 1.3;
   color: #666;
+}
+
+@media screen and (max-width: 768px) {
+  .intro__video-text {
+    margin: 20px 0 0 54px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .intro__video-text {
+    margin: 20px 0 0 0px;
+  }
 }
 
 .intro__video-link {
@@ -183,6 +215,22 @@ export default {
 .intro__wrapper-btn {
   font-size: 0;
   margin: 18px 0;
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .intro__wrapper-btn {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(calc(-50% - 40px));
+  }
+}
+
+.intro__wrapper-btn-overlay {
+  z-index: 2;
 }
 
 .intro__btn {
@@ -192,27 +240,38 @@ export default {
   background: #fbfbfb;
   border: 0;
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
+  background-size: 40% 40%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.intro__arrow path {
-  transition: all 0.3s ease;
+@media screen and (max-width: 425px) {
+  .intro__btn {
+    background-color: transparent;
+    filter: invert();
+  }
+}
+
+.intro__btn_left {
+  background-image: url('~assets/images/arrow_left.svg');
+}
+
+.intro__btn_right {
+  background-image: url('~assets/images/arrow_right.svg');
 }
 
 .intro__btn:hover {
-  background-color: #613a93;
-}
-
-.intro__btn:hover .intro__arrow path {
-  stroke: white;
+  background-size: 55% 55%;
 }
 
 .intro__btn:disabled {
-  background-color: #fbfbfb;
+  opacity: 0.5;
+  cursor: default;
 }
 
-.intro__btn:disabled .intro__arrow path {
-  stroke: #bfbfbf;
+.intro__btn:disabled:hover {
+  background-size: 40% 40%;
 }
 
 .intro__strip {
