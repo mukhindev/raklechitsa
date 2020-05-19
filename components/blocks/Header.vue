@@ -248,9 +248,6 @@ export default {
   .header__nav {
     padding-right: 50px;
   }
-  .header {
-    border-bottom: 0;
-  }
 }
 
 @media screen and (max-width: 1024px) {

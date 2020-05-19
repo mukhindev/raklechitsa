@@ -20,7 +20,7 @@
           <div class="your-story__variants">
             <button
               type="button"
-              class="your-story__btn your-story__btn-first"
+              class="your-story__btn your-story__btn_first"
               @click="changeText($event)"
               :class="{ 'your-story__btn_active': isActiveButtonFirst }"
             >
@@ -28,7 +28,7 @@
             </button>
             <button
               type="button"
-              class="your-story__btn your-story__btn-second"
+              class="your-story__btn your-story__btn_second"
               @click="changeText($event)"
               :class="{ 'your-story__btn_active': isActiveButtonSecond }"
             >
@@ -81,18 +81,17 @@ export default {
     showText() {
       if (this.isActiveButtonFirst) {
         return this.firstText;
-      } else {
-        return this.secondText;
       }
+      return this.secondText;
     },
   },
   methods: {
     changeText(event) {
-      if (event.target.classList.contains('your-story__btn-first')) {
+      if (event.target.classList.contains('your-story__btn_first')) {
         this.isActiveButtonSecond = false;
         this.isActiveButtonFirst = true;
       }
-      if (event.target.classList.contains('your-story__btn-second')) {
+      if (event.target.classList.contains('your-story__btn_second')) {
         this.isActiveButtonFirst = false;
         this.isActiveButtonSecond = true;
       }
@@ -151,10 +150,6 @@ export default {
   color: #000;
 }
 
-.your-story__button-type {
-  max-width: 280px;
-}
-
 .your-story__text {
   font-style: normal;
   font-weight: normal;
@@ -180,7 +175,7 @@ export default {
     padding: 90px 50px 90px;
   }
 
-  .your-story__button-type /deep/ .button {
+  .your-story__button-type {
     width: 230px;
     min-height: 48px;
     font-size: 16px;
@@ -193,7 +188,7 @@ export default {
     padding: 80px 50px 80px;
   }
 
-  .your-story__button-type /deep/ .button {
+  .your-story__button-type {
     width: 230px;
     min-height: 48px;
     font-size: 16px;
@@ -247,11 +242,11 @@ export default {
   .your-story__article-right {
     min-height: 191px;
   }
-  .your-story__button-type /deep/ .button {
+  .your-story__button-type {
     font-size: 15px;
     line-height: 18px;
   }
-  .your-story__btn-second {
+  .your-story__btn_second {
     margin-left: 30px;
   }
   .your-story__btn_active {
@@ -278,10 +273,10 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .your-story__button-type /deep/ .button {
+  .your-story__button-type {
     font-size: 13px;
     line-height: 16px;
-    width: 290px;
+    width: 100%;
     min-height: 40px;
     margin: auto;
   }

@@ -11,11 +11,7 @@
       />
     </ul>
     <p v-else>Не найдено</p>
-    <nuxt-link
-      v-if="more === ''"
-      to="/stories"
-      class="stories-container__button-more"
-    >
+    <nuxt-link v-if="more" to="/stories" class="stories-container__button-more">
       <span class="stories-container__button-text">Больше статей</span>
     </nuxt-link>
   </div>
@@ -30,7 +26,12 @@ export default {
     'ui-heading': Heading,
     'ui-card': Card,
   },
-  props: ['start', 'limit', 'more', 'filter'],
+  props: {
+    start: Number,
+    limit: Number,
+    more: Boolean,
+    filter: String,
+  },
   computed: {
     stories() {
       if (this.filter) return this.filterStore;

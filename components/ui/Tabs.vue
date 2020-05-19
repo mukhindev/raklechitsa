@@ -142,6 +142,12 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .tabs__nav-button {
+    padding-bottom: 4px;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .tabs__nav-button {
     font-size: 13px;
@@ -158,7 +164,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .tabs__nav-button:hover {
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #613a93;
   }
 }
 
@@ -172,7 +178,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .tabs__nav-button_theme_dark:hover {
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
   }
 }
 
@@ -182,7 +188,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .tabs__nav-button.tabs__nav-button_active {
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #613a93;
   }
 }
 
@@ -192,7 +198,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .tabs__nav-button_theme_dark.tabs__nav-button_active {
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
   }
 }
 
