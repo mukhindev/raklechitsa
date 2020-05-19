@@ -1,6 +1,6 @@
 <template>
   <section class="stories">
-    <ui-container class="stories_container">
+    <ui-container class="stories__container">
       <ui-heading class="stories__heading">
         <template #title>Истории неизлечимых привычек</template>
       </ui-heading>
@@ -24,14 +24,14 @@ export default {
 </script>
 
 <style scoped>
-.stories_container {
+.stories__container {
   padding-top: 100px;
 }
 .stories__heading {
   margin: 0 0 70px;
 }
 @media screen and (max-width: 768px) {
-  .stories_container {
+  .stories__container {
     padding-top: 80px;
   }
   .stories__heading {
@@ -39,7 +39,7 @@ export default {
   }
 }
 @media screen and (max-width: 425px) {
-  .stories_container {
+  .stories__container {
     padding-top: 50px;
   }
   .stories__heading {
