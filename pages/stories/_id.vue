@@ -25,7 +25,7 @@
         >
       </div>
       <!--TODO: ссылка "Поделитесь этой статьей ↗" под текстом  -->
-      <block-stories-grid start="0" :limit="itemsToLoop" more />
+      <block-stories-grid :start="0" :limit="itemsToLoop" more />
       <!--TODO: не выводить карточку активной страницы -->
     </ui-container>
   </section>

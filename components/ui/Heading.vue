@@ -18,7 +18,9 @@
 
 <script>
 export default {
-  props: ['theme'],
+  props: {
+    theme: String,
+  },
   computed: {
     hasSubtitle() {
       return Boolean(this.$slots.subtitle);

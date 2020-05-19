@@ -4,7 +4,7 @@
       <ui-heading class="stories__heading">
         <template #title>Истории неизлечимых привычек</template>
       </ui-heading>
-      <block-stories-grid start="0" limit="8" more />
+      <block-stories-grid :start="0" :limit="8" more />
     </ui-container>
   </section>
 </template>

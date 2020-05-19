@@ -11,7 +11,11 @@
 
 <script>
 export default {
-  props: ['valueMax', 'valuePrev', 'value'],
+  props: {
+    valueMax: Number,
+    valuePrev: Number,
+    value: Number,
+  },
   computed: {
     progressPrev() {
       if (!this.valuePrev) return null;

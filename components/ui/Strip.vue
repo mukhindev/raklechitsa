@@ -1,7 +1,7 @@
 <template>
   <p class="strip">
     <slot name="text"></slot
-    ><span class="strip__tag" :class="{ strip__tag_block: tagblock === '' }"
+    ><span class="strip__tag" :class="{ strip__tag_block: tagblock }"
       ><slot name="tag"></slot
     ></span>
   </p>
@@ -9,7 +9,9 @@
 
 <script>
 export default {
-  props: ['tagblock'],
+  props: {
+    tagblock: Boolean,
+  },
 };
 </script>
 
