@@ -9,12 +9,15 @@
           v-model="search"
           type="search"
           class="stories-pagination__input"
+          size="1"
         />
-        <button-search class="stories-pagination__input-btn"
+        <button-search
+          @click="filter = search"
+          class="stories-pagination__input-btn"
           >Поиск</button-search
         >
       </div>
-      <ui-stories-grid :start="start" :limit="limit" :filter="search" />
+      <ui-stories-grid :start="start" :limit="limit" :filter="filter" />
       <div class="stories-pagination__buttons">
         <button
           ref="buttons"
@@ -48,6 +51,7 @@ export default {
   data() {
     return {
       search: '',
+      filter: '',
       start: 0,
       limit: 16,
       numberOfPage: 1,
@@ -113,9 +117,12 @@ export default {
   flex-basis: 1074px;
 }
 
-.stories-pagination__input-btn /deep/ .button {
+.stories-pagination__input-btn {
   width: 226px;
   margin-left: 20px;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .stories-pagination__buttons {
@@ -163,7 +170,7 @@ export default {
   .stories-pagination__input {
     min-height: 48px;
   }
-  .stories-pagination__input-btn /deep/ .button {
+  .stories-pagination__input-btn {
     min-height: 48px;
   }
   .stories-pagination__buttons {
@@ -175,6 +182,18 @@ export default {
   }
   .stories-pagination__buttons {
     grid-template-columns: repeat(auto-fit, 56px);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .stories-pagination__input-btn {
+    min-height: 48px;
+    width: 48px;
+    color: transparent;
+    background-image: url('~assets/images/magnifier.svg');
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 </style>

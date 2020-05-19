@@ -77,7 +77,7 @@ export default {
   border: none;
   padding: 0;
   background-color: transparent;
-  background-image: url('/images/ui/arrow-wide-down.svg');
+  background-image: url('~assets/images/arrow-wide_down.svg');
   background-size: 38px 15px;
   background-position: center;
   background-repeat: no-repeat;

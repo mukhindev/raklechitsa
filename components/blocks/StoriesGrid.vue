@@ -73,6 +73,13 @@ export default {
   }
 }
 
+@media screen and (max-width: 640px) {
+  .stories-container__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px 20px;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .stories-container__grid {
     grid-template-columns: repeat(1, 1fr);
