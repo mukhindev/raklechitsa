@@ -151,6 +151,7 @@ export default {
 }
 
 .intro__contain-box {
+  /* Чтобы iframe с youtube удерживал пропорции 16:9 */
   padding-bottom: 56.5%;
   position: relative;
   z-index: 0;

@@ -11,7 +11,7 @@ export const getters = {
     if (!state.stories) {
       console.error({ message: 'Не получены данные' });
     } else {
-      return state.stories.slice(start || 0, limit || 8);
+      return state.stories.slice(start || 0, start + limit || start + 8 || 8);
     }
   },
   getStoryById: state => id => {

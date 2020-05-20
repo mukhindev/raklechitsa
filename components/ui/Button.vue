@@ -4,6 +4,7 @@
     :type="type"
     class="button"
     :class="{ button_white: white }"
+    :disabled="disabled"
   >
     <slot></slot>
   </button>
@@ -17,6 +18,7 @@ export default {
       default: 'button',
     },
     white: Boolean,
+    disabled: Boolean,
   },
 };
 </script>

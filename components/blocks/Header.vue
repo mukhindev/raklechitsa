@@ -8,6 +8,8 @@
         Проект Благотворительного Фонда Константина Хабенского
       </h2>
       <nav class="header__nav" ref="nav">
+        <!--TODO: переиспользовать blocks/Menu, но обратить внимание,
+        что в футере раньше превращается в колонку -->
         <ul class="header__nav-list">
           <li class="header__nav-item" @click="handleBurger">
             <nuxt-link to="/" class="header__link">Главная</nuxt-link>
@@ -65,6 +67,8 @@ export default {
 .header__container {
   padding-top: 18px;
   padding-bottom: 18px;
+  /* У ui-container сброшены отступы из-за горизонтальной линии 
+  на макете под мобильным меню */
   padding-left: 0;
   padding-right: 0;
   min-height: 72px;

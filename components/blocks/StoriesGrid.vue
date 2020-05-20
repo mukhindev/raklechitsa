@@ -18,6 +18,7 @@
 </template>
 
 <script>
+/* TODO: Возвращать из компонента длину массива после фильтрации, для правитьно пагинации с фильтром. Дождаться API, возможно фильтрация будет работать по-лругому */
 import Heading from '~/components/ui/Heading';
 import Card from '~/components/ui/Card';
 

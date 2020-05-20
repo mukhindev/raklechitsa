@@ -51,16 +51,16 @@
 </template>
 
 <script>
-import UiPopup from '~/components/ui/Popup';
-import UiInput from '~/components/ui/Input';
-import UiButton from '~/components/ui/Button';
+import Popup from '~/components/ui/Popup';
+import Input from '~/components/ui/Input';
+import Button from '~/components/ui/Button';
 import BlockPolicyWarning from '~/components/blocks/PolicyWarning';
 
 export default {
   components: {
-    'ui-popup': UiPopup,
-    'ui-input': UiInput,
-    'ui-button': UiButton,
+    'ui-popup': Popup,
+    'ui-input': Input,
+    'ui-button': Button,
     'block-policy-warning': BlockPolicyWarning,
   },
   data() {
