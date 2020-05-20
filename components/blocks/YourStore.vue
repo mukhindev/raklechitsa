@@ -17,6 +17,7 @@
               </template>
             </ui-heading>
           </article>
+          <!--TODO: переиспользовать blocks/Tab, но подумать что делать с кнопками опроса и контактов -->
           <div class="your-story__variants">
             <button
               type="button"
