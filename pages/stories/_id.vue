@@ -42,6 +42,11 @@ export default {
     'ui-heading': Heading,
     'block-stories-grid': StoriesGrid,
   },
+  data() {
+    return {
+      width: null,
+    };
+  },
   computed: {
     id() {
       return this.$route.params.id;
@@ -50,16 +55,22 @@ export default {
       return this.$store.getters['api/getStoryById'](this.id);
     },
     itemsToLoop() {
-      if (process.browser) {
-        if (window.innerWidth <= 320) {
-          return (this.limit = 2);
-        } else if (window.innerWidth <= 768) {
-          return (this.limit = 3);
-        } else {
-          return (this.limit = 4);
-        }
-      }
+      if (this.width < 641) return 2;
+      if (this.width > 768) return 4;
+      if (this.width <= 768) return 3;
     },
+  },
+  methods: {
+    resizeDetector(e) {
+      this.width = e.target.innerWidth;
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.resizeDetector);
+    this.width = window.innerWidth;
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.resizeDetector);
   },
 };
 </script>
