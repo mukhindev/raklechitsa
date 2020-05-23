@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     instagram() {
-      return this.$store.getters['api/getInstagram'];
+      return this.$store.getters['fake/getInstagram'];
     },
   },
 };

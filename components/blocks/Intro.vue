@@ -50,7 +50,7 @@
             <div class="intro__contain-box">
               <iframe
                 class="intro__iframe"
-                :src="urlList[counter]"
+                :src="videos[counter].url"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
@@ -92,22 +92,15 @@ export default {
   data() {
     return {
       width: null,
-      urlList: [
-        'https://www.youtube.com/embed/ou60K0WfcJ0',
-        'https://www.youtube.com/embed/8IPCPfRF8F0',
-        'https://www.youtube.com/embed/iIfbrdnvQfI',
-        'https://www.youtube.com/embed/ebyAaIUyFlU',
-        'https://www.youtube.com/embed/YfPl4RaGoEg',
-        'https://www.youtube.com/embed/_T1mhQlH-ZE',
-        'https://www.youtube.com/embed/5xIwKLZ8QZw',
-        'https://www.youtube.com/embed/LiXU56qgYDs',
-      ],
       counter: 0,
     };
   },
   computed: {
+    videos() {
+      return this.$store.state.videos.videos;
+    },
     changeDisabledForRight() {
-      if (this.counter + 1 === this.urlList.length) {
+      if (this.counter + 1 === this.videos.length) {
         return true;
       }
     },

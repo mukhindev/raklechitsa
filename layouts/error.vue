@@ -17,7 +17,6 @@ export default {
   props: {
     error: Object,
   },
-  layout: 'onlyhead',
 };
 </script>
 

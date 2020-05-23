@@ -42,6 +42,9 @@ export default {
     'ui-heading': Heading,
     'block-stories-grid': StoriesGrid,
   },
+  async fetch({ store, params }) {
+    await store.dispatch('stories/fetchStories');
+  },
   data() {
     return {
       width: null,
@@ -52,7 +55,7 @@ export default {
       return this.$route.params.id;
     },
     story() {
-      return this.$store.getters['api/getStoryById'](this.id);
+      return this.$store.getters['fake/getStoryById'](this.id);
     },
     itemsToLoop() {
       if (this.width < 641) return 2;
