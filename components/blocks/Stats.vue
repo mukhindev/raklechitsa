@@ -37,7 +37,7 @@ export default {
   computed: {
     stats() {
       if (this.filter) return this.filterStore;
-      return this.$store.getters['api/getStats'];
+      return this.$store.getters['fake/getStats'];
     },
     statsFormated() {
       return this.stats.map(el => {

@@ -5,9 +5,9 @@
         v-for="story in stories"
         :key="story.id"
         :link="`/stories/${story.id}`"
-        :img="story.photo"
-        :title="story.person"
-        :text="story.quote"
+        :img="`${url}${story.ImageUrl[0].url}`"
+        :title="story.author"
+        :text="story.title"
       />
     </ul>
     <p v-else>Не найдено</p>
@@ -36,13 +36,18 @@ export default {
   computed: {
     stories() {
       if (this.filter) return this.filterStore;
-      return this.$store.getters['api/getStories'](this.start, this.limit);
+      return this.$store.getters['stories/getStories'](this.start, this.limit);
     },
     filterStore() {
-      return this.$store.getters['api/getStories'](
+      return this.$store.getters['stories/getStories'](
         this.start,
         this.limit
-      ).filter(el => el.person.includes(this.filter));
+      ).filter(el =>
+        el.author.toLowerCase().includes(this.filter.toLowerCase())
+      );
+    },
+    url() {
+      return process.env.baseUrl;
     },
   },
 };

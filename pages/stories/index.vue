@@ -46,6 +46,9 @@ export default {
     'button-search': Button,
     'block-stories-grid': StoriesGrid,
   },
+  async fetch({ store, params }) {
+    await store.dispatch('stories/fetchStories');
+  },
   data() {
     return {
       search: '',
@@ -56,7 +59,7 @@ export default {
   },
   computed: {
     getNumberOfStories() {
-      return this.$store.getters['api/getNumberOfStories'];
+      return this.$store.getters['fake/getNumberOfStories'];
     },
   },
   methods: {
