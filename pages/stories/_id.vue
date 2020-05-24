@@ -3,28 +3,25 @@
     <ui-container class="story__container">
       <div class="story__lead">
         <img
-          :src="story.photo"
-          :alt="`фото ${story.person}`"
+          :src="`${url}${story.ImageUrl[0].url}`"
+          :alt="`фото ${story.author}`"
           class="story__photo"
         />
         <div class="story__desc">
-          <h3 class="story__person">{{ story.person }}:</h3>
-          <p class="story__quote">«{{ story.quote }}»</p>
+          <h3 class="story__person">{{ story.author }}:</h3>
+          <p class="story__quote">«{{ story.title }}»</p>
         </div>
         <div class="story__misc">
           <a href="#" class="story__sharing-link">Поделитесь &#8599;</a>
-          <p class="story__date">20 апреля 2018</p>
+          <p class="story__date">{{ story.date | dateFormated }}</p>
         </div>
       </div>
-      <div class="story__text">
-        {{ story.story }}
-      </div>
+      <div class="story__text" v-html="story.text"></div>
       <div class="story__link-after-text">
         <a href="#" class="story__sharing-link"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
       </div>
-      <!--TODO: ссылка "Поделитесь этой статьей ↗" под текстом  -->
       <block-stories-grid :start="0" :limit="itemsToLoop" more />
       <!--TODO: не выводить карточку активной страницы -->
     </ui-container>
@@ -55,12 +52,15 @@ export default {
       return this.$route.params.id;
     },
     story() {
-      return this.$store.getters['fake/getStoryById'](this.id);
+      return this.$store.getters['stories/getStoryById'](this.id);
     },
     itemsToLoop() {
       if (this.width < 641) return 2;
       if (this.width > 768) return 4;
       if (this.width <= 768) return 3;
+    },
+    url() {
+      return process.env.baseUrl;
     },
   },
   methods: {
@@ -74,6 +74,29 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeDetector);
+  },
+  filters: {
+    dateFormated: function(value) {
+      const date = new Date(value);
+      const months = [
+        'января',
+        'февраля',
+        'марта',
+        'апреля',
+        'мая',
+        'июня',
+        'июля',
+        'августа',
+        'сентября',
+        'октября',
+        'ноября',
+        'декабря',
+      ];
+      const d = date.getDate();
+      const m = months[date.getMonth()];
+      const y = date.getFullYear();
+      return `${d} ${m} ${y}`;
+    },
   },
 };
 </script>
