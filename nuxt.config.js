@@ -5,6 +5,10 @@ export default {
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   },
+  router: {
+    middleware: 'basicData',
+  },
+  transition: 'transition-page',
   head: {
     htmlAttrs: {
       lang: 'ru',

@@ -46,9 +46,6 @@ export default {
     'button-search': Button,
     'block-stories-grid': StoriesGrid,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('stories/fetchStories');
-  },
   data() {
     return {
       search: '',
