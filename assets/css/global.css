@@ -42,3 +42,16 @@
 .hover-card:hover::after {
   box-shadow: 0 0 32px rgb(170, 170, 170);
 }
+
+.story__text p:first-child {
+  margin-top: 0;
+}
+
+.story__text p:last-child {
+  margin-bottom: 0;
+}
+
+.story__text blockquote {
+  margin: 0;
+  font-weight: 600;
+}
