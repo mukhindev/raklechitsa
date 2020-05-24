@@ -55,3 +55,10 @@
   margin: 0;
   font-weight: 600;
 }
+
+.transition-page-enter-active, .transition-page-leave-active {
+  transition: opacity .25s;
+}
+.transition-page-enter, .transition-page-leave-active {
+  opacity: 0;
+}

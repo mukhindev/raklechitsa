@@ -39,9 +39,6 @@ export default {
     'ui-heading': Heading,
     'block-stories-grid': StoriesGrid,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('stories/fetchStories');
-  },
   data() {
     return {
       width: null,
