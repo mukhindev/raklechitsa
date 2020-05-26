@@ -3,8 +3,8 @@
     <section class="instagram">
       <ui-container class="instagram__container">
         <ui-strip tagblock>
-          <template #text>Рассказывайте ваши истории в Инстаграм </template>
-          <template #tag>#этонелечится</template>
+          <template #text>{{ strip.title }} </template>
+          <template #tag>{{ strip.hashtag }}</template>
         </ui-strip>
         <ui-two-columns class="instagram__ui-two-columns">
           <template #heading>
@@ -14,14 +14,11 @@
                   href="https://www.instagram.com/raklechitsa/"
                   target="_blank"
                   class="instagram__title"
-                  >Инстаграм</a
+                  >{{ block.title }}</a
                 ></template
               >
               <template #subtitle>
-                Два раза в неделю мы просматриваем все посты по хештегу
-                #этонелечится. Все истории, где нет нецензурных выражений и
-                запрещенного контента попадают сюда. Следите за правильным
-                написанием хештега, чтобы мы не пропустили вашу историю.
+                {{ block.text }}
               </template>
             </ui-heading>
           </template>
@@ -64,7 +61,15 @@ export default {
   },
   computed: {
     instagram() {
-      return this.$store.getters['fake/getInstagram'];
+      return this.$store.state.instagram.instagram;
+    },
+    block() {
+      return this.$store.state.blocks.blocks.find(
+        el => el.block === 'instagram'
+      );
+    },
+    strip() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'note-2');
     },
   },
 };

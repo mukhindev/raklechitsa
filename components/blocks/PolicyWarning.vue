@@ -26,7 +26,7 @@ export default {
   font-weight: normal;
   font-size: 14px;
   line-height: 1.2;
-  color: #666666;
+  color: #666;
 }
 
 @media screen and (max-width: 720px) {
@@ -36,7 +36,7 @@ export default {
 }
 
 .policy-warning__link {
-  color: #666666;
+  color: #666;
   transition: 0.25s;
 }
 .policy-warning__link:hover {

@@ -3,7 +3,7 @@
     <ui-container class="footer__container">
       <div class="footer__columns">
         <h2 class="footer__title">
-          Спасибо всем, кто помог состояться этому проекту
+          {{ block.title }}
         </h2>
         <nav class="footer__menu">
           <block-menu :quizButton="false" />
@@ -33,7 +33,7 @@
         </ul>
       </div>
       <div class="footer__copyright">
-        <p class="footer__project-name">Рак Лечится {{ year }}</p>
+        <p class="footer__project-name">{{ block.text }} {{ year }}</p>
         <a class="footer__author" href="https://praktikum.yandex.ru/"
           >Сделано студентами Яндекс Практикум</a
         >
@@ -60,6 +60,11 @@ export default {
     return {
       year: new Date().getFullYear(),
     };
+  },
+  computed: {
+    block() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'footer');
+    },
   },
 };
 </script>

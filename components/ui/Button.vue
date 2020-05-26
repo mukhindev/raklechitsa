@@ -42,7 +42,7 @@ export default {
 
 .button_white {
   background: #fff;
-  color: #666666;
+  color: #666;
 }
 
 .button:disabled {
