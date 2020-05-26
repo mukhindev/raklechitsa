@@ -33,13 +33,6 @@ export default {
   display: flex;
 }
 
-@media screen and (max-width: 920px) {
-  .menu__links {
-    flex-direction: column;
-    margin-right: 0x;
-  }
-}
-
 .menu__item {
   margin-right: 40px;
 }
@@ -47,19 +40,19 @@ export default {
 @media screen and (max-width: 1024px) {
   .menu__item {
     margin-right: 30px;
-    margin-bottom: 18px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .menu__item {
     margin-right: 0px;
-    margin-bottom: 18px;
+    padding-bottom: 18px;
   }
 }
 
 .menu__item:last-of-type {
   margin: 0;
+  padding: 0;
 }
 
 .menu__link {
