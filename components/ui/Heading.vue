@@ -6,13 +6,13 @@
     >
       <slot name="title" />
     </h2>
-    <p
+    <div
       v-if="hasSubtitle"
       class="section-heading__subtitle"
       :class="mod('section-heading__subtitle_theme_')"
     >
       <slot name="subtitle" />
-    </p>
+    </div>
   </div>
 </template>
 

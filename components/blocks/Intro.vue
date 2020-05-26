@@ -7,7 +7,7 @@
             <ui-heading>
               <template #title>{{ block.title }}</template>
               <template #subtitle>
-                {{ block.text }}
+                <div v-html="block.text"></div>
               </template>
             </ui-heading>
             <div v-if="width > 768" class="intro__wrapper-btn">

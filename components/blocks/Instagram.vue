@@ -18,7 +18,7 @@
                 ></template
               >
               <template #subtitle>
-                {{ block.text }}
+                <div v-html="block.text"></div>
               </template>
             </ui-heading>
           </template>

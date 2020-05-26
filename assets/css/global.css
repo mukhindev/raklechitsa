@@ -52,8 +52,12 @@
 }
 
 .story__text blockquote {
-  margin: 0;
+  margin: 24px 0;
   font-weight: 600;
+}
+
+p {
+  margin: 0;
 }
 
 .transition-page-enter-active, .transition-page-leave-active {
