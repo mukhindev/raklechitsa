@@ -1,7 +1,9 @@
 <template>
   <nuxt-link :to="link" class="card__link hover-card">
     <li class="card__card">
-      <img v-if="img" :src="img" :alt="title" class="card__card-photo" />
+      <div class="card__contain-box">
+        <img v-if="img" :src="img" :alt="title" class="card__card-photo" />
+      </div>
       <h3 v-if="title" class="card__card-person">{{ title }}</h3>
       <p v-if="text" class="card__card-quote">{{ text }}</p>
     </li>
@@ -25,9 +27,20 @@ export default {
   text-decoration: none;
 }
 
-.card__card-photo {
-  width: 100%;
+.card__contain-box {
+  /* Пропорции 1:1 */
+  padding-bottom: 100%;
   position: relative;
+  z-index: 0;
+}
+
+.card__card-photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 1;
 }
 

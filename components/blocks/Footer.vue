@@ -145,6 +145,13 @@ export default {
   }
 }
 
+@media screen and (max-width: 920px) {
+  .menu__links {
+    flex-direction: column;
+    margin-right: 0x;
+  }
+}
+
 @media screen and (max-width: 720px) {
   .footer__menu {
     margin-top: 50px;
