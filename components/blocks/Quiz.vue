@@ -67,10 +67,10 @@ export default {
       else return false;
     },
     questions() {
-      return this.$store.getters['form/getQuestions'];
+      return this.$store.getters['quiz/getQuestions'];
     },
     lastQuestion() {
-      return Boolean(this.questions.length === this.number);
+      return this.questions.length === this.number;
     },
     title() {
       if (!this.sent) return `Шаг ${this.number} из ${this.questions.length}`;

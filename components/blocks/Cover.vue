@@ -1,7 +1,7 @@
 <template>
   <section class="cover" ref="cover">
     <ui-container class="cover__container">
-      <p class="cover__tag">#раклечится</p>
+      <p class="cover__tag">{{ block.hashtag }}</p>
       <button
         type="button"
         @click="coverScrollToBottom"
@@ -23,6 +23,11 @@ export default {
   components: {
     'ui-container': Container,
   },
+  computed: {
+    block() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'cover');
+    },
+  },
   methods: {
     coverScrollToBottom() {
       const intro = this.$refs.cover.nextElementSibling;
@@ -38,7 +43,7 @@ export default {
 }
 .cover__container {
   padding: 0;
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;

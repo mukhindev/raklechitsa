@@ -2,19 +2,19 @@
   <section class="stats">
     <ui-container class="stats__container">
       <ui-heading class="stats__heading">
-        <template #title>Статистика по онкозаболеваниям</template>
+        <template #title>{{ block.title }}</template>
       </ui-heading>
       <div class="scroll-container">
         <div class="stats__grid">
           <blocks-stats-card
-            v-for="(el, index) in statsFormated"
+            v-for="(el, index) in stats"
             :key="index"
-            :valuePrev="el.valuePrev"
-            :value="el.value"
-            :valueMax="el.valueMax"
+            :valuePrev="el.oldValue"
+            :value="el.currentValue"
+            :valueMax="el.maxValue"
           >
-            <template #text>{{ el.text }}</template>
-            <template #value>{{ el.valueText }}</template>
+            <template #text>{{ el.description }}</template>
+            <template #value>{{ el.summary }}</template>
             <template #source>{{ el.source }}</template>
           </blocks-stats-card>
         </div>
@@ -36,30 +36,12 @@ export default {
   },
   computed: {
     stats() {
-      if (this.filter) return this.filterStore;
-      return this.$store.getters['fake/getStats'];
+      return this.$store.state.statistics.statistics;
     },
-    statsFormated() {
-      return this.stats.map(el => {
-        const postfix = el.postfix || '';
-
-        let prefix;
-        let value;
-
-        function getPrefix(value, valuePrev) {
-          if (value > valuePrev) return '↑';
-          else if (value === valuePrev) return '';
-          else return '↓';
-        }
-
-        if (el.prefix) prefix = getPrefix(el.value, el.valuePrev);
-        else prefix = '';
-
-        if (el.type === 'of') value = `${el.value} из ${el.valueMax}`;
-        else value = el.value || '';
-
-        return { ...el, valueText: `${prefix}${value}${postfix}` };
-      });
+    block() {
+      return this.$store.state.blocks.blocks.find(
+        el => el.block === 'statistics'
+      );
     },
   },
 };

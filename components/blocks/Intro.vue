@@ -1,17 +1,13 @@
 <template>
   <section class="intro">
     <ui-container class="intro__container">
-      <ui-two-columns class="instagram__ui-two-columns">
+      <ui-two-columns>
         <template #heading>
           <div class="intro__column">
             <ui-heading>
-              <template #title
-                >Истории людей, победивших рак, но не свои привычки</template
-              >
+              <template #title>{{ block.title }}</template>
               <template #subtitle>
-                Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я»,
-                фобии, страхи. Но это точно не рак. Рак лечится. Лучшее
-                доказательство — люди с их историями.
+                {{ block.text }}
               </template>
             </ui-heading>
             <div v-if="width > 768" class="intro__wrapper-btn">
@@ -69,8 +65,8 @@
       </ui-two-columns>
 
       <ui-strip class="intro__strip">
-        <template #text>И в отличии от рака, </template>
-        <template #tag>#этонелечится</template>
+        <template #text>{{ strip.title }} </template>
+        <template #tag>{{ strip.hashtag }}</template>
       </ui-strip>
     </ui-container>
   </section>
@@ -98,6 +94,12 @@ export default {
   computed: {
     videos() {
       return this.$store.state.videos.videos;
+    },
+    block() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'videos');
+    },
+    strip() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'note-1');
     },
     changeDisabledForRight() {
       if (this.counter + 1 === this.videos.length) {

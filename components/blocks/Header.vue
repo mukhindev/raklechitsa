@@ -6,11 +6,11 @@
       </nav>
     </ui-container>
     <ui-container class="header__container">
-      <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
-        >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
-      >
+      <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'">{{
+        block.title
+      }}</nuxt-link>
       <h2 v-else class="header__logo">
-        Проект Благотворительного Фонда Константина Хабенского
+        {{ block.title }}
       </h2>
       <nav v-if="width > 920" class="header__nav">
         <block-menu quizButton class="header__menu" />
@@ -44,6 +44,11 @@ export default {
   methods: {
     resizeDetector(e) {
       this.width = e.target.innerWidth;
+    },
+  },
+  computed: {
+    block() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'header');
     },
   },
   mounted() {

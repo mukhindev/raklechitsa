@@ -8,7 +8,7 @@ export default {
   router: {
     middleware: 'basicData',
   },
-  transition: 'transition-page',
+  pageTransition: 'transition-page',
   head: {
     htmlAttrs: {
       lang: 'ru',

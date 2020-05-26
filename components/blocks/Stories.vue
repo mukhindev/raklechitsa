@@ -2,7 +2,7 @@
   <section class="stories">
     <ui-container class="stories__container">
       <ui-heading class="stories__heading">
-        <template #title>Истории неизлечимых привычек</template>
+        <template #title>{{ block.title }}</template>
       </ui-heading>
       <block-stories-grid :start="0" :limit="8" more />
     </ui-container>
@@ -19,6 +19,11 @@ export default {
     'ui-container': Container,
     'ui-heading': Heading,
     'block-stories-grid': StoriesGrid,
+  },
+  computed: {
+    block() {
+      return this.$store.state.blocks.blocks.find(el => el.block === 'stories');
+    },
   },
 };
 </script>

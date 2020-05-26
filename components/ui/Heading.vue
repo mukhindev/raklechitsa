@@ -70,7 +70,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 1.22;
-  color: #666666;
+  color: #666;
   transition: all 0.25s ease;
 }
 

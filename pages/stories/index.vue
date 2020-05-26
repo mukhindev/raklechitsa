@@ -7,6 +7,7 @@
       <div class="stories-pagination__search">
         <input
           v-model="search"
+          @keyup.enter="filter = search"
           type="search"
           class="stories-pagination__search-input"
           size="1"
@@ -27,6 +28,7 @@
         :qty="getNumberOfStories"
       />
       <!--TODO: выводить с учётом поиска -->
+      <!--TODO: сохранять start в сторе -->
     </ui-container>
   </section>
 </template>
@@ -56,7 +58,7 @@ export default {
   },
   computed: {
     getNumberOfStories() {
-      return this.$store.getters['fake/getNumberOfStories'];
+      return this.$store.getters['stories/getNumberOfStories'];
     },
   },
   methods: {

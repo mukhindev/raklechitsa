@@ -2,7 +2,7 @@
   <div class="tabs">
     <nav class="tabs__nav">
       <ul class="tabs__nav-tabs">
-        <li class="tabs__nav-item" v-for="(tab, index) in tabs" :key="tab.name">
+        <li class="tabs__nav-item" v-for="(tab, index) in tabs" :key="tab.id">
           <button
             @click="activeTab = index"
             class="tabs__nav-button"
@@ -11,20 +11,16 @@
               { 'tabs__nav-button_active': activeTab === index },
             ]"
           >
-            {{ tab.name }}
+            {{ tab.title }}
           </button>
         </li>
       </ul>
     </nav>
     <div class="tabs__tab-content">
-      <p
-        v-for="paragraph in tabs[activeTab].content"
-        :key="paragraph"
-        class="tabs__tab-paragraph"
-        :class="mod('tabs__tab-paragraph_theme_')"
-      >
-        {{ paragraph }}
+      <p class="tabs__tab-paragraph" :class="mod('tabs__tab-paragraph_theme_')">
+        {{ tabs[activeTab].text }}
       </p>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -130,7 +126,7 @@ export default {
   font-size: 18px;
   line-height: 1.3;
   white-space: nowrap;
-  color: #666666;
+  color: #666;
   transition: 0.25s;
   cursor: pointer;
   transition: 0.25s;
@@ -169,7 +165,7 @@ export default {
 }
 
 .tabs__nav-button_theme_dark {
-  color: #c9c9c9;
+  color: #dedede;
 }
 
 .tabs__nav-button_theme_dark:hover {
@@ -229,7 +225,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 1.22;
-  color: #666666;
+  color: #666;
   margin: 0 0 20px;
 }
 
@@ -252,6 +248,6 @@ export default {
 }
 
 .tabs__tab-paragraph_theme_dark {
-  color: #c9c9c9;
+  color: #dedede;
 }
 </style>

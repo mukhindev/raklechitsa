@@ -1,12 +1,12 @@
 <template>
-  <div class="stats__card">
-    <p class="stats__text"><slot name="text"></slot></p>
+  <div class="stats-card">
+    <p class="stats-card__text"><slot name="text"></slot></p>
     <ui-progress :valueMax="valueMax" :valuePrev="valuePrev" :value="value" />
-    <p class="stats__value">
+    <p class="stats-card__value">
       <slot name="prefix"></slot><slot name="value"></slot
       ><slot name="postfix"></slot>
     </p>
-    <p class="stats__source"><slot name="source"></slot></p>
+    <p class="stats-card__source"><slot name="source"></slot></p>
   </div>
 </template>
 
@@ -26,24 +26,24 @@ export default {
 </script>
 
 <style scoped>
-.stats__card {
+.stats-card {
   padding: 20px;
   border: 1px solid #efefef;
 }
 
 @media screen and (max-width: 1280px) {
-  .stats__card {
+  .stats-card {
     padding: 18px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .stats__card {
+  .stats-card {
     padding: 10px;
   }
 }
 
-.stats__text {
+.stats-card__text {
   margin: 0;
   min-height: 124px;
   font-style: normal;
@@ -53,38 +53,39 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .stats__text {
+  .stats-card__text {
     font-size: 10px;
   }
 }
 
-.stats__value {
+.stats-card__value {
   margin: 20px 0;
   font-style: normal;
   font-weight: 600;
   font-size: 38px;
   line-height: 1.05;
   text-align: right;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 1024px) {
-  .stats__value {
+  .stats-card__value {
     font-size: 30px;
   }
 }
 
-.stats__source {
+.stats-card__source {
   margin: 0;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 1.33;
   text-align: right;
-  color: #666666;
+  color: #666;
 }
 
 @media screen and (max-width: 1024px) {
-  .stats__source {
+  .stats-card__source {
     font-size: 10px;
   }
 }
