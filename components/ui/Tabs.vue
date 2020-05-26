@@ -17,9 +17,11 @@
       </ul>
     </nav>
     <div class="tabs__tab-content">
-      <p class="tabs__tab-paragraph" :class="mod('tabs__tab-paragraph_theme_')">
-        {{ tabs[activeTab].text }}
-      </p>
+      <div
+        class="tabs__tab-paragraph"
+        :class="mod('tabs__tab-paragraph_theme_')"
+        v-html="tabs[activeTab].text"
+      ></div>
       <slot></slot>
     </div>
   </div>
