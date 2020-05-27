@@ -16,11 +16,11 @@
         </ui-button>
         <ui-button
           class="pagination__button"
-          :class="{ pagination__button_active: numberPage === index }"
-          v-for="(start, index) in paginationMap"
-          :key="index"
-          @click="toPage(start)"
-          >{{ index + 1 }}
+          :class="{ pagination__button_active: numberPage === page.id }"
+          v-for="page in slicePaginationMap"
+          :key="page.id"
+          @click="toPage(page.start)"
+          >{{ page.id + 1 }}
         </ui-button>
         <ui-button
           class="pagination__button pagination__button_next"
@@ -47,9 +47,9 @@ export default {
     'ui-button': Button,
   },
   props: {
-    InitStart: Number,
-    InitLimit: Number,
-    qty: Number,
+    initStart: Number,
+    initLimit: Number,
+    numberOfStories: Number,
   },
   data() {
     return {
@@ -59,19 +59,29 @@ export default {
   },
   computed: {
     numberOfPages() {
-      if (this.limit > 0) return Math.floor(this.qty / this.limit);
-    },
-    numberPage() {
-      return this.paginationMap.indexOf(this.start);
+      if (this.limit > 0) return Math.floor(this.numberOfStories / this.limit);
     },
     paginationMap() {
       const arr = [];
-      let page = 0;
+      let start = 0;
       for (let i = 0; i < this.numberOfPages; i++) {
-        arr.push(page);
-        page += this.limit;
+        arr.push({
+          id: i,
+          start,
+        });
+        start += this.limit;
       }
       return arr;
+    },
+    numberPage() {
+      if (this.paginationMap.length)
+        return this.paginationMap.find(el => el.start === this.start).id;
+    },
+    slicePaginationMap() {
+      if (this.numberPage <= 1) return this.paginationMap.slice(0, 3);
+      if (this.numberOfPages - this.numberPage <= 1)
+        return this.paginationMap.slice(-3);
+      return this.paginationMap.slice(this.numberPage - 1, this.numberPage + 2);
     },
     disabledPrev() {
       if (this.numberPage > 0) return true;
@@ -98,25 +108,25 @@ export default {
       this.pagination();
     },
     toLastPage() {
-      this.start = this.paginationMap[this.paginationMap.length - 1];
+      this.start = this.paginationMap[this.paginationMap.length - 1].start;
       this.pagination();
     },
     toPrevPage() {
       if (this.disabledPrev) {
-        this.start = this.paginationMap[this.numberPage - 1];
+        this.start = this.paginationMap[this.numberPage - 1].start;
         this.pagination();
       }
     },
     toNextPage() {
       if (this.disabledNext) {
-        this.start = this.paginationMap[this.numberPage + 1];
+        this.start = this.paginationMap[this.numberPage + 1].start;
         this.pagination();
       }
     },
   },
   mounted() {
-    this.start = this.InitStart;
-    this.limit = this.InitLimit;
+    this.start = this.initStart;
+    this.limit = this.initLimit;
   },
 };
 </script>

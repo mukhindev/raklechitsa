@@ -23,9 +23,9 @@
         v-if="!filter"
         class="stories-pagination__pagination"
         @pagination="pagination"
-        :InitStart="start"
-        :InitLimit="limit"
-        :qty="getNumberOfStories"
+        :initStart="start"
+        :initLimit="limit"
+        :numberOfStories="numberOfStories"
       />
       <!--TODO: выводить с учётом поиска -->
       <!--TODO: сохранять start в сторе -->
@@ -57,7 +57,7 @@ export default {
     };
   },
   computed: {
-    getNumberOfStories() {
+    numberOfStories() {
       return this.$store.getters['stories/getNumberOfStories'];
     },
   },
