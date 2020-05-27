@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    <ui-container v-if="burger" class="header__container">
+    <ui-container
+      v-if="burger && width < 921"
+      class="header__container header__container_mobile"
+    >
       <nav class="header__nav" @click="burger = !burger">
         <block-menu quizButton class="header__menu" />
       </nav>
@@ -65,6 +68,7 @@ export default {
 .header {
   font-weight: normal;
   font-style: normal;
+  border-bottom: 1px solid #efefef;
 }
 
 .header__container {
@@ -73,6 +77,9 @@ export default {
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
+}
+
+.header__container_mobile {
   border-bottom: 1px solid #efefef;
 }
 
