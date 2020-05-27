@@ -10,18 +10,20 @@
               Хабенского.</template
             >
           </ui-heading>
-          <div>
-            <ui-tabs :tabs="tabs">
+          <ui-tabs :tabs="tabs" :height="150">
+            <template #1>
               <button-type class="your-story__button-type" @click="quizOpen"
                 >Заполнить форму</button-type
               >
+            </template>
+            <template #3>
               <button-type
                 @click="yourContactsOpen"
                 class="your-story__button-type"
                 >Оставить контакт</button-type
               >
-            </ui-tabs>
-          </div>
+            </template>
+          </ui-tabs>
         </div>
       </ui-container>
     </section>

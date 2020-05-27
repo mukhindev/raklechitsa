@@ -10,7 +10,7 @@
             Хабенского.</template
           >
         </ui-heading>
-        <ui-tabs :tabs="tabs" theme="dark" />
+        <ui-tabs :tabs="tabs" :height="220" theme="dark" />
       </div>
     </ui-container>
   </section>

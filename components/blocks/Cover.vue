@@ -43,7 +43,7 @@ export default {
 }
 .cover__container {
   padding: 0;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 68px);
   display: flex;
   justify-content: center;
   align-items: center;
