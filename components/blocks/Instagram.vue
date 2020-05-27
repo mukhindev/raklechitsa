@@ -24,18 +24,13 @@
           </template>
           <template #content>
             <ul class="instagram__cards">
-              <li
-                class="instagram__card hover-card"
-                v-for="item in instagram"
-                :key="item.id"
-              >
-                <a class="instagram__card-link" :href="item.url" target="_blank"
-                  ><img
-                    class="instagram__card-image"
-                    :src="item.img"
-                    alt="Фото с инстаграм"
-                /></a>
-              </li>
+              <ui-card
+                _blank
+                v-for="post in instagram"
+                :key="post.id"
+                :link="`${post.url}`"
+                :img="post.img"
+              />
             </ul>
           </template>
         </ui-two-columns>
@@ -61,7 +56,7 @@ export default {
   },
   computed: {
     instagram() {
-      return this.$store.state.instagram.instagram;
+      return this.$store.state.instagram.instagram.slice(0, 8);
     },
     block() {
       return this.$store.state.blocks.blocks.find(

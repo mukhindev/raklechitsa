@@ -1,46 +1,4 @@
 export default {
-  instagram: [
-    {
-      id: 1,
-      img: '/images/fake-data/instagram/1.jpg',
-      url: 'https://www.instagram.com/p/B9ld-ULjMiz/',
-    },
-    {
-      id: 2,
-      img: '/images/fake-data/instagram/2.jpg',
-      url: 'https://www.instagram.com/p/B86-YtVBc7y/',
-    },
-    {
-      id: 3,
-      img: '/images/fake-data/instagram/3.jpg',
-      url: 'https://www.instagram.com/p/B8vX5k6Bk4x/',
-    },
-    {
-      id: 4,
-      img: '/images/fake-data/instagram/4.jpg',
-      url: 'https://www.instagram.com/p/B8YTDwQhAQb/',
-    },
-    {
-      id: 5,
-      img: '/images/fake-data/instagram/5.jpg',
-      url: 'https://www.instagram.com/p/B8N7itGhYax/',
-    },
-    {
-      id: 6,
-      img: '/images/fake-data/instagram/6.jpg',
-      url: 'https://www.instagram.com/p/B8N7RHKhA4T/',
-    },
-    {
-      id: 7,
-      img: '/images/fake-data/instagram/7.jpg',
-      url: 'https://www.instagram.com/p/B8LUrVHhFCX/',
-    },
-    {
-      id: 8,
-      img: '/images/fake-data/instagram/8.jpg',
-      url: 'https://www.instagram.com/p/B8KJafzhbCW/',
-    },
-  ],
   questions: [
     {
       id: 1,

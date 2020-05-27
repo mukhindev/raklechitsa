@@ -1,13 +1,11 @@
 <template>
-  <nuxt-link :to="link" class="person-card hover-card">
-    <li class="person-card__item">
-      <div class="person-card__contain-box">
-        <img v-if="img" :src="img" :alt="title" class="pperson-card__photo" />
-      </div>
-      <h3 v-if="title" class="person-card__name">{{ title }}</h3>
-      <p v-if="text" class="person-card__quote">{{ text }}</p>
-    </li>
-  </nuxt-link>
+  <li @click="to" class="card__item hover-card">
+    <div class="card__contain-box">
+      <img v-if="img" :src="img" :alt="title" class="card__photo" />
+    </div>
+    <h3 v-if="title" class="card__name">{{ title }}</h3>
+    <p v-if="text" class="card__quote">{{ text }}</p>
+  </li>
 </template>
 
 <script>
@@ -17,24 +15,31 @@ export default {
     img: String,
     title: String,
     text: String,
+    _blank: Boolean,
+  },
+  methods: {
+    to() {
+      if (this._blank) window.open(this.link, '_blank');
+      if (!this._blank) this.$router.push(this.link);
+    },
   },
 };
 </script>
 
 <style scoped>
-.person-card {
+.card {
   color: #000;
   text-decoration: none;
 }
 
-.person-card__contain-box {
+.card__contain-box {
   /* Пропорции 1:1 */
   padding-bottom: 100%;
   position: relative;
   z-index: 0;
 }
 
-.pperson-card__photo {
+.card__photo {
   position: absolute;
   left: 0;
   top: 0;
@@ -44,7 +49,7 @@ export default {
   z-index: 1;
 }
 
-.person-card__name {
+.card__name {
   margin: 20px 0 14px;
   font-style: normal;
   font-weight: 600;
@@ -55,12 +60,12 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .person-card__name {
+  .card__name {
     font-size: 18px;
   }
 }
 
-.person-card__quote {
+.card__quote {
   margin: 0;
   font-style: normal;
   font-weight: normal;
@@ -72,7 +77,7 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .person-card__quote {
+  .card__quote {
     font-size: 13px;
   }
 }
