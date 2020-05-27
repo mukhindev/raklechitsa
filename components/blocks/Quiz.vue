@@ -27,7 +27,10 @@
           >
             Далее
           </ui-button>
-          <ui-button v-if="lastQuestion" @click="send" class="form-quiz__button"
+          <ui-button
+            v-if="lastQuestion"
+            @click.once="send"
+            class="form-quiz__button"
             >Отправить</ui-button
           >
           <block-policy-warning v-if="lastQuestion" />
@@ -69,6 +72,9 @@ export default {
     questions() {
       return this.$store.getters['quiz/getQuestions'];
     },
+    answerKeys() {
+      return this.questions.map(el => el.answerKey);
+    },
     lastQuestion() {
       return this.questions.length === this.number;
     },
@@ -84,9 +90,16 @@ export default {
     prevQuestion() {
       if (this.number > 1) this.number--;
     },
-    send() {
+    async send() {
+      const promise = await new Promise((resolve, reject) => {
+        setTimeout(() => resolve(), 1500); // имитация сервера
+      });
       this.sent = true;
-      console.log('Отправить ответы');
+      let result = {};
+      this.answerKeys.forEach((key, index) => {
+        result = { ...result, [key]: this.answers[index] || null };
+      });
+      console.log(result);
     },
     quizClose() {
       this.$store.commit(`popup/quizClose`);
