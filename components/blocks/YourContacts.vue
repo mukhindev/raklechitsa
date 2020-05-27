@@ -16,7 +16,7 @@
         required
       />
       <ui-input
-        v-model="contacts.mail"
+        v-model="contacts.email"
         label="Электронная почта"
         placeholder="pochta@example.com"
         name="email"
@@ -70,7 +70,7 @@ export default {
         'Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории и разместить ее на сайте.',
       contacts: {
         name: '',
-        mail: '',
+        email: '',
         tel: '',
         comment: '',
       },
@@ -78,7 +78,14 @@ export default {
   },
   methods: {
     send() {
-      console.log('Отправить контакты', this.contacts);
+      const { name, email, tel, comment } = this.contacts;
+      const result = {
+        fullName: name,
+        email,
+        phone: tel,
+        preferred: comment,
+      };
+      console.log(result);
     },
   },
 };
