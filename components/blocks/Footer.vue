@@ -33,7 +33,7 @@
         </ul>
       </div>
       <div class="footer__copyright">
-        <p class="footer__project-name">{{ block.text }} {{ year }}</p>
+        <p class="footer__project-name">{{ copyright }} {{ year }}</p>
         <a class="footer__author" href="https://praktikum.yandex.ru/"
           >Сделано студентами Яндекс Практикум</a
         >
@@ -64,6 +64,9 @@ export default {
   computed: {
     block() {
       return this.$store.state.blocks.blocks.find(el => el.block === 'footer');
+    },
+    copyright() {
+      return this.block.text.replace(/\<p\>|\<\/p\>/g, '');
     },
   },
 };

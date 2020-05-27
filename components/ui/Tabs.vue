@@ -20,9 +20,10 @@
       <div
         class="tabs__tab-paragraph"
         :class="mod('tabs__tab-paragraph_theme_')"
+        :style="{ minHeight: `${height}px` }"
         v-html="tabs[activeTab].text"
       ></div>
-      <slot></slot>
+      <slot :name="tabs[activeTab].id"></slot>
     </div>
   </div>
 </template>
@@ -34,6 +35,7 @@ export default {
       type: Array,
       default: [],
     },
+    height: Number,
     theme: String,
   },
   data() {
