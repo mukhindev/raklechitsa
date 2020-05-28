@@ -43,13 +43,16 @@
                 :disabled="changeDisabledForRight"
               ></button>
             </div>
-            <div class="intro__contain-box">
-              <iframe
-                class="intro__iframe"
-                :src="videos[counter].url"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+            <div class="intro__ratio-box">
+              <transition name="transition-slide">
+                <iframe
+                  class="intro__iframe"
+                  :src="videos[counter].url"
+                  :key="videos[counter].url"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </transition>
             </div>
             <p class="intro__video-text">
               Все видео вы можете найте на нашем
@@ -145,21 +148,22 @@ export default {
   height: 100%;
 }
 
-.intro__contain-box {
+.intro__ratio-box {
   /* Чтобы iframe с youtube удерживал пропорции 16:9 */
   padding-bottom: 56.5%;
   position: relative;
   z-index: 0;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
-  .intro__contain-box {
+  .intro__ratio-box {
     margin: 0 54px;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .intro__contain-box {
+  .intro__ratio-box {
     margin: 0 0;
   }
 }
@@ -272,5 +276,18 @@ export default {
 
 .intro__strip {
   margin-top: 74px;
+}
+
+.transition-slide-enter-active,
+.transition-slide-leave-active {
+  transition: all 1s;
+}
+
+.transition-slide-enter {
+  transform: translateY(100%);
+}
+
+.transition-slide-leave-to {
+  transform: translateY(-100%);
 }
 </style>

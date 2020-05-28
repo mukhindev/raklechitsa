@@ -1,5 +1,7 @@
 <template>
-  <div class="overlay"><slot></slot></div>
+  <transition appear name="transition-fade">
+    <div class="overlay"><slot></slot></div>
+  </transition>
 </template>
 
 <script>
@@ -48,5 +50,16 @@ export default {
   .overlay {
     padding: 15px;
   }
+}
+
+.transition-fade-enter-active,
+.transition-fade-leave-active {
+  transition: all 0.25s;
+}
+
+.transition-fade-enter,
+.transition-fade-leave-to {
+  opacity: 0;
+  transform: scale(1.05);
 }
 </style>

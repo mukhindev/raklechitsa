@@ -5,9 +5,7 @@
         <h2 class="footer__title">
           {{ block.title }}
         </h2>
-        <nav class="footer__menu">
-          <block-menu :quizButton="false" />
-        </nav>
+        <block-menu class="footer__menu" place="footer" />
         <ul class="footer__social-list">
           <li class="footer__social-item">
             Мы в
@@ -150,13 +148,6 @@ export default {
 @media screen and (max-width: 1024px) {
   .footer__menu {
     margin-left: 30px;
-  }
-}
-
-@media screen and (max-width: 920px) {
-  .menu__links {
-    flex-direction: column;
-    margin-right: 0x;
   }
 }
 

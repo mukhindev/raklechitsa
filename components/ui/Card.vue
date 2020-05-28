@@ -1,10 +1,31 @@
 <template>
-  <li @click="to" class="card__item hover-card">
-    <div class="card__contain-box">
-      <img v-if="img" :src="img" :alt="title" class="card__photo" />
-    </div>
-    <h3 v-if="title" class="card__name">{{ title }}</h3>
-    <p v-if="text" class="card__quote">{{ text }}</p>
+  <li class="card hover-card">
+    <a v-if="_blank" :href="link" target="_blank" class="card__item">
+      <div class="card__ratio-box">
+        <img
+          v-if="img"
+          :src="img"
+          :alt="title || alt"
+          :lang="lang"
+          class="card__image"
+        />
+      </div>
+      <h3 v-if="title" class="card__title">{{ title }}</h3>
+      <p v-if="text" class="card__text">{{ text }}</p>
+    </a>
+    <nuxt-link v-else :to="link" class="card__item">
+      <div class="card__ratio-box">
+        <img
+          v-if="img"
+          :src="img"
+          :alt="title || alt"
+          :lang="lang"
+          class="card__image"
+        />
+      </div>
+      <h3 v-if="title" class="card__title">{{ title }}</h3>
+      <p v-if="text" class="card__text">{{ text }}</p>
+    </nuxt-link>
   </li>
 </template>
 
@@ -13,33 +34,29 @@ export default {
   props: {
     link: String,
     img: String,
+    alt: String,
     title: String,
     text: String,
     _blank: Boolean,
-  },
-  methods: {
-    to() {
-      if (this._blank) window.open(this.link, '_blank');
-      if (!this._blank) this.$router.push(this.link);
-    },
+    lang: String,
   },
 };
 </script>
 
 <style scoped>
-.card {
+.card__item {
   color: #000;
   text-decoration: none;
 }
 
-.card__contain-box {
+.card__ratio-box {
   /* Пропорции 1:1 */
   padding-bottom: 100%;
   position: relative;
   z-index: 0;
 }
 
-.card__photo {
+.card__image {
   position: absolute;
   left: 0;
   top: 0;
@@ -49,7 +66,7 @@ export default {
   z-index: 1;
 }
 
-.card__name {
+.card__title {
   margin: 20px 0 14px;
   font-style: normal;
   font-weight: 600;
@@ -60,12 +77,12 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .card__name {
+  .card__title {
     font-size: 18px;
   }
 }
 
-.card__quote {
+.card__text {
   margin: 0;
   font-style: normal;
   font-weight: normal;
@@ -77,7 +94,7 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .card__quote {
+  .card__text {
     font-size: 13px;
   }
 }

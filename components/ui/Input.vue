@@ -7,7 +7,7 @@
       :name="name"
       :type="type"
       :value="value"
-      :required="required ? true : false"
+      :required="required"
       @input="$emit('input', $event.target.value)"
     />
   </label>

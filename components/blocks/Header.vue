@@ -1,13 +1,18 @@
 <template>
   <header class="header">
-    <ui-container
-      v-if="burger && width < 921"
-      class="header__container header__container_mobile"
-    >
-      <nav class="header__nav" @click="burger = !burger">
-        <block-menu quizButton class="header__menu" />
-      </nav>
-    </ui-container>
+    <transition name="transition-slide">
+      <ui-container
+        v-if="burger && width < 921"
+        class="header__container header__container_mobile"
+      >
+        <block-menu
+          quizButton
+          class="header__menu"
+          place="burger"
+          @click.native="burger = false"
+        />
+      </ui-container>
+    </transition>
     <ui-container class="header__container">
       <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'">{{
         block.title
@@ -16,7 +21,7 @@
         {{ block.title }}
       </h2>
       <nav v-if="width > 920" class="header__nav">
-        <block-menu quizButton class="header__menu" />
+        <block-menu quizButton class="header__menu" place="header" />
       </nav>
       <button
         v-else
@@ -77,6 +82,7 @@ export default {
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
+  background-color: #fff;
 }
 
 .header__container_mobile {
@@ -109,13 +115,6 @@ export default {
   }
 }
 
-@media screen and (max-width: 425px) {
-  .header__menu {
-    flex-direction: column;
-    margin-right: 0x;
-  }
-}
-
 .header__burger {
   border: none;
   padding: 0;
@@ -144,5 +143,17 @@ export default {
 
 .header__burger:focus {
   outline: none;
+}
+
+.transition-slide-enter-active,
+.transition-slide-leave-active {
+  transition: all 0.25s;
+}
+
+.transition-slide-enter,
+.transition-slide-leave-to {
+  height: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 </style>

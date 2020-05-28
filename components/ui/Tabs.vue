@@ -5,8 +5,8 @@
         <li class="tabs__nav-item" v-for="(tab, index) in tabs" :key="tab.id">
           <button
             @click="activeTab = index"
-            class="tabs__nav-button"
             :class="[
+              'tabs__nav-button',
               mod('tabs__nav-button_theme_'),
               { 'tabs__nav-button_active': activeTab === index },
             ]"
@@ -16,15 +16,17 @@
         </li>
       </ul>
     </nav>
-    <div class="tabs__tab-content">
-      <div
-        class="tabs__tab-paragraph"
-        :class="mod('tabs__tab-paragraph_theme_')"
-        :style="{ minHeight: `${height}px` }"
-        v-html="tabs[activeTab].text"
-      ></div>
-      <slot :name="tabs[activeTab].id"></slot>
-    </div>
+    <transition name="transition-slide" mode="out-in">
+      <div class="tabs__tab-content" :key="tabs[activeTab].text">
+        <div
+          class="tabs__tab-paragraph"
+          :class="mod('tabs__tab-paragraph_theme_')"
+          :style="{ minHeight: `${height}px` }"
+          v-html="tabs[activeTab].text"
+        ></div>
+        <slot :name="tabs[activeTab].id"></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -45,8 +47,8 @@ export default {
   },
   computed: {
     mod() {
-      return function(m) {
-        return [this.theme ? `${m}${this.theme}` : ''];
+      return function(element) {
+        return [this.theme ? `${element}${this.theme}` : ''];
       };
     },
   },
@@ -253,5 +255,20 @@ export default {
 
 .tabs__tab-paragraph_theme_dark {
   color: #dedede;
+}
+
+.transition-slide-enter-active,
+.transition-slide-leave-active {
+  transition: all 0.25s;
+}
+
+.transition-slide-enter {
+  transform: translateY(-16px);
+  opacity: 0;
+}
+
+.transition-slide-leave-to {
+  transform: translateY(16px);
+  opacity: 0;
 }
 </style>

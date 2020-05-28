@@ -1,8 +1,8 @@
 <template>
   <p class="policy-warning">
     Нажимая на кнопку «{{ button }}», вы даете согласие на
-    <nuxt-link class="policy-warning__link" to="/policy" target="_blank"
-      >обработку персональных данных</nuxt-link
+    <a class="policy-warning__link" href="/policy" target="_blank"
+      >обработку персональных данных</a
     >
   </p>
 </template>

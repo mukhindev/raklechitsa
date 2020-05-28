@@ -1,15 +1,16 @@
 <template>
   <div class="section-heading">
     <h2
-      class="section-heading__title"
-      :class="mod('section-heading__title_theme_')"
+      :class="['section-heading__title', mod('section-heading__title_theme_')]"
     >
       <slot name="title" />
     </h2>
     <div
       v-if="hasSubtitle"
-      class="section-heading__subtitle"
-      :class="mod('section-heading__subtitle_theme_')"
+      :class="[
+        'section-heading__subtitle',
+        mod('section-heading__subtitle_theme_'),
+      ]"
     >
       <slot name="subtitle" />
     </div>
@@ -25,9 +26,10 @@ export default {
     hasSubtitle() {
       return Boolean(this.$slots.subtitle);
     },
+    // Класс модификатор элемента
     mod() {
-      return function(m) {
-        return [this.theme ? `${m}${this.theme}` : ''];
+      return function(element) {
+        return [this.theme ? `${element}${this.theme}` : ''];
       };
     },
   },

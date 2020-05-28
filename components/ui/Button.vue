@@ -2,8 +2,7 @@
   <button
     @click="$emit('click')"
     :type="type"
-    class="button"
-    :class="{ button_white: white }"
+    :class="['button', { button_white: white }]"
     :disabled="disabled"
   >
     <slot></slot>
