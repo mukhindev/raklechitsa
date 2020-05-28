@@ -13,13 +13,13 @@
             <div v-if="width > 768" class="intro__wrapper-btn">
               <button
                 type="button"
-                class="intro__btn intro__btn_left"
+                class="intro__button intro__button_left"
                 v-on:click="moveVideoBack"
                 :disabled="changeDisabledForLeft"
               ></button>
               <button
                 type="button"
-                class="intro__btn intro__btn_right"
+                class="intro__button intro__button_right"
                 v-on:click="moveVideoAhead"
                 :disabled="changeDisabledForRight"
               ></button>
@@ -32,13 +32,13 @@
             <div v-if="width <= 768" class="intro__wrapper-btn">
               <button
                 type="button"
-                class="intro__btn intro__btn_left"
+                class="intro__button intro__button_left"
                 v-on:click="moveVideoBack"
                 :disabled="changeDisabledForLeft"
               ></button>
               <button
                 type="button"
-                class="intro__btn intro__btn_right"
+                class="intro__button intro__button_right"
                 v-on:click="moveVideoAhead"
                 :disabled="changeDisabledForRight"
               ></button>
@@ -229,11 +229,7 @@ export default {
   }
 }
 
-.intro__wrapper-btn-overlay {
-  z-index: 2;
-}
-
-.intro__btn {
+.intro__button {
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -247,30 +243,30 @@ export default {
 }
 
 @media screen and (max-width: 425px) {
-  .intro__btn {
+  .intro__button {
     background-color: transparent;
     filter: invert();
   }
 }
 
-.intro__btn_left {
+.intro__button_left {
   background-image: url('~assets/images/arrow_left.svg');
 }
 
-.intro__btn_right {
+.intro__button_right {
   background-image: url('~assets/images/arrow_right.svg');
 }
 
-.intro__btn:hover {
+.intro__button:hover {
   background-size: 55% 55%;
 }
 
-.intro__btn:disabled {
+.intro__button:disabled {
   opacity: 0.5;
   cursor: default;
 }
 
-.intro__btn:disabled:hover {
+.intro__button:disabled:hover {
   background-size: 40% 40%;
 }
 

@@ -126,6 +126,7 @@ export default {
   width: 100%;
   text-align: center;
 }
+
 .popup__button-close {
   flex-shrink: 0;
   padding: 0;

@@ -1,6 +1,6 @@
 <template>
   <nav class="menu">
-    <ul :class="['menu__links', mod('menu__links_place_')]">
+    <ul :class="['menu__list', mod('menu__list_place_')]">
       <li :class="['menu__item', mod('menu__item_place_')]">
         <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
       </li>
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.menu__links {
+.menu__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -47,35 +47,16 @@ export default {
 }
 
 @media screen and (max-width: 425px) {
-  .menu__links_place_burger {
+  .menu__list_place_burger {
     flex-direction: column;
     margin-right: 0x;
   }
 }
 
 @media screen and (max-width: 920px) {
-  .menu__links_place_footer {
+  .menu__list_place_footer {
     flex-direction: column;
     margin-right: 0x;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .footer__menu {
-    margin-left: 102px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .footer__menu {
-    margin-left: 30px;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .footer__menu {
-    margin-top: 50px;
-    margin-left: 0;
   }
 }
 
@@ -115,12 +96,12 @@ export default {
   text-decoration: none;
   color: #000;
   transition: all 0.25s ease;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 }
 
 .menu__link:hover {
   color: #613a93;
-  border-bottom: 1px solid #613a93;
+  border-bottom: 2px solid #613a93;
 }
 
 @media screen and (max-width: 1280px) {
@@ -146,7 +127,7 @@ export default {
   line-height: 1.3;
   color: #000;
   transition: all 0.25s ease;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -165,14 +146,15 @@ export default {
 
 .menu__button:hover {
   color: #613a93;
-  border-bottom: 1px solid #613a93;
+  border-bottom: 2px solid #613a93;
 }
+
 .menu__button:focus {
   outline-style: none;
 }
 
 .nuxt-link-exact-active {
   color: #000;
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid #000;
 }
 </style>

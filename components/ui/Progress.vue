@@ -58,10 +58,12 @@ export default {
 .progress-bar_comparison {
   background-color: #fff;
 }
+
 .progress-bar__fill-prev {
   background-color: #f4f4f4;
   height: 100%;
 }
+
 .progress-bar__fill {
   background-color: #613a93;
   height: 100%;

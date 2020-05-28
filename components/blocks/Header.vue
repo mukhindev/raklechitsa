@@ -3,7 +3,7 @@
     <transition name="transition-slide">
       <ui-container
         v-if="burger && width < 921"
-        class="header__container header__container_mobile"
+        class="header__container header__container_burger"
       >
         <block-menu
           quizButton
@@ -14,21 +14,26 @@
       </ui-container>
     </transition>
     <ui-container class="header__container">
-      <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'">{{
-        block.title
-      }}</nuxt-link>
+      <nuxt-link class="header__logo" to="/" v-if="$route.path !== '/'"
+        >{{ block.title }}
+      </nuxt-link>
       <h2 v-else class="header__logo">
         {{ block.title }}
       </h2>
-      <nav v-if="width > 920" class="header__nav">
-        <block-menu quizButton class="header__menu" place="header" />
-      </nav>
+      <block-menu
+        v-if="width > 920"
+        quizButton
+        class="header__menu"
+        place="header"
+      />
       <button
         v-else
         type="button"
         @click="burger = !burger"
-        class="header__burger"
-        :class="{ header__burger_active: burger }"
+        :class="[
+          'header__button-burger',
+          { 'header__button-burger_active': burger },
+        ]"
       ></button>
     </ui-container>
   </header>
@@ -74,19 +79,20 @@ export default {
   font-weight: normal;
   font-style: normal;
   border-bottom: 1px solid #efefef;
+  min-height: 72px;
 }
 
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 18px;
-  padding-bottom: 18px;
   background-color: #fff;
 }
 
-.header__container_mobile {
+.header__container_burger {
   border-bottom: 1px solid #efefef;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .header__logo {
@@ -97,7 +103,7 @@ export default {
   color: #000;
   max-width: 340px;
   text-decoration: none;
-  margin: 0;
+  margin: 18px 0;
 }
 
 @media screen and (max-width: 1280px) {
@@ -115,7 +121,7 @@ export default {
   }
 }
 
-.header__burger {
+.header__button-burger {
   border: none;
   padding: 0;
   background-color: transparent;
@@ -128,7 +134,7 @@ export default {
   cursor: pointer;
 }
 
-.header__burger_active {
+.header__button-burger_active {
   border: none;
   padding: 0;
   background-color: transparent;
@@ -141,7 +147,7 @@ export default {
   cursor: pointer;
 }
 
-.header__burger:focus {
+.header__button-burger:focus {
   outline: none;
 }
 

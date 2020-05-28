@@ -32,9 +32,11 @@ export default {
 .stories__container {
   padding-top: 100px;
 }
+
 .stories__heading {
   margin: 0 0 70px;
 }
+
 @media screen and (max-width: 768px) {
   .stories__container {
     padding-top: 80px;
@@ -43,6 +45,7 @@ export default {
     margin: 0 0 60px;
   }
 }
+
 @media screen and (max-width: 425px) {
   .stories__container {
     padding-top: 50px;

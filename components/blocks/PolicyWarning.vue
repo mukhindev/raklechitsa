@@ -39,6 +39,7 @@ export default {
   color: #666;
   transition: 0.25s;
 }
+
 .policy-warning__link:hover {
   opacity: 0.7;
 }
