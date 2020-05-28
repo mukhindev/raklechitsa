@@ -9,14 +9,14 @@
         <ui-two-columns class="instagram__ui-two-columns">
           <template #heading>
             <ui-heading>
-              <template #title
-                ><a
+              <template #title>
+                <a
                   href="https://www.instagram.com/raklechitsa/"
                   target="_blank"
                   class="instagram__title"
                   >{{ block.title }}</a
-                ></template
-              >
+                >
+              </template>
               <template #subtitle>
                 <div v-html="block.text"></div>
               </template>
@@ -97,9 +97,6 @@ export default {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.instagram__cards {
   display: grid;
   grid-template-columns: repeat(4, 4fr);
   grid-gap: 30px;
@@ -129,13 +126,5 @@ export default {
     grid-template-columns: repeat(2, 4fr);
     grid-gap: 10px;
   }
-}
-
-.instagram__card-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 </style>

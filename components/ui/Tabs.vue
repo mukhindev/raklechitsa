@@ -1,7 +1,7 @@
 <template>
   <div class="tabs">
     <nav class="tabs__nav">
-      <ul class="tabs__nav-tabs">
+      <ul class="tabs__nav-list">
         <li class="tabs__nav-item" v-for="(tab, index) in tabs" :key="tab.id">
           <button
             @click="activeTab = index"
@@ -19,8 +19,7 @@
     <transition name="transition-slide" mode="out-in">
       <div class="tabs__tab-content" :key="tabs[activeTab].text">
         <div
-          class="tabs__tab-paragraph"
-          :class="mod('tabs__tab-paragraph_theme_')"
+          :class="['tabs__tab-paragraph', mod('tabs__tab-paragraph_theme_')]"
           :style="{ minHeight: `${height}px` }"
           v-html="tabs[activeTab].text"
         ></div>
@@ -46,6 +45,7 @@ export default {
     };
   },
   computed: {
+    // Класс модификатор элемента
     mod() {
       return function(element) {
         return [this.theme ? `${element}${this.theme}` : ''];
@@ -68,7 +68,7 @@ export default {
   }
 }
 
-.tabs__nav-tabs {
+.tabs__nav-list {
   flex-shrink: 0;
   list-style: none;
   margin: 0 40px;
@@ -76,19 +76,19 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .tabs__nav-tabs {
+  .tabs__nav-list {
     margin: 0 30px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .tabs__nav-tabs {
+  .tabs__nav-list {
     margin: 0 0 24px;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .tabs__nav-tabs {
+  .tabs__nav-list {
     margin: 0 0 16px;
   }
 }

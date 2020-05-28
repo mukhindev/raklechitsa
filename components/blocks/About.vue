@@ -81,6 +81,9 @@ export default {
     flex-direction: column;
     align-items: center;
   }
+}
+
+@media screen and (max-width: 768px) {
   .about__heading {
     margin: 0 0 80px;
   }

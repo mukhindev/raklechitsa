@@ -5,8 +5,8 @@
       <button
         type="button"
         @click="coverScrollToBottom"
-        class="cover__polygon"
-        title="Листайте ниже"
+        class="cover__arrow"
+        title="Листать ниже"
       ></button>
     </ui-container>
   </section>
@@ -15,11 +15,6 @@
 import Container from '~/components/ui/Container';
 
 export default {
-  data() {
-    return {
-      headerHeight: 0,
-    };
-  },
   components: {
     'ui-container': Container,
   },
@@ -41,6 +36,7 @@ export default {
 .cover {
   background: #613a93;
 }
+
 .cover__container {
   padding: 0;
   min-height: calc(100vh - 68px);
@@ -78,7 +74,7 @@ export default {
   }
 }
 
-.cover__polygon {
+.cover__arrow {
   border: none;
   padding: 0;
   background-color: transparent;
@@ -96,7 +92,8 @@ export default {
   transition: opacity 0.25s;
   cursor: pointer;
 }
-.cover__polygon:hover {
+
+.cover__arrow:hover {
   opacity: 0.7;
 }
 </style>

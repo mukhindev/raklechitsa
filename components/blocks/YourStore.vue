@@ -49,16 +49,6 @@ export default {
     },
   },
   methods: {
-    changeText(event) {
-      if (event.target.classList.contains('your-story__btn_first')) {
-        this.isActiveButtonSecond = false;
-        this.isActiveButtonFirst = true;
-      }
-      if (event.target.classList.contains('your-story__btn_second')) {
-        this.isActiveButtonFirst = false;
-        this.isActiveButtonSecond = true;
-      }
-    },
     quizOpen() {
       this.$store.commit('popup/quizOpen');
     },

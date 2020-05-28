@@ -18,7 +18,6 @@
 </template>
 
 <script>
-/* TODO: Возвращать из компонента длину массива после фильтрации, для правитьно пагинации с фильтром. Дождаться API, возможно фильтрация будет работать по-лругому */
 import Heading from '~/components/ui/Heading';
 import Card from '~/components/ui/Card';
 
@@ -57,6 +56,7 @@ export default {
 .stories {
   padding: 50px 60px;
 }
+
 .stories-container__grid {
   list-style: none;
   padding: 0;
@@ -137,6 +137,7 @@ export default {
 .stories-container__button-more:hover {
   background-color: #f8f8f8;
 }
+
 .stories-container__button-text {
   font-style: normal;
   font-weight: normal;

@@ -55,9 +55,11 @@ export default {
   cursor: pointer;
   transition: 0.25s;
 }
+
 .share__icon:focus {
   outline: 1px solid #613a93;
 }
+
 .share__icon:last-of-type {
   margin-right: 0;
 }
