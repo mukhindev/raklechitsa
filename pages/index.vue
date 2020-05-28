@@ -22,6 +22,17 @@ import Stats from '~/components/blocks/Stats';
 import About from '~/components/blocks/About';
 
 export default {
+  head: {
+    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Информационный проект Фонда Хабенского. Есть вещи, которые не лечатся. В отличие от рака. #раклечится Вместе мы изменим отношение людей!  Какая привычка или фобия не лечится у вас? #этонелечится',
+      },
+      { name: 'keywords', content: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится' },
+    ],
+  },
   components: {
     'block-cover': Cover,
     'block-intro': Intro,

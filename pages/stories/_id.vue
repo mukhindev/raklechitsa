@@ -34,10 +34,26 @@ import Heading from '~/components/ui/Heading';
 import StoriesGrid from '~/components/blocks/StoriesGrid';
 
 export default {
+  head() {
+    return {
+      title: `РАКЛЕЧИТСЯ.РФ — ${this.story.author}`,
+      meta: [
+        { name: 'description', content: this.story.title },
+        {
+          name: 'keywords',
+          content: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
+        },
+      ],
+    };
+  },
   components: {
     'ui-container': Container,
     'ui-heading': Heading,
     'block-stories-grid': StoriesGrid,
+  },
+  validate({ params, store }) {
+    if (store.getters['stories/getStoryById'](params.id)) return true;
+    return false;
   },
   data() {
     return {

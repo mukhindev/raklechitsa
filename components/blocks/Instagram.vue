@@ -28,8 +28,10 @@
                 _blank
                 v-for="post in instagram"
                 :key="post.id"
-                :link="`${post.url}`"
+                :link="post.url"
                 :img="post.img"
+                :alt="post.alt"
+                lang="en"
               />
             </ul>
           </template>

@@ -4,11 +4,8 @@
       <ui-container class="your-story__container">
         <div class="your-story__colunms">
           <ui-heading class="your-story__heading">
-            <template #title>О проекте</template>
-            <template #subtitle
-              >Этот проект был создан благотворительным фондом Константина
-              Хабенского.</template
-            >
+            <template #title>{{ block.title }}</template>
+            <template #subtitle><div v-html="block.text"></div></template>
           </ui-heading>
           <ui-tabs :tabs="tabs" :height="150">
             <template #1>

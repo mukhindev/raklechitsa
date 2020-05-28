@@ -1,14 +1,11 @@
 <template>
   <section class="about">
     <ui-container class="about__container">
-      <h3 class="about__tag">#РАКЛЕЧИТСЯ</h3>
+      <h3 class="about__tag">{{ block.hashtag }}</h3>
       <div class="about__colunms">
         <ui-heading class="about__heading" theme="dark">
-          <template #title>О проекте</template>
-          <template #subtitle
-            >Этот проект был создан благотворительным фондом Константина
-            Хабенского.</template
-          >
+          <template #title>{{ block.title }}</template>
+          <template #subtitle><div v-html="block.text"></div></template>
         </ui-heading>
         <ui-tabs :tabs="tabs" :height="220" theme="dark" />
       </div>

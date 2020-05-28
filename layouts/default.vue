@@ -17,6 +17,7 @@ import YourContacts from '~/components/blocks/YourContacts';
 import Share from '~/components/blocks/Share';
 
 export default {
+  name: 'default',
   components: {
     'block-header': Header,
     'block-quiz': Quiz,

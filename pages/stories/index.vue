@@ -41,6 +41,17 @@ import Pagination from '~/components/ui/Pagination';
 import StoriesGrid from '~/components/blocks/StoriesGrid';
 
 export default {
+  head: {
+    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Есть вещи, которые не лечатся. Особенности характера, страстные увлечения. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
+      },
+      { name: 'keywords', content: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится' },
+    ],
+  },
   components: {
     'ui-container': Container,
     'ui-heading': Heading,

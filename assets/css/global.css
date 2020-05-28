@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 .hover-card {
   transition: transform 0.25s;
   position: relative;
@@ -54,10 +58,6 @@
 .story__text blockquote {
   margin: 24px 0;
   font-weight: 600;
-}
-
-p {
-  margin: 0;
 }
 
 .transition-page-enter-active, .transition-page-leave-active {

@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import UiOverlay from '~/components/ui/Overlay';
+import Overlay from '~/components/ui/Overlay';
 
 export default {
   components: {
-    'ui-overlay': UiOverlay,
+    'ui-overlay': Overlay,
   },
   props: {
     header: Boolean,
