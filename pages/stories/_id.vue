@@ -12,13 +12,15 @@
           <p class="story__quote">«{{ story.title }}»</p>
         </div>
         <div class="story__misc">
-          <a href="#" class="story__sharing-link">Поделитесь &#8599;</a>
+          <a @click="shareOpen()" class="story__sharing-link"
+            >Поделитесь &#8599;</a
+          >
           <p class="story__date">{{ story.date | dateFormated }}</p>
         </div>
       </div>
       <div class="story__text" v-html="story.text"></div>
       <div class="story__link-after-text">
-        <a href="#" class="story__sharing-link"
+        <a @click="shareOpen()" class="story__sharing-link"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
       </div>
@@ -79,6 +81,9 @@ export default {
   methods: {
     resizeDetector(e) {
       this.width = e.target.innerWidth;
+    },
+    shareOpen() {
+      this.$store.commit('popup/shareOpen');
     },
   },
   mounted() {
@@ -300,6 +305,7 @@ export default {
   grid-area: misc;
   align-self: end;
 }
+
 @media screen and (max-width: 1024px) {
   .story__misc {
     padding-bottom: 20px;
@@ -314,6 +320,8 @@ export default {
   font-weight: normal;
   margin-block-start: 0;
   margin-block-end: 0;
+  transition: all 0.25s ease;
+  border-bottom: 1px solid transparent;
 }
 @media screen and (max-width: 1023px) {
   .story__sharing-link {
@@ -326,6 +334,12 @@ export default {
     font-size: 13px;
     line-height: 1.23;
   }
+}
+
+.story__sharing-link:hover {
+  cursor: pointer;
+  color: #613a93;
+  border-bottom: 1px solid #613a93;
 }
 
 .story__link-after-text {
