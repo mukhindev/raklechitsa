@@ -31,6 +31,7 @@
             v-if="lastQuestion"
             @click.once="send"
             class="form-quiz__button"
+            :waiting="waiting"
             >Отправить</ui-button
           >
           <block-policy-warning v-if="lastQuestion" />
@@ -61,6 +62,7 @@ export default {
       answers: [],
       number: 1,
       sent: false,
+      waiting: false,
       buttonBackDisabled: false,
     };
   },
@@ -92,8 +94,10 @@ export default {
     },
     async send() {
       const promise = await new Promise((resolve, reject) => {
-        setTimeout(() => resolve(), 1500); // имитация сервера
+        this.waiting = true;
+        setTimeout(() => resolve(), 1700); // имитация сервера
       });
+      this.waiting = false;
       this.sent = true;
       let result = {};
       this.answerKeys.forEach((key, index) => {

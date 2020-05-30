@@ -5,7 +5,13 @@
     :description="description"
     closeButton="yourContactsClose"
   >
-    <form type="submit" class="form-contacts" name="FormContacts">
+    <form
+      v-if="!sent"
+      type="submit"
+      @submit.prevent="send"
+      class="form-contacts"
+      name="FormContacts"
+    >
       <ui-input
         class="form-contacts__input form-contacts__input_full-width"
         v-model="contacts.name"
@@ -38,15 +44,23 @@
         placeholder="Телефон / почта и удобное время"
         name="comment"
         type="text"
-        required
       />
       <div class="form-contacts__submit">
-        <ui-button @click="send" class="form-contacts__button"
+        <ui-button
+          type="submit"
+          class="form-contacts__button"
+          :waiting="waiting"
           >Отправить</ui-button
         >
         <block-policy-warning />
       </div>
     </form>
+    <ui-button
+      v-else
+      @click="yourContactsClose"
+      class="form-contacts__button-close"
+      >Закрыть</ui-button
+    >
   </ui-popup>
 </template>
 
@@ -65,7 +79,6 @@ export default {
   },
   data() {
     return {
-      title: 'Оставьте контакт для связи',
       description:
         'Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории и разместить ее на сайте.',
       contacts: {
@@ -74,10 +87,24 @@ export default {
         tel: '',
         comment: '',
       },
+      sent: false,
+      waiting: false,
     };
   },
+  computed: {
+    title() {
+      if (!this.sent) return 'Оставьте контакт для связи';
+      else return 'Спасибо!';
+    },
+  },
   methods: {
-    send() {
+    async send() {
+      const promise = await new Promise((resolve, reject) => {
+        this.waiting = true;
+        setTimeout(() => resolve(), 1700); // имитация сервера
+      });
+      this.waiting = false;
+      this.sent = true;
       const { name, email, tel, comment } = this.contacts;
       const result = {
         fullName: name,
@@ -86,6 +113,9 @@ export default {
         preferred: comment,
       };
       console.log(result);
+    },
+    yourContactsClose() {
+      this.$store.commit(`popup/yourContactsClose`);
     },
   },
 };
@@ -132,5 +162,11 @@ export default {
     margin-right: 0;
     margin-bottom: 10px;
   }
+}
+
+.form-contacts__button-close {
+  width: 226px;
+  display: block;
+  margin: 0 auto;
 }
 </style>
