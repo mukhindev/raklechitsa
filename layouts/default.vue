@@ -1,18 +1,42 @@
 <template>
   <div class="page">
-    <app-header />
+    <block-header />
     <nuxt />
+    <block-footer />
+    <block-quiz v-if="quizShown" />
+    <block-your-contacts v-if="yourContactsShown" />
+    <block-share v-if="shareShown" />
   </div>
 </template>
 
-<style scoped></style>
-
 <script>
-import AppHeader from '~/components/Header.vue';
+import Header from '~/components/blocks/Header';
+import Quiz from '~/components/blocks/Quiz';
+import Footer from '~/components/blocks/Footer';
+import YourContacts from '~/components/blocks/YourContacts';
+import Share from '~/components/blocks/Share';
 
 export default {
+  name: 'default',
   components: {
-    AppHeader,
+    'block-header': Header,
+    'block-quiz': Quiz,
+    'block-footer': Footer,
+    'block-your-contacts': YourContacts,
+    'block-share': Share,
+  },
+  computed: {
+    quizShown() {
+      return this.$store.state.popup.quizShown;
+    },
+    yourContactsShown() {
+      return this.$store.state.popup.yourContactsShown;
+    },
+    shareShown() {
+      return this.$store.state.popup.shareShown;
+    },
   },
 };
 </script>
+
+<style scoped></style>
